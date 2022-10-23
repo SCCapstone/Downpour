@@ -106,10 +106,10 @@ class _RightScreenState extends State<RightScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green,
-        title: const Text('Answer'),
+        backgroundColor: Colors.green[400],
+        title: const Text('The Answer'),
       ),
-      body: const Center(child: Text('Correct!',style: TextStyle(fontSize: 20,fontWeight:
+      body: const Center(child: Text('Correct Answer!',style: TextStyle(fontSize: 30,fontWeight:
       FontWeight.bold),textAlign: TextAlign.center,)),
     );
   }
