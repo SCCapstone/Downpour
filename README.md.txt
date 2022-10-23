@@ -1,8 +1,12 @@
 # Project Name
 Downpour2
 Uppour
-This first paragraph should be a short description of the app. You can add links
-to your wiki pages that have more detailed descriptions.
+# Description
+This is a language-learning Android app in a similar vein to Duolingo. Our app diverts from the traditional approach that apps
+like Duolingo use by the languages on offer in our app. We are choosing to serve an underserved language group, that being the native languages of Pacific Islanders.
+There are many different languages and groups in the Pacific so we are focusing on delivering an app that will allow the user to learn to read and speak the
+Micronesian language of Pohnpeian. This app will teach and quiz users about the most used phrases that would give them a good working knowledge that would help users
+get around the island and speak to natives.
 
 Your audience for the Readme.md are other developers who are joining your team.
 Specifically, the file should contain detailed instructions that any developer
