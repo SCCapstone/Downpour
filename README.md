@@ -100,10 +100,10 @@ In some cases you need to install test runners, etc. Explain how.
 
 Explain how to run the automated tests.
 
-# Style Guide
-# Flutter:
+## Style Guide
+### Flutter:
 https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo
-# Dart:
+### Dart:
 https://dart.dev/guides/language/effective-dart/style
 # Authors
 
