@@ -1,31 +1,19 @@
 // Copyright 2018 The Flutter team. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
+// found in the LICENSE fil
 
-import 'SignUpScreen.dart';
 import 'package:flutter/material.dart';
+import 'SignUpScreen.dart';
 
-
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  static const Color background = Color.fromRGBO(255, 50, 50, 1.0);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Quiz app',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('                   Take this short Quiz'),
-          backgroundColor: background,
-        ),
-        body: const SignUpPage(),
-      ),
+    return const MaterialApp(
+      home: SignUpPage(),
     );
   }
 }
-
