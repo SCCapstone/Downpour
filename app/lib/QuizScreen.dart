@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 
-void  {
-  runApp(const MyApp());
-}
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+
+class QuizScreen extends StatelessWidget {
+  const QuizScreen({super.key});
   static const Color background = Color.fromARGB(255, 16, 82, 182);
   @override
   Widget build(BuildContext context) {
