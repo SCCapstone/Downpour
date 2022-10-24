@@ -100,7 +100,7 @@ class _LoginPage extends State<LoginPageState> {
               color: Colors.transparent,
             ),
             Container(
-                padding: const EdgeInsets.fromLTRB(450, 0,450, 0),
+                padding: const EdgeInsets.fromLTRB(20, 0,20, 0),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: (b),

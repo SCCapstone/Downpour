@@ -129,7 +129,7 @@ class _SignUpPage extends State<SignUpPageState> {
               color: Colors.transparent,
             ),
             Container(
-                padding: const EdgeInsets.fromLTRB(400, 0, 400, 0),
+                padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: (b),

@@ -1,6 +1,6 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-3    package="com.example.quiz_app"
+3    package="com.example.popmeiian_language_app"
 4    android:versionCode="1"
 5    android:versionName="1.0.0" >
 6
@@ -13,8 +13,8 @@
 13         to allow setting breakpoints, to provide hot reload, etc.
 14    -->
 15    <uses-permission android:name="android.permission.INTERNET" />
-15-->C:\Users\kmeil\Documents\GitHub\Downpour\android\app\src\debug\AndroidManifest.xml:7:5-66
-15-->C:\Users\kmeil\Documents\GitHub\Downpour\android\app\src\debug\AndroidManifest.xml:7:22-64
+15-->C:\Users\kmeil\AndroidStudioProjects\popmeiian_language_app\android\app\src\debug\AndroidManifest.xml:7:5-66
+15-->C:\Users\kmeil\AndroidStudioProjects\popmeiian_language_app\android\app\src\debug\AndroidManifest.xml:7:22-64
 16
 17    <application
 18        android:name="android.app.Application"
@@ -22,9 +22,9 @@
 19-->[androidx.core:core:1.6.0] C:\Users\kmeil\.gradle\caches\transforms-3\acbce933e4b464a5224ed377a62db1f5\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
 20        android:debuggable="true"
 21        android:icon="@mipmap/ic_launcher"
-22        android:label="quiz_app" >
+22        android:label="popmeiian_language_app" >
 23        <activity
-24            android:name="com.example.quiz_app.MainActivity"
+24            android:name="com.example.popmeiian_language_app.MainActivity"
 25            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
 26            android:exported="true"
 27            android:hardwareAccelerated="true"

@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 
 class Quiz extends StatelessWidget {
-  const Quiz({super.key});
+  const Quiz({Key? key}) : super(key: key);
   static const Color background = Color.fromARGB(255, 16, 82, 182);
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class Quiz extends StatelessWidget {
           title: const Text('                   Take this short Quiz'),
           backgroundColor: background,
         ),
-        body: const Quiz(),
+        body: const QuizWidget(),
       ),
     );
   }

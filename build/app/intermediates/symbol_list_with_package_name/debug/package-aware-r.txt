@@ -1,4 +1,4 @@
-com.example.quiz_app
+com.example.popmeiian_language_app
 attr activityAction
 attr activityName
 attr alpha

@@ -34,7 +34,7 @@ class _WelcomeState extends State<WelcomeState> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.all(150),
+        padding: const EdgeInsets.all(20),
         child: ListView(
           children: <Widget>[
             Container(
@@ -56,7 +56,7 @@ class _WelcomeState extends State<WelcomeState> {
                   ),
                   child: const Text('Take Quiz 1!'),
                   onPressed: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const Quiz())),
+                      MaterialPageRoute(builder: (context) => Quiz())),
                 ))
           ],
         ));
