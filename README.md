@@ -46,41 +46,22 @@ following your instructions.
 1. Run the VScode debugger and your emulator device should launch with our app lauching aswell
 ## External Requirements
 
-List all the stuff the reader will need to install in order to get you app to 
-run in their laptop. For example:
-
 In order to build this project you first have to install:
 
-* [Node.js](https://nodejs.org/en/)
-* [MongoDB](https://www.mongodb.com/)
+* https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter
+* https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code
 
-If possible, list the actual commands you used to install these, so the reader
-can just cut-n-paste the commands and get everything setup.
-
-You only need to add instructions for the OS you are using.
 
 ## Setup
 
-Here you list all the one-time things the developer needs to do after cloning
-your repo. Sometimes there is no need for this section, but some apps require
-some first-time configuration from the developer, for example: setting up a
-database for running your webapp locally.
+1. Create a android emulator device using android studio and select the device in VScode
 
 ## Running
 
-Specify the commands for a developer to run the app from the cloned repo.
+1. After selecting your device in vscode press f5 to launch in debug mode
 
-# Deployment
 
-Webapps need a deployment section that explains how to get it deployed on the 
-Internet. These should be detailed enough so anyone can re-deploy if needed
-. Note that you **do not put passwords in git**. 
-
-Mobile apps will also sometimes need some instructions on how to build a
-"release" version, maybe how to sign it, and how to run that binary in an
-emulator or in a physical phone.
-
-# Testing
+# Testing 
 
 In 492 you will write automated tests. When you do you will need to add a 
 section that explains how to run them.
