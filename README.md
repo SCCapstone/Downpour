@@ -39,13 +39,11 @@ There are many different languages and groups in the Pacific so we are focusing 
 Micronesian language of Pohnpeian. This app will teach and quiz users about the most used phrases that would give them a good working knowledge that would help users
 get around the island and speak to natives.
 
-Your audience for the Readme.md are other developers who are joining your team.
-Specifically, the file should contain detailed instructions that any developer
-can follow to install, compile, run, and test your project. These are not only
-useful to new developers, but also to you when you have to re-install everything
-because your old laptop crashed. Also, the teachers of this class will be
-following your instructions.
 
+following your instructions.
+1. Install VScode and android stuio and create a virtual android device using the android studio emulator 
+1. open the project in VScode and select your emulator device in the bottom right corner in the blue bar (make sure to install the dart and flutter extensions) 
+1. Run the VScode debugger and your emulator device should launch with our app lauching aswell
 ## External Requirements
 
 List all the stuff the reader will need to install in order to get you app to 
