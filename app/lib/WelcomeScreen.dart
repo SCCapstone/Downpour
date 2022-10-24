@@ -56,7 +56,7 @@ class _WelcomeState extends State<WelcomeState> {
                   ),
                   child: const Text('Take Quiz 1!'),
                   onPressed: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const quiz())),
+                      MaterialPageRoute(builder: (context) => const Quiz())),
                 ))
           ],
         ));
