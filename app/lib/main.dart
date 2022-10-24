@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:app/theme/style.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,7 +11,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  static const Color background = Color.fromARGB(255, 16, 82, 182);
+  static const Color background = colorCodeButton;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
 
 class Quiz extends StatelessWidget {
   const Quiz({super.key});
-  static const Color button = Color.fromARGB(255, 27, 105, 223);
+  static const Color button = colorCodeButton;
   @override
   Widget build(BuildContext context) {
     return Column(
