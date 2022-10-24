@@ -31,8 +31,7 @@ Latest commit fc1cdcf 22 minutes ago
 73 lines (49 sloc)  2.7 KB
 
 # Project Name
-Downpour2
-Uppour
+Downpour
 # Description
 This is a language-learning Android app in a similar vein to Duolingo. Our app diverts from the traditional approach that apps
 like Duolingo use by the languages on offer in our app. We are choosing to serve an underserved language group, that being the native languages of Pacific Islanders.
@@ -108,6 +107,7 @@ https://dart.dev/guides/language/effective-dart/style
 # Authors
 
 Kyle Meiler - kmeiler@email.sc.edu
+Christopher Meyers - clmeyers@email.sc.edu
 
 Footer
 © 2022 GitHub, Inc.
