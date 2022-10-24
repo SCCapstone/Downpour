@@ -1,0 +1,1 @@
+//empty model class. the models folder should contain custom classes

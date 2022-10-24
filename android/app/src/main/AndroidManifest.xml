@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.quiz_app">
+    package="com.example.popmeiian_language_app">
    <application
-        android:label="quiz_app"
+        android:label="popmeiian_language_app"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
