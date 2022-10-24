@@ -2,9 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:app/SignUpScreen.dart';
+import 'SignUpScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:app/theme/style.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +12,8 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  static const Color background = colorCodeButton;
+  static const Color background = Color.fromRGBO(255, 50, 50, 1.0);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

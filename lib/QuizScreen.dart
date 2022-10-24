@@ -4,10 +4,6 @@
 
 import 'package:flutter/material.dart';
 
-void quizScreen() {
-  runApp(const Quiz());
-}
-
 class Quiz extends StatelessWidget {
   const Quiz({super.key});
   static const Color background = Color.fromARGB(255, 16, 82, 182);
