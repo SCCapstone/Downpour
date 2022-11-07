@@ -17,7 +17,7 @@ List<Question> getQuestions() {
   //ADD questions and answer here
 
   list.add(Question(
-    "Which of the following is 'Thank you' (formal)?",
+    "Which of the following is 'Thank you'(formal)?",
     [
       Answer("Kalahngan", true),
       Answer("Ehng", false),
@@ -27,7 +27,7 @@ List<Question> getQuestions() {
   ));
 
   list.add(Question(
-    "Which of the following is 'Thanks' (informal)?",
+    "Which of the following is 'Thanks'(informal)?",
     [
       Answer("Kahlail", false),
       Answer("Mwahu", false),
