@@ -1,7 +1,12 @@
 popmeiian_language_app
 2.18
+<<<<<<< Updated upstream
 file:///home/tatiana/Downpour/
 file:///home/tatiana/Downpour/lib/
+=======
+file:///C:/Users/kmeil/Documents/GitHub/Downpour/
+file:///C:/Users/kmeil/Documents/GitHub/Downpour/lib/
+>>>>>>> Stashed changes
 async
 2.14
 file:///home/tatiana/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.9.0/
