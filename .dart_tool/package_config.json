@@ -3,231 +3,139 @@
   "packages": [
     {
       "name": "async",
-<<<<<<< Updated upstream
-      "rootUri": "file:///home/tatiana/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.9.0",
-=======
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.9.0",
->>>>>>> Stashed changes
       "packageUri": "lib/",
       "languageVersion": "2.14"
     },
     {
       "name": "boolean_selector",
-<<<<<<< Updated upstream
-      "rootUri": "file:///home/tatiana/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.0",
-=======
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.0",
->>>>>>> Stashed changes
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "characters",
-<<<<<<< Updated upstream
-      "rootUri": "file:///home/tatiana/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/characters-1.2.1",
-=======
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/characters-1.2.1",
->>>>>>> Stashed changes
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "clock",
-<<<<<<< Updated upstream
-      "rootUri": "file:///home/tatiana/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/clock-1.1.1",
-=======
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/clock-1.1.1",
->>>>>>> Stashed changes
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "collection",
-<<<<<<< Updated upstream
-      "rootUri": "file:///home/tatiana/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/collection-1.16.0",
-=======
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/collection-1.16.0",
->>>>>>> Stashed changes
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "cupertino_icons",
-<<<<<<< Updated upstream
-      "rootUri": "file:///home/tatiana/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.5",
-=======
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.5",
->>>>>>> Stashed changes
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "fake_async",
-<<<<<<< Updated upstream
-      "rootUri": "file:///home/tatiana/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/fake_async-1.3.1",
-=======
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/fake_async-1.3.1",
->>>>>>> Stashed changes
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "flutter",
-<<<<<<< Updated upstream
-      "rootUri": "file:///home/tatiana/snap/flutter/common/flutter/packages/flutter",
-=======
       "rootUri": "file:///C:/src/flutter/packages/flutter",
->>>>>>> Stashed changes
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
     {
       "name": "flutter_lints",
-<<<<<<< Updated upstream
-      "rootUri": "file:///home/tatiana/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_lints-2.0.1",
-=======
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_lints-2.0.1",
->>>>>>> Stashed changes
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
     {
       "name": "flutter_test",
-<<<<<<< Updated upstream
-      "rootUri": "file:///home/tatiana/snap/flutter/common/flutter/packages/flutter_test",
-=======
       "rootUri": "file:///C:/src/flutter/packages/flutter_test",
->>>>>>> Stashed changes
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
     {
       "name": "lints",
-<<<<<<< Updated upstream
-      "rootUri": "file:///home/tatiana/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/lints-2.0.1",
-=======
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/lints-2.0.1",
->>>>>>> Stashed changes
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
     {
       "name": "matcher",
-<<<<<<< Updated upstream
-      "rootUri": "file:///home/tatiana/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.12",
-=======
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.12",
->>>>>>> Stashed changes
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "material_color_utilities",
-<<<<<<< Updated upstream
-      "rootUri": "file:///home/tatiana/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/material_color_utilities-0.1.5",
-=======
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/material_color_utilities-0.1.5",
->>>>>>> Stashed changes
       "packageUri": "lib/",
       "languageVersion": "2.13"
     },
     {
       "name": "meta",
-<<<<<<< Updated upstream
-      "rootUri": "file:///home/tatiana/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/meta-1.8.0",
-=======
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/meta-1.8.0",
->>>>>>> Stashed changes
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "path",
-<<<<<<< Updated upstream
-      "rootUri": "file:///home/tatiana/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.8.2",
-=======
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.8.2",
->>>>>>> Stashed changes
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "sky_engine",
-<<<<<<< Updated upstream
-      "rootUri": "file:///home/tatiana/snap/flutter/common/flutter/bin/cache/pkg/sky_engine",
-=======
       "rootUri": "file:///C:/src/flutter/bin/cache/pkg/sky_engine",
->>>>>>> Stashed changes
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "source_span",
-<<<<<<< Updated upstream
-      "rootUri": "file:///home/tatiana/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/source_span-1.9.0",
-=======
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/source_span-1.9.0",
->>>>>>> Stashed changes
       "packageUri": "lib/",
       "languageVersion": "2.14"
     },
     {
       "name": "stack_trace",
-<<<<<<< Updated upstream
-      "rootUri": "file:///home/tatiana/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/stack_trace-1.10.0",
-=======
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/stack_trace-1.10.0",
->>>>>>> Stashed changes
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "stream_channel",
-<<<<<<< Updated upstream
-      "rootUri": "file:///home/tatiana/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/stream_channel-2.1.0",
-=======
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/stream_channel-2.1.0",
->>>>>>> Stashed changes
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "string_scanner",
-<<<<<<< Updated upstream
-      "rootUri": "file:///home/tatiana/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/string_scanner-1.1.1",
-=======
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/string_scanner-1.1.1",
->>>>>>> Stashed changes
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "term_glyph",
-<<<<<<< Updated upstream
-      "rootUri": "file:///home/tatiana/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/term_glyph-1.2.1",
-=======
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/term_glyph-1.2.1",
->>>>>>> Stashed changes
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "test_api",
-<<<<<<< Updated upstream
-      "rootUri": "file:///home/tatiana/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/test_api-0.4.12",
-=======
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/test_api-0.4.12",
->>>>>>> Stashed changes
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "vector_math",
-<<<<<<< Updated upstream
-      "rootUri": "file:///home/tatiana/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.2",
-=======
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.2",
->>>>>>> Stashed changes
       "packageUri": "lib/",
       "languageVersion": "2.14"
     },
@@ -238,11 +146,7 @@
       "languageVersion": "2.18"
     }
   ],
-<<<<<<< Updated upstream
-  "generated": "2022-11-07T03:45:52.067679Z",
-=======
-  "generated": "2022-11-12T19:29:04.333897Z",
->>>>>>> Stashed changes
+  "generated": "2022-11-12T19:53:48.722656Z",
   "generator": "pub",
   "generatorVersion": "2.18.2"
 }
