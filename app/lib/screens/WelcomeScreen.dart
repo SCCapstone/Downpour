@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'QuizScreen.dart';
+import '../QuizScreen.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key}) : super(key: key);
