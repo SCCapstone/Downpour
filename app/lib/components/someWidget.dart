@@ -1,1 +1,0 @@
-//components folder should contain custom widgets
