@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import '../QuizScreen.dart';
+import 'QuizScreen.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key}) : super(key: key);
 
+  static const String _title = "Coolest App Available Inc.";
   static const Color a = Color.fromRGBO(255, 50, 50, 1.0);
   static const Color b = Color.fromRGBO(255, 50, 50, .75);
   static const Color c = Color.fromRGBO(255, 50, 50, .5);
@@ -33,7 +34,7 @@ class _WelcomeState extends State<WelcomeState> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.all(150),
+        padding: const EdgeInsets.all(20),
         child: ListView(
           children: <Widget>[
             Container(
@@ -55,7 +56,7 @@ class _WelcomeState extends State<WelcomeState> {
                   ),
                   child: const Text('Take Quiz 1!'),
                   onPressed: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const Quiz())),
+                      MaterialPageRoute(builder: (context) => Quiz())),
                 ))
           ],
         ));
