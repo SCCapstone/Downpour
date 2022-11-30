@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'WelcomeScreen.dart';
+import 'package:pohnpeian_language_app/screens/Home.dart';
 import 'SignUpScreen.dart';
+
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
-
 
   static const String _title = "Coolest App Available Inc.";
   static const Color a = Color.fromRGBO(255, 50, 50, 1.0);
@@ -12,7 +12,6 @@ class LoginPage extends StatelessWidget {
   static const Color d = Color.fromRGBO(255, 50, 50, .25);
   static const Color background = Color.fromRGBO(255, 100, 100, 1.0);
 
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,9 +19,7 @@ class LoginPage extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-            backgroundColor: (c),
-            title: const Text(_title),
-            centerTitle: true),
+            backgroundColor: (c), title: const Text(_title), centerTitle: true),
         body: const LoginPageState(),
         backgroundColor: (background),
       ),
@@ -100,7 +97,7 @@ class _LoginPage extends State<LoginPageState> {
               color: Colors.transparent,
             ),
             Container(
-                padding: const EdgeInsets.fromLTRB(20, 0,20, 0),
+                padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: (b),
@@ -112,8 +109,8 @@ class _LoginPage extends State<LoginPageState> {
                   ),
                   onPressed: () => Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const SignUpPage())
-                  ),
+                      MaterialPageRoute(
+                          builder: (context) => const SignUpPage())),
                   child: const Text("Don't Have an Account? Sign up!"),
                 )),
             Container(
@@ -121,22 +118,16 @@ class _LoginPage extends State<LoginPageState> {
               color: Colors.transparent,
             ),
             Container(
-              padding: const EdgeInsets.fromLTRB(0,0,10,0),
-              alignment: Alignment.bottomCenter,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: (b),
-                ),
-                child: Text('Log In'),
-                onPressed: () => 
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const WelcomePage())
-                    ),
-              )
-            )
-
-
+                padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+                alignment: Alignment.bottomCenter,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: (b),
+                  ),
+                  child: Text('Log In'),
+                  onPressed: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const Home())),
+                ))
           ],
         ));
   }
