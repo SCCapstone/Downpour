@@ -53,7 +53,9 @@ class SearchScreen extends StatelessWidget {
         backgroundColor: customStyle.light,
         automaticallyImplyLeading: false,
       ),
-      body: const Text("Press the search button to search"),
+      body: const Align(
+          alignment: Alignment.center,
+          child: Text("Press the search button to search")),
       backgroundColor: customStyle.primary,
       floatingActionButton: FloatingActionButton(
         tooltip: 'Search profiles, articles',
@@ -63,9 +65,24 @@ class SearchScreen extends StatelessWidget {
             onQueryUpdate: print,
             items: searchItems,
             searchLabel: 'Search',
-            suggestion: const Center(
-              child: Text('Filter items by title, subtitle or info'),
-            ),
+            barTheme: ThemeData(
+                primarySwatch: const MaterialColor(0xfff4f5f8, <int, Color>{
+              50: Color(0xfff4f5f8),
+              100: Color(0xfff4f5f8),
+              200: Color(0xfff4f5f8),
+              300: Color(0xfff4f5f8),
+              400: Color(0xfff4f5f8),
+              500: Color(0xfff4f5f8),
+              600: Color(0xfff4f5f8),
+              700: Color(0xfff4f5f8),
+              800: Color(0xfff4f5f8),
+              900: Color(0xfff4f5f8),
+            })),
+            suggestion: Container(
+                color: customStyle.primary,
+                child: const Center(
+                  child: Text('Filter items by title, subtitle or info'),
+                )),
             failure: const Center(
               child: Text('No items found :('),
             ),
@@ -85,6 +102,7 @@ class SearchScreen extends StatelessWidget {
         backgroundColor: customStyle.tertiary,
         child: const Icon(Icons.search),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
     );
   }
 }
