@@ -33,24 +33,27 @@ class _HomeState extends State<Home> {
       const ProfileScreen(),
     ];
 
-    return Scaffold(
-      body: IndexedStack(
-        index: _currentIndex,
-        children: screens,
-      ),
-      bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.transparent,
-        onTap: (index) => changeTab(index),
-        items: const [
-          Icon(Icons.menu_book, color: customStyle.dark),
-          Icon(Icons.quiz, color: customStyle.dark),
-          Icon(Icons.search, color: customStyle.dark),
-          Icon(Icons.explore, color: customStyle.dark),
-          Icon(Icons.person, color: customStyle.dark),
-        ],
-        color: customStyle.light,
-      ),
-      backgroundColor: customStyle.primary,
+    return Stack(
+      children: <Widget>[
+        IndexedStack(
+          index: _currentIndex,
+          children: screens,
+        ),
+        Container(
+            alignment: Alignment.bottomCenter,
+            child: CurvedNavigationBar(
+              backgroundColor: Colors.transparent,
+              onTap: (index) => changeTab(index),
+              items: const [
+                Icon(Icons.menu_book, color: customStyle.dark),
+                Icon(Icons.quiz, color: customStyle.dark),
+                Icon(Icons.search, color: customStyle.dark),
+                Icon(Icons.explore, color: customStyle.dark),
+                Icon(Icons.person, color: customStyle.dark),
+              ],
+              color: customStyle.light,
+            )),
+      ],
     );
   }
 }
