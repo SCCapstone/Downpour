@@ -32,7 +32,7 @@ class QuizWidget extends StatelessWidget {
       children: <Widget>[
         const Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 0)),
         const Text(
-          " Trivia Question: Which animal does not appear in the Chinese zodiac?",
+          " Question: How do you Say Hello?",
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
@@ -45,7 +45,7 @@ class QuizWidget extends StatelessWidget {
           ),
           onPressed: () => Navigator.of(context).push(
               MaterialPageRoute(builder: (context) => const WrongScreen())),
-          child: const Text('Dragon'),
+          child: const Text('Ehng '),
         ),
         const SizedBox(height: 20),
         ElevatedButton(
@@ -54,7 +54,7 @@ class QuizWidget extends StatelessWidget {
           ),
           onPressed: () => Navigator.of(context).push(
               MaterialPageRoute(builder: (context) => const WrongScreen())),
-          child: const Text('Rabbit'),
+          child: const Text('E-yung'),
         ),
         const SizedBox(height: 20),
         ElevatedButton(
@@ -63,7 +63,7 @@ class QuizWidget extends StatelessWidget {
           ),
           onPressed: () => Navigator.of(context).push(
               MaterialPageRoute(builder: (context) => const WrongScreen())),
-          child: const Text('Dog'),
+          child: const Text('E-yung'),
         ),
         const SizedBox(height: 20),
         ElevatedButton(
@@ -72,7 +72,7 @@ class QuizWidget extends StatelessWidget {
           ),
           onPressed: () => Navigator.of(context).push(
               MaterialPageRoute(builder: (context) => const RightScreen())),
-          child: const Text('Lion'),
+          child: const Text('Kaselehlie'),
         ),
         const SizedBox(height: 20),
       ],

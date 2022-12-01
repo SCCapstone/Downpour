@@ -5,7 +5,7 @@ import 'SignUpScreen.dart';
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
 
-  static const String _title = "Coolest App Available Inc.";
+  static const String _title = "Name pending";
   static const Color a = Color.fromRGBO(255, 50, 50, 1.0);
   static const Color b = Color.fromRGBO(255, 50, 50, .75);
   static const Color c = Color.fromRGBO(255, 50, 50, .5);
