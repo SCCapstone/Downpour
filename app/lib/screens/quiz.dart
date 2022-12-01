@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'question_model.dart';
+import '../models/question_model.dart';
 //new import... question_model2.dart
 //new import... question_model2.dart
 
