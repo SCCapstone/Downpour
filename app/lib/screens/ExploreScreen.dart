@@ -154,6 +154,28 @@ class ExploreScreen extends StatelessWidget {
                         )),
                   ],
                 )),
+                 Container(
+                   child: Stack(
+                  children: <Widget>[
+                    new SizedBox(
+                        height: 250.0,
+                        width: double.infinity,
+                        child: new IconButton(
+                          icon: Image.asset('Assets/Images/MicronesianLanguage.png'),
+                          iconSize: 200,
+                          onPressed: () => _launchInWebView('http://talkingdictionary.swarthmore.edu/pohnpeian/'),
+                        )),
+                    Container(
+                        alignment: Alignment.center,
+                        child: const Text(
+                          'Language',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 25),
+                        )),
+                  ],
+                ))
               ],
             )));
     /*  
