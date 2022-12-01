@@ -55,8 +55,8 @@ class _WelcomeState extends State<WelcomeState> {
                     backgroundColor: WelcomePage.b,
                   ),
                   child: const Text('Take Quiz 1!'),
-                  onPressed: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Quiz())),
+                  onPressed: () => Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Quiz())),
                 ))
           ],
         ));
