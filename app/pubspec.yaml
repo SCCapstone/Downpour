@@ -72,6 +72,7 @@ flutter:
    - Assets/Images/PohnpeiFlycatcher.jpg
    - Assets/Images/Sights.jpg
    - Assets/Images/Flag.jpg
+   - Assets/Images/MicronesianLanguage.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
