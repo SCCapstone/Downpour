@@ -40,7 +40,8 @@ dependencies:
   curved_navigation_bar: ^1.0.3
   firebase_core: ^2.3.0
   firebase_auth: ^4.1.4
-  
+  flutter_staggered_grid_view: ^0.4.1
+  url_launcher_android: ^6.0.22
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -69,7 +70,8 @@ flutter:
    - Assets/Images/Micronesia.jpg
    - Assets/Images/localfood.jpg
    - Assets/Images/PohnpeiFlycatcher.jpg
-
+   - Assets/Images/Sights.jpg
+   - Assets/Images/Flag.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
