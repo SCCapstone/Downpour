@@ -35,7 +35,6 @@ class WelcomeState extends StatefulWidget {
 }
 
 class _WelcomeState extends State<WelcomeState> {
-
   late int _totalQuestion, _correctAnswer = 0;
   @override
   void initState() {
@@ -46,6 +45,7 @@ class _WelcomeState extends State<WelcomeState> {
     });
     super.initState();
   }
+
   @override
   Widget buildResult(BuildContext context) {
     return SafeArea(
@@ -81,6 +81,7 @@ class _WelcomeState extends State<WelcomeState> {
       ),
     );
   }
+
   Widget buildResultPage(BuildContext context) => Scaffold(
         appBar: MyAppBar(username: username),
         body: ListView(
@@ -110,7 +111,7 @@ class _WelcomeState extends State<WelcomeState> {
               .toList(),
         ),
       );
-  @override
+
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
           leading: Icon(Icons.menu),
