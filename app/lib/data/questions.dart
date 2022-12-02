@@ -69,8 +69,7 @@ List<Question> getQuestions() {
     solution: 'The correct answer is "Souwas mwahu"',
   ));
   list.add(Question(
-    text:
-        'It was nice meeting you. _______. Which answer choice makes the most sense?',
+    text: 'It\'s getting dark. It was nice meeting you. _______.',
     options: [
       Option(code: 'A', text: 'Soutik mwahu', isCorrect: false),
       Option(code: 'B', text: 'Menseng mwahu', isCorrect: false),
