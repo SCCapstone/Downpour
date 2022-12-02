@@ -175,6 +175,7 @@ class _SignUpPage extends State<SignUpPageState> {
                   ),
                   child: Text('Sign Up!'),
                   onPressed: () => Navigator.push(
+                      //Map <String,dynamic> data= {"Field1": nameController, "Field2": passwordController, "Field3": cpasswordController, "Field4": emailController};
                       context,
                       MaterialPageRoute(
                           builder: (context) => const LoginPage())),
