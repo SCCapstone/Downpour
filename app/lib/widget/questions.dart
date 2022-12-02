@@ -62,21 +62,22 @@ class QuestionsWidget extends StatelessWidget {
               ),
             ),
             if (isLastQuestion)
-              Center(
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => ResultPage(),
-                      ),
-                    );
-                    print("nav to result");
-                  },
-                  child: Text("Check Result"),
-                ),
-              ),
+              Container(
+                  margin: const EdgeInsets.only(bottom: 70),
+                  child: Center(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => ResultPage(),
+                          ),
+                        );
+                        print("nav to result");
+                      },
+                      child: Text("Check Result"),
+                    ),
+                  )),
           ],
         ),
       );
- 
 }
