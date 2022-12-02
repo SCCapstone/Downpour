@@ -137,7 +137,7 @@ class _LessonProgressionState extends State<LessonProgression> {
               children: const <Widget>[
                 Text(
                     'It\'s been a while since you have done the Basic Phrases 1 Lesson.'),
-                Text('Retake it for to keep up your skills!'),
+                Text('Retake it to keep up your skills!'),
               ],
             ),
           ),
