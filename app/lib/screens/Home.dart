@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pohnpeian_language_app/screens/ExploreScreen.dart';
 import 'package:pohnpeian_language_app/screens/LearnScreen.dart';
 import 'package:pohnpeian_language_app/screens/ProfileScreen.dart';
-import 'package:pohnpeian_language_app/screens/SearchPage.dart';
+import 'package:pohnpeian_language_app/screens/SearchScreen.dart';
 import 'package:pohnpeian_language_app/screens/WelcomeScreen.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:pohnpeian_language_app/theme/style.dart' as customStyle;

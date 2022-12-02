@@ -42,7 +42,14 @@ dependencies:
   firebase_auth: ^4.1.4
   flutter_staggered_grid_view: ^0.4.1
   url_launcher_android: ^6.0.22
+<<<<<<< HEAD
   font_awesome_flutter: ^10.2.1
+=======
+  text_to_speech: ^0.2.3
+  intro_slider: ^2.3.4
+  checkmark: ^0.0.2+1
+
+>>>>>>> 792265486a9bb0b3516a0107e8cba03622aa7a83
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -68,6 +75,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
    - Assets/Images/
+   - Assets/gif/lorikeet_idle.gif
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
