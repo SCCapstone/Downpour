@@ -8,11 +8,11 @@ import 'package:pohnpeian_language_app/data/user.dart';
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key}) : super(key: key);
 
-  static const Color a = Color.fromRGBO(255, 50, 50, 1.0);
-  static const Color b = Color.fromRGBO(255, 50, 50, .75);
-  static const Color c = Color.fromRGBO(255, 50, 50, .5);
-  static const Color d = Color.fromRGBO(255, 50, 50, .25);
-  static const Color background = Color.fromRGBO(255, 100, 100, 1.0);
+  static const Color a = Color.fromARGB(255, 117, 178, 221);
+  static const Color b = Color.fromARGB(255, 117, 178, 221);
+  static const Color c = Color.fromARGB(255, 117, 178, 221);
+  static const Color d = Color.fromARGB(255, 117, 178, 221);
+  static const Color backgroundColor = Color.fromARGB(255, 117, 178, 221);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class WelcomePage extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(backgroundColor: (c), centerTitle: true),
         body: const WelcomeState(),
-        backgroundColor: (background),
+        backgroundColor: (Color.fromARGB(255, 117, 178, 221)),
       ),
     );
   }

@@ -5,12 +5,12 @@ import 'SignUpScreen.dart';
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
 
-  static const String _title = "Name pending";
-  static const Color a = Color.fromRGBO(255, 50, 50, 1.0);
-  static const Color b = Color.fromRGBO(255, 50, 50, .75);
-  static const Color c = Color.fromRGBO(255, 50, 50, .5);
-  static const Color d = Color.fromRGBO(255, 50, 50, .25);
-  static const Color background = Color.fromRGBO(255, 100, 100, 1.0);
+  static const String _title = "Welcome to Pweek";
+  static const Color a = Color.fromRGBO(45, 211, 112, .5);
+  static const Color b = Color.fromRGBO(45, 211, 112, .75);
+  static const Color c = Color.fromRGBO(45, 211, 112, 1.0);
+  static const Color d = Color.fromARGB(255, 65, 213, 236);
+  static const Color background = Color.fromARGB(255, 30, 216, 240);
 
   @override
   Widget build(BuildContext context) {
@@ -37,11 +37,13 @@ class LoginPageState extends StatefulWidget {
 class _LoginPage extends State<LoginPageState> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-
-  static const Color a = Color.fromRGBO(255, 50, 50, 1.0);
-  static const Color b = Color.fromRGBO(255, 50, 50, .75);
-  static const Color c = Color.fromRGBO(255, 50, 50, .5);
-  static const Color d = Color.fromRGBO(255, 50, 50, .25);
+  
+  //The login button color
+  static const Color a = Color.fromRGBO(45, 211, 112, 1.0);
+  static const Color b = Color.fromRGBO(45, 211, 112, 1.0);
+  //Sign up button color
+   static const Color c = Color.fromRGBO(45, 211, 112, 1.0);
+  static const Color d = Color.fromRGBO(45, 211, 112, 1.0);
 
   @override
   Widget build(BuildContext context) {
@@ -87,7 +89,7 @@ class _LoginPage extends State<LoginPageState> {
                 controller: passwordController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'Password',
+                  labelText: 'Password ',
                   labelStyle: TextStyle(color: Colors.black),
                 ),
               ),

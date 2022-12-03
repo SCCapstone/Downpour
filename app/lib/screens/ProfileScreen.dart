@@ -12,9 +12,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Profile")
-            //title: Text(widget.title, style: custom_style.appBarText),
-            //backgroundColor: custom_style.light),
+        // ignore: prefer_const_constructors
+        appBar: AppBar(title: Text("Profile"),
+            backgroundColor: Color.fromARGB(255, 117, 178, 221),
+            
             ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -25,11 +26,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: CircleAvatar(
                     backgroundImage: NetworkImage(
                         "https://static.vecteezy.com/system/resources/thumbnails/003/337/584/small/default-avatar-photo-placeholder-profile-icon-vector.jpg"))),
-            Text("NAME"),
+            Text("USERNAME"),
             Container(
                 margin: EdgeInsets.all(30),
+                // ignore: prefer_const_constructors
                 child: Text(
-                    "BIO: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")),
+                    "BIO: This is where the profile would be. " 
+                    "This is would hold the users information as well as the settings area of the app. "
+                    "This would keep statistics such as your streaks and could even show proficiencies.") ),
             TextButton(onPressed: () {
               final docUser = FirebaseFirestore.instance
 			          .collection('Users')
@@ -39,7 +43,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 				       'name': '',
 			});
 
-            }, child: Text("Delete Account")),
+            }, child: Text(" Delete Account ")),
           ],
         ));
   }

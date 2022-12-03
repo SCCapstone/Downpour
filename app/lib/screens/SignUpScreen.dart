@@ -28,18 +28,18 @@ class User{ // Holds user data, just holds name as of right now
 class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);
 
-  static const String _title = "Pweek";
+  static const String _title = "Welcome to Pweek";
   static const Color a1 = Color.fromRGBO(117, 178, 221, .5);
   static const Color a2 = Color.fromRGBO(117, 178, 221, .75);
   static const Color a3 = Color.fromRGBO(117, 178, 221, 1.0);
-  static const Color b1 = Color.fromRGBO(45, 211, 111, .5);
-  static const Color b2 = Color.fromRGBO(45, 211, 111, .75);
-  static const Color b3 = Color.fromRGBO(45, 211, 111, 1.0);
+  static const Color b1 = Color.fromRGBO(45, 211, 112, .5);
+  static const Color b2 = Color.fromRGBO(45, 211, 112, .75);
+  static const Color b3 = Color.fromRGBO(45, 211, 112, 1.0);
   static const Color c1 = Color.fromRGBO(38, 77, 105, .5);
   static const Color c2 = Color.fromRGBO(38, 77, 105, .75);
   static const Color c3 = Color.fromRGBO(38, 77, 105, 1.0);
   static const Color d = Color.fromRGBO(146, 148, 156, 1.0);
-  static const Color background = Color.fromRGBO(255, 100, 100, 1.0);
+  static const background = Color.fromARGB(219, 39, 183, 196);
 
   @override
   Widget build(BuildContext context) {
@@ -78,14 +78,14 @@ class _SignUpPage extends State<SignUpPageState> {
   static const a1 = Color.fromRGBO(117, 178, 221, .5);
   static const a2 = Color.fromRGBO(117, 178, 221, .75);
   static const a3 = Color.fromRGBO(117, 178, 221, 1.0);
-  static const b1 = Color.fromRGBO(45, 211, 111, .5);
-  static const b2 = Color.fromRGBO(45, 211, 111, .75);
-  static const b3 = Color.fromRGBO(45, 211, 111, 1.0);
+  static const b1 = Color.fromRGBO(45, 211, 112, .5);
+  static const b2 = Color.fromRGBO(45, 211, 112, .75);
+  static const b3 = Color.fromRGBO(45, 211, 112, 1.0);
   static const c1 = Color.fromRGBO(38, 77, 105, .5);
   static const c2 = Color.fromRGBO(38, 77, 105, .75);
   static const c3 = Color.fromRGBO(38, 77, 105, 1.0);
   static const d = Color.fromRGBO(146, 148, 156, 1.0);
-  static const background = Color.fromRGBO(255, 100, 100, 1.0);
+  static const background = Color.fromARGB(219, 39, 183, 196);
 
   @override
   Widget build(BuildContext context) {
@@ -132,7 +132,7 @@ class _SignUpPage extends State<SignUpPageState> {
                 controller: passwordController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'Password',
+                  labelText: 'Password ',
                   labelStyle: TextStyle(color: Colors.black),
                 ),
               ),
