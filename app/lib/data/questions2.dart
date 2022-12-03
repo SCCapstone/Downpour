@@ -60,11 +60,7 @@ List<Question> getQuestions2() {
         Option(code: 'A', text: 'Menseng mwahu', isCorrect: false),
         Option(code: 'B', text: 'Pwohng mwahu', isCorrect: false),
         Option(code: 'C', text: 'Miei serepein', isCorrect: true),
-        Option(
-          code: 'D',
-          text: 'Soutik mwahu',
-          isCorrect: false,
-        ),
+        Option(code: 'D', text: 'Soutik mwahu', isCorrect: false,),
       ],
       solution: 'The correct answer is "Miei serepein"',
     ));

@@ -5,78 +5,78 @@ List<Question> getQuestions3() {
   List<Question> list = [];
 
   list.add(Question(
-    text: 'Which of the following is "Mother"?',
+    text: 'Which of the following is "Coconut"?',
     options: [
-      Option(code: 'A', text: 'Ehng', isCorrect: false),
-      Option(code: 'B', text: 'Nohno', isCorrect: true),
-      Option(code: 'C', text: 'Mwenge', isCorrect: false),
-      Option(code: 'D', text: 'Malek', isCorrect: false),
+      Option(code: 'A', text: 'Mwenge', isCorrect: false),
+      Option(code: 'B', text: 'Mwangas', isCorrect: true),
+      Option(code: 'C', text: 'Kep', isCorrect: false),
+      Option(code: 'D', text: 'Rais', isCorrect: false),
     ],
-    solution: 'The correct answer is "Nohno" ',
+    solution: 'The correct answer is "Mwangas" ',
   ));
   list.add(Question(
-    text: 'Which of the following is "Father"?',
+    text: 'Which of the following is "Pineapple"?',
     options: [
-      Option(code: 'A', text: 'Kahlail', isCorrect: false),
-      Option(code: 'B', text: 'Mwahu', isCorrect: false),
-      Option(code: 'C', text: 'E-yung', isCorrect: false),
-      Option(code: 'D', text: 'Pahpa', isCorrect: true),
+      Option(code: 'A', text: 'Mwahmw', isCorrect: false),
+      Option(code: 'B', text: 'Mahi', isCorrect: false),
+      Option(code: 'C', text: 'Uht', isCorrect: false),
+      Option(code: 'D', text: 'Pweinaper', isCorrect: true),
     ],
-    solution: 'The correct answer is "Pahpa" ',
+    solution: 'The correct answer is "Pweinaper" ',
   ));
   list.add(Question(
-    text: 'Which of the following is "My spouse"?',
+    text: 'Which of the following is "Banana"?',
     options: [
-      Option(code: 'A', text: 'Kidi', isCorrect: false),
-      Option(code: 'B', text: 'Malek', isCorrect: false),
-      Option(code: 'C', text: 'A kis', isCorrect: false),
-      Option(code: 'D', text: 'Ahi pwoud', isCorrect: true),
+      Option(code: 'A', text: 'Pihl', isCorrect: false),
+      Option(code: 'B', text: 'Mwahmw', isCorrect: false),
+      Option(code: 'C', text: 'Pedede', isCorrect: false),
+      Option(code: 'D', text: 'Uht', isCorrect: true),
     ],
-    solution: 'The correct answer is "Ahi pwoud"',
+    solution: 'The correct answer is "Uht"',
   ));
   list.add(Question(
-    text: 'Which of the following is "My child/children" ?',
+    text: 'Which of the following is "Fish" ?',
     options: [
-      Option(code: 'A', text: 'Nei seri', isCorrect: true),
-      Option(code: 'B', text: 'Pwohng mwahu', isCorrect: false),
-      Option(code: 'C', text: "A kis", isCorrect: false),
-      Option(code: 'D', text: "E-yung", isCorrect: false),
+      Option(code: 'A', text: 'Mwahmw', isCorrect: true),
+      Option(code: 'B', text: 'Duhna', isCorrect: false),
+      Option(code: 'C', text: "Makirehl", isCorrect: false),
+      Option(code: 'D', text: "Anien", isCorrect: false),
     ],
-    solution: 'The correct answer is "Nei seri"',
+    solution: 'The correct answer is "Mwahmw"',
   ));
   list.add(Question(
-    text: 'Which of the following is "My brother"?',
+    text: 'Which of the following is "Milk"?',
     options: [
-      Option(code: 'A', text: 'Soutik mwahu', isCorrect: false),
-      Option(code: 'B', text: 'Pwohng mwahu', isCorrect: false),
-      Option(code: 'C', text: 'Riei pwutak', isCorrect: true),
-      Option(code: 'D', text: 'Souwas mwahu', isCorrect: false),
+      Option(code: 'A', text: 'Rais', isCorrect: false),
+      Option(code: 'B', text: 'Mahi', isCorrect: false),
+      Option(code: 'C', text: 'Milik', isCorrect: true),
+      Option(code: 'D', text: 'Pihl', isCorrect: false),
     ],
-    solution: 'The correct answer is "Riei pwutak"',
+    solution: 'The correct answer is "Milik"',
   ));
   list.add(Question(
-    text: ' Which of the following is "My sister"?',
+    text: ' Which of the following is "Fork"?',
     options: [
-      Option(code: 'A', text: 'Menseng mwahu', isCorrect: false),
-      Option(code: 'B', text: 'Pwohng mwahu', isCorrect: false),
-      Option(code: 'C', text: 'Miei serepein', isCorrect: true),
+      Option(code: 'A', text: 'Ainpwaot', isCorrect: false),
+      Option(code: 'B', text: 'Supwuhm', isCorrect: false),
+      Option(code: 'C', text: 'Pwohk', isCorrect: true),
       Option(
         code: 'D',
-        text: 'Soutik mwahu',
+        text: 'Sidohp',
         isCorrect: false,
       ),
     ],
-    solution: 'The correct answer is "Miei serepein"',
+    solution: 'The correct answer is "Pwohk"',
   ));
   list.add(Question(
-    text: 'Which of the following is "Grandmother"?',
+    text: 'Which of the following is "Eat"?',
     options: [
-      Option(code: 'A', text: 'Soutik mwahu', isCorrect: false),
-      Option(code: 'B', text: 'Menseng mwahu', isCorrect: false),
-      Option(code: 'C', text: 'Souwas mwahu', isCorrect: false),
-      Option(code: 'D', text: 'Nohno kahlap', isCorrect: true),
+      Option(code: 'A', text: 'Soutik', isCorrect: false),
+      Option(code: 'B', text: 'Menseng', isCorrect: false),
+      Option(code: 'C', text: 'Souwas', isCorrect: false),
+      Option(code: 'D', text: 'Mwenge', isCorrect: true),
     ],
-    solution: 'The correct answer is "Nohno kahlap"',
+    solution: 'The correct answer is "Mwenge"',
   ));
   return list;
 }

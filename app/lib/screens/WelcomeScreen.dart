@@ -8,7 +8,6 @@ import 'package:pohnpeian_language_app/data/user.dart';
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key}) : super(key: key);
 
-  static const String _title = "Coolest App Available Inc.";
   static const Color a = Color.fromRGBO(255, 50, 50, 1.0);
   static const Color b = Color.fromRGBO(255, 50, 50, .75);
   static const Color c = Color.fromRGBO(255, 50, 50, .5);
@@ -35,6 +34,7 @@ class WelcomeState extends StatefulWidget {
 }
 
 class _WelcomeState extends State<WelcomeState> {
+
   late int _totalQuestion, _correctAnswer = 0;
   @override
   void initState() {
@@ -44,24 +44,22 @@ class _WelcomeState extends State<WelcomeState> {
       if (element) _correctAnswer++;
     });
     super.initState();
-  }
-
-  @override
+  }  
   Widget buildResult(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
           leading: IconButton(
-            icon: Icon(Icons.arrow_back_ios),
+            icon: const Icon(Icons.arrow_back_ios),
             onPressed: () {
               Navigator.of(context).pop();
             },
           ),
           backgroundColor: Colors.transparent,
           elevation: 0,
-          title: Text('Quiz Result'),
+          title: const Text('Quiz Result'),
           flexibleSpace: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               gradient: LinearGradient(
                 colors: [Colors.deepOrange, Colors.purple],
                 begin: Alignment.topRight,
@@ -79,18 +77,17 @@ class _WelcomeState extends State<WelcomeState> {
           ),
         ),
       ),
-    );
+    ); 
   }
-
   Widget buildResultPage(BuildContext context) => Scaffold(
         appBar: MyAppBar(username: username),
         body: ListView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           padding: const EdgeInsets.all(16),
           children: [
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             buildCategories(),
-            SizedBox(height: 32),
+            const SizedBox(height: 32),
             //buildPopular(context),
           ],
         ),
@@ -100,7 +97,7 @@ class _WelcomeState extends State<WelcomeState> {
         height: 300,
         child: GridView(
           primary: false,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             childAspectRatio: 4 / 3,
             crossAxisSpacing: 10,
@@ -111,15 +108,15 @@ class _WelcomeState extends State<WelcomeState> {
               .toList(),
         ),
       );
-
-  Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          leading: Icon(Icons.menu),
+  
+Widget build(BuildContext context) => Scaffold(
+       appBar: AppBar(
+          leading: const Icon(Icons.menu),
           backgroundColor: Colors.transparent,
           elevation: 0,
-          title: Text('Welcome to Quizzes'),
+          title: const Text('Welcome to Quizzes'),
           flexibleSpace: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 gradient: LinearGradient(
               colors: [Colors.blue, Colors.yellow],
               begin: Alignment.topRight,
@@ -128,16 +125,16 @@ class _WelcomeState extends State<WelcomeState> {
           ),
         ),
         body: ListView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           padding: const EdgeInsets.all(16),
           children: [
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             buildCategories(),
-            SizedBox(height: 32),
+            const SizedBox(height: 32),
             //buildPopular(context),
           ],
         ),
-      );
+      ); 
 }
     
 
