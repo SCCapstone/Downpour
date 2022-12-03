@@ -46,6 +46,7 @@ dependencies:
   text_to_speech: ^0.2.3
   intro_slider: ^2.3.4
   checkmark: ^0.0.2+1
+  cloud_firestore: ^4.1.0
 
 dev_dependencies:
   flutter_test:

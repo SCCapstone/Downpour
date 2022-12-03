@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "807103777811",
+    "firebase_url": "https://capstone-8171d-default-rtdb.firebaseio.com",
+    "project_id": "capstone-8171d",
+    "storage_bucket": "capstone-8171d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:807103777811:android:fc69dfa1ad7182d9b5c3e6",
+        "android_client_info": {
+          "package_name": "com.example.quiz_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "807103777811-m25nt9qm761to84qm5mid7pf1vvral0f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACQPucqDXeefE3daqkH1JAEDJ2iU6cp2E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "807103777811-m25nt9qm761to84qm5mid7pf1vvral0f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

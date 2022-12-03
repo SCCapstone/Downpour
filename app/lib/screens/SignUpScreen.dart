@@ -1,10 +1,34 @@
 import 'package:flutter/material.dart';
 import 'loginPage.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+class User {
+  // Holds user data, just holds name as of right now
+  String id;
+  final String name;
+  final String pw;
+  final String email;
+  // final int progress
+  //This will hold the user's progress. Change to array.
+  User({
+    this.id = '',
+    required this.name,
+    required this.pw,
+    required this.email,
+  });
+
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'name': name,
+        'pw': pw,
+        'email': email,
+      };
+}
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);
 
-  static const String _title = "We Need an App Title";
+  static const String _title = "Pweek";
   static const Color a1 = Color.fromRGBO(117, 178, 221, .5);
   static const Color a2 = Color.fromRGBO(117, 178, 221, .75);
   static const Color a3 = Color.fromRGBO(117, 178, 221, 1.0);
@@ -175,12 +199,36 @@ class _SignUpPage extends State<SignUpPageState> {
                     backgroundColor: (b3),
                   ),
                   child: Text('Sign Up!'),
-                  onPressed: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const LoginPage())),
+                  onPressed: () {
+                    final name1 = nameController.text;
+                    final pw1 = passwordController.text;
+                    final email1 = emailController.text;
+                    createUser(name1: name1, pw1: pw1, email1: email1);
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginPage()));
+                  },
                 ))
           ],
         ));
+  }
+
+  Future createUser(
+      {required String name1,
+      required String pw1,
+      required String email1}) async {
+    //Reference to Document
+    final docUser = FirebaseFirestore.instance.collection('Users').doc();
+
+    final user = User(
+      id: docUser.id,
+      name: name1,
+      pw: pw1,
+      email: email1,
+    );
+    final json = user.toJson();
+    //Create document and write data to firebase
+    await docUser.set(json);
   }
 }
