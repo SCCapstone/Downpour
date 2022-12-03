@@ -13,7 +13,7 @@ class ExploreScreen extends StatelessWidget {
             appBar: AppBar(
               title:
                   const Text('Explore Screen', style: customStyle.appBarText),
-              backgroundColor: customStyle.light,
+              backgroundColor: Color.fromARGB(255, 117, 178, 221),
             ),
             body: GridView.count(
               primary: false,
@@ -58,7 +58,7 @@ class ExploreScreen extends StatelessWidget {
                     Container(
                         alignment: Alignment.center,
                         child: const Text(
-                          'wildlife',
+                          'Wildlife',
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
