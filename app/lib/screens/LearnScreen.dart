@@ -60,14 +60,15 @@ class _LessonProgressionState extends State<LessonProgression> {
     */
     _listOfStates = [StepState.complete, StepState.indexed, StepState.indexed];
 
-    _hasReminder = true; //for demonstrating the
+    // TODO: make a function that returns the proper reminder notification for alert dialog
+    _hasReminder = false; //for demonstrating the alert dialog
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     // Stack serves as a way to show the dialog box for lesson suggestion
-    // I would get rid of the Stack for some better implementation
+    // I might suggest get rid of the Stack for some better implementation
     return Stack(children: [
       Stepper(
         controlsBuilder: (BuildContext context, ControlsDetails details) {
