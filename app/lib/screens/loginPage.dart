@@ -37,12 +37,12 @@ class LoginPageState extends StatefulWidget {
 class _LoginPage extends State<LoginPageState> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  
+
   //The login button color
   static const Color a = Color.fromRGBO(45, 211, 112, 1.0);
   static const Color b = Color.fromRGBO(45, 211, 112, 1.0);
   //Sign up button color
-   static const Color c = Color.fromRGBO(45, 211, 112, 1.0);
+  static const Color c = Color.fromRGBO(45, 211, 112, 1.0);
   static const Color d = Color.fromRGBO(45, 211, 112, 1.0);
 
   @override
@@ -69,6 +69,7 @@ class _LoginPage extends State<LoginPageState> {
               padding: const EdgeInsets.all(0),
               color: Colors.white,
               child: TextField(
+                key: const Key('usernameField'),
                 controller: nameController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
@@ -85,6 +86,7 @@ class _LoginPage extends State<LoginPageState> {
               padding: const EdgeInsets.all(0),
               color: Colors.white,
               child: TextField(
+                key: const Key('passwordField'),
                 obscureText: true,
                 controller: passwordController,
                 decoration: const InputDecoration(
