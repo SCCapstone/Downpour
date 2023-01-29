@@ -1,9 +1,4 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
+
  
 @Clmeyers-Dev 
 SCCapstone
