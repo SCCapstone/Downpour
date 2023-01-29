@@ -2,29 +2,29 @@ import 'package:flutter/material.dart';
 import 'loginPage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-
-class User{ // Holds user data, just holds name as of right now
+class User {
+  // Holds user data, just holds name as of right now
   String id;
   final String name;
   final String pw;
   final String email;
-  // final int progress 
-  //This will hold the user's progress. Change to array. 
+  // final int progress
+  //This will hold the user's progress. Change to array.
   User({
     this.id = 'userBase',
     required this.name,
     required this.pw,
     required this.email,
-
   });
 
- Map<String, dynamic> toJson() => {
-   'id': id,
-   'name': name,
-    'pw': pw,
-    'email': email,
-  };
-  }
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'name': name,
+        'pw': pw,
+        'email': email,
+      };
+}
+
 class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);
 
@@ -177,6 +177,7 @@ class _SignUpPage extends State<SignUpPageState> {
             Container(
                 padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                 child: ElevatedButton(
+                  key: const Key('signInButton'),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: (b3),
                     textStyle: const TextStyle(
@@ -199,14 +200,16 @@ class _SignUpPage extends State<SignUpPageState> {
                     backgroundColor: (b3),
                   ),
                   child: Text('Sign Up!'),
-                   onPressed: () {
-                          final name1 = nameController.text;
-                          final pw1 = passwordController.text;
-                          final email1 = emailController.text;
-                          createUser(name1: name1, pw1: pw1, email1: email1 ); Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const LoginPage()));},
+                  onPressed: () {
+                    final name1 = nameController.text;
+                    final pw1 = passwordController.text;
+                    final email1 = emailController.text;
+                    createUser(name1: name1, pw1: pw1, email1: email1);
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginPage()));
+                  },
                 ))
           ],
         ));
@@ -216,16 +219,17 @@ class _SignUpPage extends State<SignUpPageState> {
       {required String name1,
       required String pw1,
       required String email1}) async {
-      //Reference to Document
-      final docUser = FirebaseFirestore.instance.collection('Users').doc('userBase');
+    //Reference to Document
+    final docUser =
+        FirebaseFirestore.instance.collection('Users').doc('userBase');
 
-      final user = User (
-          id: 'userBase',
-          name: name1,
-          pw: pw1,
-          email: email1,
-      );
-      final json = user.toJson();
+    final user = User(
+      id: 'userBase',
+      name: name1,
+      pw: pw1,
+      email: email1,
+    );
+    final json = user.toJson();
     //Create document and write data to firebase
     await docUser.set(json);
   }
