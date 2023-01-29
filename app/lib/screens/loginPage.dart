@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:pohnpeian_language_app/screens/Home.dart';
 import 'SignUpScreen.dart';
+import 'package:pohnpeian_language_app/auth_provider';
+
+class PasswordFieldValidator {
+  static String validate(String value) {
+    return value.isEmpty ? 'Password can\'t be empty' : null;
+  }
+}
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -45,6 +52,7 @@ class _LoginPage extends State<LoginPageState> {
   static const Color c = Color.fromRGBO(45, 211, 112, 1.0);
   static const Color d = Color.fromRGBO(45, 211, 112, 1.0);
 
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -68,16 +76,26 @@ class _LoginPage extends State<LoginPageState> {
             Container(
               padding: const EdgeInsets.all(0),
               color: Colors.white,
-              child: TextField(
+              child: TextFormField(
                 key: const Key('usernameField'),
                 controller: nameController,
+                validator: (CurrentValue){
+                  var nonNullValue=CurrentValue??'';
+                  if(nonNullValue.isEmpty){
+                    return ("username is required");
+                  }
+                  if(!nonNullValue.contains("@")){
+                    return ("username should contains @");
+                  }
+                  return null;
+                },
+                ),
+            ),
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'User Name',
                   labelStyle: TextStyle(color: Colors.black),
                 ),
-              ),
-            ),
             Container(
               padding: const EdgeInsets.all(10),
               color: Colors.transparent,
@@ -85,17 +103,18 @@ class _LoginPage extends State<LoginPageState> {
             Container(
               padding: const EdgeInsets.all(0),
               color: Colors.white,
-              child: TextField(
+              child: TextFormField(
                 key: const Key('passwordField'),
                 obscureText: true,
                 controller: passwordController,
+                validator: PasswordFieldValidator.validate,
+                ),
+            ),
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Password ',
                   labelStyle: TextStyle(color: Colors.black),
                 ),
-              ),
-            ),
             Container(
               padding: const EdgeInsets.all(10),
               color: Colors.transparent,
@@ -129,10 +148,12 @@ class _LoginPage extends State<LoginPageState> {
                     backgroundColor: (b),
                   ),
                   child: Text('Log In'),
-                  onPressed: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const Home())),
-                ))
-          ],
-        ));
+                  onPressed: () {
+                  if(Form.of(context)?.validate()?? false){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (_)=>loginpage()));
+                  }
+                  },
+            ))],
+        ),);
   }
 }
