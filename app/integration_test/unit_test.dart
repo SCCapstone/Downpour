@@ -8,7 +8,7 @@ void main() {
     expect(result, 'Password can\'t be empty');
   });
   test('non-empty password returns null', () {
-    var result = PasswordFieldValidator.validate('');
-    expect(result, null);
+    var result = PasswordFieldValidator.validate('blah');
+    expect(result, '0');
   });
 }
