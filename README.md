@@ -58,20 +58,25 @@ In order to build this project you first have to install:
 
 # Testing 
 
-In 492 you will write automated tests. When you do you will need to add a 
-section that explains how to run them.
-
-The unit tests are in `/test/unit`.
-
-The behavioral tests are in `/test/casper/`.
-
-## Testing Technology
-
-In some cases you need to install test runners, etc. Explain how.
+The behavioral and unity tests are located in /app/integration_test
 
 ## Running Tests
+with a virtual device connected you can run 
+`flutter test test/unit_test.dart` to run a specific test 
+or
+`flutter test directory` to run all tests located in that directory
 
-Explain how to run the automated tests.
+the unit tests are located in the `/app/test` folder 
+
+The much slower behavioral tests are located in the `/app/integration_test` folder 
+
+Run all behavioral tests with the following command: 
+
+`flutter test integration_test`
+
+Run all unit tests with the following command: 
+
+`flutter test test`
 
 ## Style Guide
 ### Flutter:
