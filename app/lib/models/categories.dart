@@ -15,7 +15,7 @@ class Category {
     required this.questions,
     required this.categoryName,
     this.description = '',
-    this.backgroundColor = Colors.orange,
+    this.backgroundColor = Colors.lightBlue,
     this.icon = FontAwesomeIcons.question,
   });
 }

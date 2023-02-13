@@ -66,7 +66,7 @@ class _WelcomeState extends State<WelcomeState> {
           flexibleSpace: Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
-                colors: [Colors.deepOrange, Colors.purple],
+                colors: [Color.fromARGB(255, 40, 89, 109), Color.fromARGB(255, 186, 216, 102)],
                 begin: Alignment.topRight,
                 end: Alignment.bottomLeft,
               ),
@@ -114,6 +114,34 @@ class _WelcomeState extends State<WelcomeState> {
               .toList(),
         ),
       );
+<<<<<<< HEAD
+  
+Widget build(BuildContext context) => Scaffold(
+       appBar: AppBar(
+          leading: const Icon(Icons.menu),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          title: const Text('Welcome to Quizzes'),
+          flexibleSpace: Container(
+            decoration: const BoxDecoration(
+                gradient: LinearGradient(
+              colors: [Colors.blue, Colors.yellow],
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+            )),
+          ),
+        ),
+        body: ListView(
+          physics: const BouncingScrollPhysics(),
+          padding: const EdgeInsets.all(16),
+          children: [
+            const SizedBox(height: 8),
+            buildCategories(),
+            const SizedBox(height: 32),
+          ],
+        ),
+      ); 
+=======
 
   Widget build(BuildContext context) => ListView(
         physics: const BouncingScrollPhysics(),
@@ -125,36 +153,5 @@ class _WelcomeState extends State<WelcomeState> {
           //buildPopular(context),
         ],
       );
+>>>>>>> f07eb431510c0a1ba6591101908153ca1af0bd23
 }
-    
-
-  /*Widget buildPopular(BuildContext context) => Column(
-        children: [
-          Container(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              'Popular',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-          ),
-          SizedBox(height: 16),
-          Container(
-            height: 240,
-            child: ListView(
-              physics: BouncingScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              children: categories
-                  .map((category) => CategoryDetailWidget(
-                        category: category,
-                        onSelectedCategory: (category) {
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) =>
-                                CategoryPage(category: category),
-                          ));
-                        },
-                      ))
-                  .toList(),
-            ),
-          )
-        ],
-      );*/
