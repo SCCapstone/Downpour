@@ -11,7 +11,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       leading: Icon(Icons.menu),
       backgroundColor: Colors.transparent,
       elevation: 0,
-      title: Text('School Quiz'),
+      title: Text('Quiz'),
       bottom: PreferredSize(
         preferredSize: Size.fromHeight(80),
         child: Container(
@@ -23,7 +23,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       flexibleSpace: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.deepOrange, Colors.purple],
+            colors: [Colors.blue, Colors.white],
             begin: Alignment.topRight,
             end: Alignment.bottomLeft,
           ),

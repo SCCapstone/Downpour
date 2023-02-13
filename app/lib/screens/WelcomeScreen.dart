@@ -61,7 +61,7 @@ class _WelcomeState extends State<WelcomeState> {
           flexibleSpace: Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
-                colors: [Colors.deepOrange, Colors.purple],
+                colors: [Color.fromARGB(255, 40, 89, 109), Color.fromARGB(255, 186, 216, 102)],
                 begin: Alignment.topRight,
                 end: Alignment.bottomLeft,
               ),
@@ -131,40 +131,7 @@ Widget build(BuildContext context) => Scaffold(
             const SizedBox(height: 8),
             buildCategories(),
             const SizedBox(height: 32),
-            //buildPopular(context),
           ],
         ),
       ); 
 }
-    
-
-  /*Widget buildPopular(BuildContext context) => Column(
-        children: [
-          Container(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              'Popular',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-          ),
-          SizedBox(height: 16),
-          Container(
-            height: 240,
-            child: ListView(
-              physics: BouncingScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              children: categories
-                  .map((category) => CategoryDetailWidget(
-                        category: category,
-                        onSelectedCategory: (category) {
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) =>
-                                CategoryPage(category: category),
-                          ));
-                        },
-                      ))
-                  .toList(),
-            ),
-          )
-        ],
-      );*/
