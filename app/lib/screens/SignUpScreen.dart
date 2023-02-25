@@ -85,11 +85,7 @@ class _SignUpPage extends State<SignUpPageState> {
   static const c2 = Color.fromRGBO(38, 77, 105, .75);
   static const c3 = Color.fromRGBO(38, 77, 105, 1.0);
   static const d = Color.fromRGBO(146, 148, 156, 1.0);
-<<<<<<< HEAD
-  static const background = Color.fromARGB(255, 151, 202, 204);
-=======
   static const background = Color.fromARGB(219, 39, 183, 196);
->>>>>>> f07eb431510c0a1ba6591101908153ca1af0bd23
 
   @override
   Widget build(BuildContext context) {

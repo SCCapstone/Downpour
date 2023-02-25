@@ -114,34 +114,6 @@ class _WelcomeState extends State<WelcomeState> {
               .toList(),
         ),
       );
-<<<<<<< HEAD
-  
-Widget build(BuildContext context) => Scaffold(
-       appBar: AppBar(
-          leading: const Icon(Icons.menu),
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          title: const Text('Welcome to Quizzes'),
-          flexibleSpace: Container(
-            decoration: const BoxDecoration(
-                gradient: LinearGradient(
-              colors: [Colors.blue, Colors.yellow],
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-            )),
-          ),
-        ),
-        body: ListView(
-          physics: const BouncingScrollPhysics(),
-          padding: const EdgeInsets.all(16),
-          children: [
-            const SizedBox(height: 8),
-            buildCategories(),
-            const SizedBox(height: 32),
-          ],
-        ),
-      ); 
-=======
 
   Widget build(BuildContext context) => ListView(
         physics: const BouncingScrollPhysics(),
@@ -153,5 +125,4 @@ Widget build(BuildContext context) => Scaffold(
           //buildPopular(context),
         ],
       );
->>>>>>> f07eb431510c0a1ba6591101908153ca1af0bd23
 }
