@@ -36,4 +36,11 @@ final categories = <Category>[
     icon: FontAwesomeIcons.book,
     description: 'Test your knowledge on random objects',
   ),
+  Category(
+    questions: getQuestions5(),
+    categoryName: 'Objects',
+    backgroundColor: Colors.lightGreen,
+    icon: FontAwesomeIcons.book,
+    description: 'Test your knowledge on health and illness',
+  )
 ];
