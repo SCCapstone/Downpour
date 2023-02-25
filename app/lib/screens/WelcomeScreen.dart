@@ -66,7 +66,10 @@ class _WelcomeState extends State<WelcomeState> {
           flexibleSpace: Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
-                colors: [Color.fromARGB(255, 40, 89, 109), Color.fromARGB(255, 186, 216, 102)],
+                colors: [
+                  Color.fromARGB(255, 40, 89, 109),
+                  Color.fromARGB(255, 186, 216, 102)
+                ],
                 begin: Alignment.topRight,
                 end: Alignment.bottomLeft,
               ),
@@ -100,7 +103,7 @@ class _WelcomeState extends State<WelcomeState> {
       );
 
   Widget buildCategories() => Container(
-        height: 300,
+        height: 600,
         child: GridView(
           primary: false,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
