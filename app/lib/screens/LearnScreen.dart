@@ -2,8 +2,52 @@ import 'package:flutter/material.dart';
 import 'package:pohnpeian_language_app/screens/LessonScreen.dart';
 import 'package:pohnpeian_language_app/widget/FrostedCard.dart';
 import 'package:pohnpeian_language_app/theme/style.dart' as custom_style;
-import 'package:pohnpeian_language_app/models/lessons.dart' as lessons;
+import 'package:pohnpeian_language_app/data/lessons.dart' as lessons;
 import 'dart:async';
+
+/*
+Steps for adding a new lesson:
+(1) add new lesson to lessons.dart
+(2) include the lesson in lessonsList
+(3) include the lesson in _listOfStates
+(4) add title for the lesson in titles
+(5) add subtitles for the lesson in subTitles
+*/
+
+final List<List<Map<String, dynamic>>> lessonsList = [
+  lessons.lesson1,
+  lessons.lesson2,
+  lessons.lesson3,
+  lessons.lesson4,
+  lessons.lesson5,
+  lessons.lesson6,
+  lessons.lesson7,
+  lessons.lesson8,
+  lessons.lesson9,
+];
+final List<String> titles = [
+  "Greetings",
+  "Family",
+  "Food",
+  "Alphabet 1",
+  "Alphabet 2",
+  "Alphabet 3",
+  "Household Objects",
+  "Health and sickness",
+  "Basic Word Order"
+];
+
+final List<String> subTitles = [
+  "Learn basic phrases, such as hello, goodbye, my name is...",
+  "Learn terms for family members",
+  "Learn some terms for different foods",
+  "Learn about the alphabet",
+  "Learn about the alphabet, continuation of alphabet 1",
+  "Learn about the alphabet sounds that don\'t exist or are uncommon in the English language",
+  "Learn the words for objects commonly found around the household",
+  "Learn words that have to do with health and sickness",
+  "Learn how to create basic sentences"
+];
 
 class LearnScreen extends StatelessWidget {
   const LearnScreen({super.key});
@@ -24,6 +68,18 @@ class LearnScreen extends StatelessWidget {
   }
 }
 
+List<Step> stepBuilder(List<StepState> stepStates) {
+  List<Step> ret = [];
+  for (var i = 0; i < stepStates.length; ++i) {
+    ret.add(Step(
+      title: Text(titles[i]),
+      content: FrostedCard(text: subTitles[i]),
+      state: stepStates[i],
+    ));
+  }
+  return ret;
+}
+
 class LessonProgression extends StatefulWidget {
   const LessonProgression({super.key});
 
@@ -33,16 +89,6 @@ class LessonProgression extends StatefulWidget {
 
 class _LessonProgressionState extends State<LessonProgression> {
   int _index = 0;
-  final List<List<Map<String, dynamic>>> lessonsList = [
-    lessons.lesson1,
-    lessons.lesson2,
-    lessons.lesson3
-  ];
-  final List<String> titles = [
-    "Basic Phrases 1",
-    "Basic Vocabulary 1",
-    "Basic Grammar 1"
-  ];
 
   late List<StepState> _listOfStates;
   late bool _hasReminder;
@@ -58,7 +104,17 @@ class _LessonProgressionState extends State<LessonProgression> {
       are completed for each user
     - Then, the database needs to be updated onStepContinue below
     */
-    _listOfStates = [StepState.complete, StepState.indexed, StepState.indexed];
+    _listOfStates = [
+      StepState.complete,
+      StepState.indexed,
+      StepState.indexed,
+      StepState.indexed,
+      StepState.indexed,
+      StepState.indexed,
+      StepState.indexed,
+      StepState.indexed,
+      StepState.indexed,
+    ];
 
     // TODO: make a function that returns the proper reminder notification for alert dialog
     _hasReminder = false; //for demonstrating the alert dialog
@@ -70,66 +126,52 @@ class _LessonProgressionState extends State<LessonProgression> {
     // Stack serves as a way to show the dialog box for lesson suggestion
     // I might suggest get rid of the Stack for some better implementation
     return Stack(children: [
-      Stepper(
-        controlsBuilder: (BuildContext context, ControlsDetails details) {
-          return Container(
-            padding: const EdgeInsets.only(top: 10.0),
-            alignment: Alignment.centerRight,
-            child: TextButton(
-                onPressed: details.onStepContinue,
-                style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.black),
-                    padding: MaterialStateProperty.all<EdgeInsets>(
-                        const EdgeInsets.only(left: 30, right: 30)),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18.0),
-                    ))),
-                child: const Text(
-                  'LEARN',
-                  style: TextStyle(color: Colors.white),
-                )),
-          );
-        },
-        currentStep: _index,
-        onStepContinue: () {
-          Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => LessonSlideDeck(
-                  lessonSlides: lessonsList[_index], title: titles[_index]),
-              settings: const RouteSettings(name: "/lesson")));
-          // update database here
-          Timer(const Duration(seconds: 1), () {
-            setState(() {
-              _listOfStates[_index] = StepState.complete;
-            });
-          });
-        },
-        onStepTapped: (int index) {
-          setState(() {
-            _index = index;
-          });
-        },
-        steps: <Step>[
-          Step(
-            title: const Text('Basic phrases 1'),
-            content: const FrostedCard(
-                text:
-                    'Learn basic phrases, such as hello, goodbye, my name is...'),
-            state: _listOfStates[0],
-          ),
-          Step(
-            title: const Text('Basic Vocabulary 1'),
-            content:
-                const FrostedCard(text: "Learn basic vocabulary for animals"),
-            state: _listOfStates[1],
-          ),
-          Step(
-            title: const Text('Basic Grammar 1'),
-            content: const FrostedCard(text: 'Verb order and alphabet'),
-            state: _listOfStates[2],
-          ),
-        ],
-      ),
+      Container(
+          padding: const EdgeInsets.fromLTRB(0, 0, 0, 80),
+          child: Stepper(
+            physics: const BouncingScrollPhysics(),
+            controlsBuilder: (BuildContext context, ControlsDetails details) {
+              return Container(
+                padding: const EdgeInsets.only(top: 10.0),
+                alignment: Alignment.centerRight,
+                child: TextButton(
+                    onPressed: details.onStepContinue,
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.black),
+                        padding: MaterialStateProperty.all<EdgeInsets>(
+                            const EdgeInsets.only(left: 30, right: 30)),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                        ))),
+                    child: const Text(
+                      'LEARN',
+                      style: TextStyle(color: Colors.white),
+                    )),
+              );
+            },
+            currentStep: _index,
+            onStepContinue: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => LessonSlideDeck(
+                      lessonSlides: lessonsList[_index], title: titles[_index]),
+                  settings: const RouteSettings(name: "/lesson")));
+              // update database here
+              Timer(const Duration(seconds: 1), () {
+                setState(() {
+                  _listOfStates[_index] = StepState.complete;
+                });
+              });
+            },
+            onStepTapped: (int index) {
+              setState(() {
+                _index = index;
+              });
+            },
+            steps: stepBuilder(_listOfStates),
+          )),
       if (_hasReminder)
         AlertDialog(
           title: const Text('Lesson Reminder'),
