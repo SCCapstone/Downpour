@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pohnpeian_language_app/theme/style.dart' as customStyle;
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+// ignore: depend_on_referenced_packages
 import 'package:url_launcher_platform_interface/url_launcher_platform_interface.dart';
 
 class ExploreScreen extends StatefulWidget {
@@ -25,9 +25,9 @@ class _ExploreScreenState extends State<ExploreScreen> {
         child: StaggeredGridView.count(
           crossAxisCount: 4,
           staggeredTiles: _cardTile,
-          children: _listTile,
           mainAxisSpacing: 4.0,
           crossAxisSpacing: 4.0,
+          children: _listTile,
         ),
       ),
     );
