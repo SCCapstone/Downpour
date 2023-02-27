@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pohnpeian_language_app/theme/style.dart' as customStyle;
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+// ignore: depend_on_referenced_packages
 import 'package:url_launcher_platform_interface/url_launcher_platform_interface.dart';
 
 class ExploreScreen extends StatefulWidget {
@@ -18,17 +18,15 @@ class _ExploreScreenState extends State<ExploreScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Explore Screen"),
-        backgroundColor: Color.fromARGB(255, 117, 178, 221),
+        title: const Text("Explore Screen"),
+        backgroundColor: const Color.fromARGB(255, 117, 178, 221),
       ),
-      body: Container(
-        child: StaggeredGridView.count(
-          crossAxisCount: 4,
-          staggeredTiles: _cardTile,
-          children: _listTile,
-          mainAxisSpacing: 4.0,
-          crossAxisSpacing: 4.0,
-        ),
+      body: StaggeredGridView.count(
+        crossAxisCount: 4,
+        staggeredTiles: _cardTile,
+        mainAxisSpacing: 4.0,
+        crossAxisSpacing: 4.0,
+        children: _listTile,
       ),
     );
   }
@@ -55,7 +53,8 @@ class BackGroundTile extends StatelessWidget {
   final String launchpath;
 
   const BackGroundTile(
-      {required this.backgroundColor,
+      {super.key,
+      required this.backgroundColor,
       required this.path,
       required this.launchpath});
 
@@ -83,43 +82,43 @@ class BackGroundTile extends StatelessWidget {
                               'http://talkingdictionary.swarthmore.edu/pohnpeian/'),
                         )*/
 List<Widget> _listTile = <Widget>[
-  BackGroundTile(
+  const BackGroundTile(
       backgroundColor: Color.fromARGB(255, 54, 200, 244),
       launchpath: 'https://en.wikipedia.org/wiki/Micronesia',
       path: 'Assets/Images/Micronesia.jpg'),
-  BackGroundTile(
+  const BackGroundTile(
       backgroundColor: Color.fromARGB(255, 54, 244, 244),
       launchpath: 'https://animalia.bio/micronesia-animals',
       path: 'Assets/Images/PohnpeiFlycatcher.jpg'),
-  BackGroundTile(
+  const BackGroundTile(
       backgroundColor: Color.fromARGB(255, 54, 244, 219),
       launchpath:
           'https://visit-micronesia.fm/local-food-drink/#:~:text=The%20main%20staple%20foods%20in,%2C%20shellfish%2C%20pig%20and%20chicken.',
       path: 'Assets/Images/localfood.jpg'),
-  BackGroundTile(
+  const BackGroundTile(
       backgroundColor: Color.fromARGB(255, 54, 244, 244),
       launchpath:
           'https://naturalhistory2.si.edu/botany/micronesia/introduction.htm',
       path: 'Assets/Images/Palm-Tree.jpg'),
-  BackGroundTile(
+  const BackGroundTile(
       backgroundColor: Color.fromARGB(255, 54, 244, 244),
       launchpath: 'https://www.britannica.com/topic/flag-of-Micronesia',
       path: 'Assets/Images/flag.jpg'),
-  BackGroundTile(
+  const BackGroundTile(
       backgroundColor: Color.fromARGB(255, 54, 238, 244),
       launchpath: 'https://visit-micronesia.fm/waterfalls-and-caves/',
       path: 'Assets/Images/Sights.jpg'),
-  BackGroundTile(
+  const BackGroundTile(
       backgroundColor: Color.fromARGB(255, 54, 190, 244),
       launchpath: 'http://talkingdictionary.swarthmore.edu/pohnpeian/',
       path: 'Assets/Images/MicronesianLanguage.png'),
 ];
 List<StaggeredTile> _cardTile = <StaggeredTile>[
-  StaggeredTile.count(2, 3),
-  StaggeredTile.count(2, 2),
-  StaggeredTile.count(2, 3),
-  StaggeredTile.count(2, 2),
-  StaggeredTile.count(2, 3),
-  StaggeredTile.count(2, 2),
-  StaggeredTile.count(2, 3),
+  const StaggeredTile.count(2, 3),
+  const StaggeredTile.count(2, 2),
+  const StaggeredTile.count(2, 3),
+  const StaggeredTile.count(2, 2),
+  const StaggeredTile.count(2, 3),
+  const StaggeredTile.count(2, 2),
+  const StaggeredTile.count(2, 3),
 ];
