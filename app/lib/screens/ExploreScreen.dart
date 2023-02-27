@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pohnpeian_language_app/theme/style.dart' as customStyle;
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:url_launcher_platform_interface/url_launcher_platform_interface.dart';
+
 class ExploreScreen extends StatelessWidget {
   const ExploreScreen({Key? key}) : super(key: key);
 
@@ -31,7 +32,8 @@ class ExploreScreen extends StatelessWidget {
                         child: new IconButton(
                           icon: Image.asset('Assets/Images/Micronesia.jpg'),
                           iconSize: 200,
-                          onPressed: () => _launchInWebView('https://en.wikipedia.org/wiki/Micronesia'),
+                          onPressed: () => _launchInWebView(
+                              'https://en.wikipedia.org/wiki/Micronesia'),
                         )),
                     Container(
                         alignment: Alignment.center,
@@ -45,15 +47,17 @@ class ExploreScreen extends StatelessWidget {
                   ],
                 )),
                 Container(
-                  child: Stack(
+                    child: Stack(
                   children: <Widget>[
                     new SizedBox(
                         height: 250.0,
                         width: double.infinity,
                         child: new IconButton(
-                          icon: Image.asset('Assets/Images/PohnpeiFlycatcher.jpg'),
+                          icon: Image.asset(
+                              'Assets/Images/PohnpeiFlycatcher.jpg'),
                           iconSize: 200,
-                         onPressed: () => _launchInWebView('https://animalia.bio/micronesia-animals'),
+                          onPressed: () => _launchInWebView(
+                              'https://animalia.bio/micronesia-animals'),
                         )),
                     Container(
                         alignment: Alignment.center,
@@ -75,7 +79,8 @@ class ExploreScreen extends StatelessWidget {
                         child: new IconButton(
                           icon: Image.asset('Assets/Images/localfood.jpg'),
                           iconSize: 200,
-                          onPressed: () => _launchInWebView('https://visit-micronesia.fm/local-food-drink/#:~:text=The%20main%20staple%20foods%20in,%2C%20shellfish%2C%20pig%20and%20chicken.'),
+                          onPressed: () => _launchInWebView(
+                              'https://visit-micronesia.fm/local-food-drink/#:~:text=The%20main%20staple%20foods%20in,%2C%20shellfish%2C%20pig%20and%20chicken.'),
                         )),
                     Container(
                         alignment: Alignment.center,
@@ -89,7 +94,7 @@ class ExploreScreen extends StatelessWidget {
                   ],
                 )),
                 Container(
-                   child: Stack(
+                    child: Stack(
                   children: <Widget>[
                     new SizedBox(
                         height: 250.0,
@@ -97,7 +102,8 @@ class ExploreScreen extends StatelessWidget {
                         child: new IconButton(
                           icon: Image.asset('Assets/Images/Palm-Tree.jpg'),
                           iconSize: 200,
-                          onPressed: () => _launchInWebView('https://naturalhistory2.si.edu/botany/micronesia/introduction.htm'),
+                          onPressed: () => _launchInWebView(
+                              'https://naturalhistory2.si.edu/botany/micronesia/introduction.htm'),
                         )),
                     Container(
                         alignment: Alignment.center,
@@ -111,7 +117,7 @@ class ExploreScreen extends StatelessWidget {
                   ],
                 )),
                 Container(
-                   child: Stack(
+                    child: Stack(
                   children: <Widget>[
                     new SizedBox(
                         height: 250.0,
@@ -119,7 +125,8 @@ class ExploreScreen extends StatelessWidget {
                         child: new IconButton(
                           icon: Image.asset('Assets/Images/flag.jpg'),
                           iconSize: 200,
-                         onPressed: () => _launchInWebView('https://www.britannica.com/topic/flag-of-Micronesia'),
+                          onPressed: () => _launchInWebView(
+                              'https://www.britannica.com/topic/flag-of-Micronesia'),
                         )),
                     Container(
                         alignment: Alignment.center,
@@ -133,7 +140,7 @@ class ExploreScreen extends StatelessWidget {
                   ],
                 )),
                 Container(
-                   child: Stack(
+                    child: Stack(
                   children: <Widget>[
                     new SizedBox(
                         height: 250.0,
@@ -141,7 +148,8 @@ class ExploreScreen extends StatelessWidget {
                         child: new IconButton(
                           icon: Image.asset('Assets/Images/Sights.jpg'),
                           iconSize: 200,
-                          onPressed: () => _launchInWebView('https://visit-micronesia.fm/waterfalls-and-caves/'),
+                          onPressed: () => _launchInWebView(
+                              'https://visit-micronesia.fm/waterfalls-and-caves/'),
                         )),
                     Container(
                         alignment: Alignment.center,
@@ -154,16 +162,18 @@ class ExploreScreen extends StatelessWidget {
                         )),
                   ],
                 )),
-                 Container(
-                   child: Stack(
+                Container(
+                    child: Stack(
                   children: <Widget>[
                     new SizedBox(
                         height: 250.0,
                         width: double.infinity,
                         child: new IconButton(
-                          icon: Image.asset('Assets/Images/MicronesianLanguage.png'),
+                          icon: Image.asset(
+                              'Assets/Images/MicronesianLanguage.png'),
                           iconSize: 200,
-                          onPressed: () => _launchInWebView('http://talkingdictionary.swarthmore.edu/pohnpeian/'),
+                          onPressed: () => _launchInWebView(
+                              'http://talkingdictionary.swarthmore.edu/pohnpeian/'),
                         )),
                     Container(
                         alignment: Alignment.center,
@@ -202,12 +212,14 @@ class ExploreScreen extends StatelessWidget {
     ),*/
   }
 }
+
 class informationScreen extends StatefulWidget {
   const informationScreen({Key? key}) : super(key: key);
 
   @override
   State<informationScreen> createState() => _InformationScreenState();
 }
+
 class _InformationScreenState extends State<informationScreen> {
   TextEditingController textEditingController = TextEditingController();
 
@@ -228,17 +240,51 @@ class _InformationScreenState extends State<informationScreen> {
     );
   }
 }
+
 Future<void> _launchInWebView(String url) async {
-     final UrlLauncherPlatform launcher = UrlLauncherPlatform.instance;
-    if (!await launcher.launch(
-      url,
-      useSafariVC: true,
-      useWebView: true,
-      enableJavaScript: false,
-      enableDomStorage: false,
-      universalLinksOnly: false,
-      headers: <String, String>{'my_header_key': 'my_header_value'},
-    )) {
-      throw 'Could not launch $url';
-    }
+  final UrlLauncherPlatform launcher = UrlLauncherPlatform.instance;
+  if (!await launcher.launch(
+    url,
+    useSafariVC: true,
+    useWebView: true,
+    enableJavaScript: false,
+    enableDomStorage: false,
+    universalLinksOnly: false,
+    headers: <String, String>{'my_header_key': 'my_header_value'},
+  )) {
+    throw 'Could not launch $url';
   }
+}
+  /*
+  class BackGroundTile extends StatelessWidget {
+  final Color backgroundColor;
+  final IconData icondata;
+  
+  BackGroundTile({this.backgroundColor, this.icondata});
+  
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: backgroundColor,
+      child: Icon(icondata, color: Colors.white),
+    );
+  }
+}
+  List<Widget>_listTile = <Widget>[
+  BackGroundTile(backgroundColor: Colors.red, icondata: Icons.home),
+  BackGroundTile(backgroundColor: Colors.orange, icondata: Icons.ac_unit),
+  BackGroundTile(backgroundColor: Colors.pink, icondata: Icons.landscape),
+  BackGroundTile(backgroundColor: Colors.green, icondata: Icons.portrait),
+  BackGroundTile(backgroundColor: Colors.deepPurpleAccent, icondata: Icons.music_note),
+  BackGroundTile(backgroundColor: Colors.blue, icondata: Icons.access_alarms),
+  BackGroundTile(backgroundColor: Colors.indigo, icondata: Icons.satellite_outlined),
+];
+List<StaggeredTile>  _cardTile = <StaggeredTile> [
+  StaggeredTile.count(2, 3),
+  StaggeredTile.count(2, 2),
+  StaggeredTile.count(2, 3),
+  StaggeredTile.count(2, 2),
+  StaggeredTile.count(2, 3),
+  StaggeredTile.count(2, 2),
+  StaggeredTile.count(2, 3),
+];*/
