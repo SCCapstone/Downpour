@@ -106,7 +106,9 @@ class _SignUpPage extends State<SignUpPageState> {
         ),
         ) : Center(
           child: MaterialButton(
-            onPressed: () {
+            onPressed: () { 
+              Navigator.of(context)
+                .push(MaterialPageRoute(builder: (_) => Home()));/*
               googleSignIn.signIn().then((userData) {
                 setState(() {
                   isLoggedIn = true;
@@ -114,7 +116,7 @@ class _SignUpPage extends State<SignUpPageState> {
                 });
               }).catchError((e) {
                 print(e);
-              });
+              });*/
             },
             height: 200,
             minWidth: 400,
