@@ -4,7 +4,6 @@ import 'loginPage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-
 /*class User {
   // Holds user data, just holds name as of right now
   String id;
@@ -83,17 +82,23 @@ class _SignUpPage extends State<SignUpPageState> {
       body: Container(
         child: isLoggedIn
             ? Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-              Image.network(userInf.photoUrl!),
-              const SizedBox(height: 20,),
-              Text(userInf.displayName!),
-              const SizedBox(height: 20,),
-              Text(userInf.email),
-              const SizedBox(height: 20,),
-              MaterialButton(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Image.network(userInf.photoUrl!),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Text(userInf.displayName!),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Text(userInf.email),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    /*(MaterialButton(
              onPressed: () {
                   Navigator.of(context)
                       .push(MaterialPageRoute(builder: (_) => Home()));},
@@ -101,29 +106,32 @@ class _SignUpPage extends State<SignUpPageState> {
                 minWidth: 100,
                 color: Color.fromRGBO(45, 211, 112, 1.0),
                 child: const Text('Continue to app',style: TextStyle(color: Colors.white),),
+              )*/
+                  ],
+                ),
               )
-          ],
-        ),
-        ) : Center(
-          child: MaterialButton(
-            onPressed: () { 
-              Navigator.of(context)
-                .push(MaterialPageRoute(builder: (_) => Home()));/*
-              googleSignIn.signIn().then((userData) {
-                setState(() {
-                  isLoggedIn = true;
-                  userInf = userData!;
-                });
-              }).catchError((e) {
-                print(e);
-              });*/
-            },
-            height: 200,
-            minWidth: 400,
-            color: Color.fromARGB(219, 39, 183, 196),
-            child: const Text('Sign in with Google',style: TextStyle(color: Colors.white),),
-          )
-        ),
+            : Center(
+                child: MaterialButton(
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (_) => Home()));
+                  googleSignIn.signIn().then((userData) {
+                    setState(() {
+                      isLoggedIn = true;
+                      userInf = userData!;
+                    });
+                  }).catchError((e) {
+                    print(e);
+                  });
+                },
+                height: 200,
+                minWidth: 400,
+                color: Color.fromARGB(219, 39, 183, 196),
+                child: const Text(
+                  'Sign in with Google',
+                  style: TextStyle(color: Colors.white),
+                ),
+              )),
       ),
     );
   }
