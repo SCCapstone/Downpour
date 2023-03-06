@@ -33,64 +33,48 @@ class correctQuestionsTestFuture {
 }
 
 class correctQuestionsTest2 {
-  static String validate(String ans) {
-    for (int i = 0; i < getQuestions2().length; i++) {
-      Question question = getQuestions2().elementAt(i);
-      bool correct = question.options.last.isCorrect;
-      String q = question.options.first.code.toString();
-      if (correct == true || ans == q) {
-        return 'The answer is correct';
-      } else {
-        continue;
-      }
+  static String validate(String ans, int questionNum, int ansNum) {
+    Question question = getQuestions2().elementAt(questionNum);
+    bool correct = question.options.elementAt(ansNum).isCorrect;
+    String q = question.options.elementAt(ansNum).code.toString();
+    if (correct == true && q == ans) {
+      return 'The answer is correct';
     }
     return 'The answer is Incorrect';
   }
 }
 
 class correctQuestionsTest3 {
-  static String validate(String ans) {
-    for (int i = 0; i < getQuestions3().length; i++) {
-      Question question = getQuestions3().elementAt(i);
-      bool correct = question.options.last.isCorrect;
-      String q = question.options.first.code.toString();
-      if (correct == true || ans == q) {
-        return 'The answer is correct';
-      } else {
-        continue;
-      }
+  static String validate(String ans, int questionNum, int ansNum) {
+    Question question = getQuestions3().elementAt(questionNum);
+    bool correct = question.options.elementAt(ansNum).isCorrect;
+    String q = question.options.elementAt(ansNum).code.toString();
+    if (correct == true && q == ans) {
+      return 'The answer is correct';
     }
     return 'The answer is Incorrect';
   }
 }
 
 class correctQuestionsTest4 {
-  static String validate(String ans) {
-    for (int i = 0; i < getQuestions4().length; i++) {
-      Question question = getQuestions4().elementAt(i);
-      bool correct = question.options.last.isCorrect;
-      String q = question.options.first.code.toString();
-      if (correct == true || ans == q) {
-        return 'The answer is correct';
-      } else {
-        continue;
-      }
+  static String validate(String ans, int questionNum, int ansNum) {
+    Question question = getQuestions4().elementAt(questionNum);
+    bool correct = question.options.elementAt(ansNum).isCorrect;
+    String q = question.options.elementAt(ansNum).code.toString();
+    if (correct == true && q == ans) {
+      return 'The answer is correct';
     }
     return 'The answer is Incorrect';
   }
 }
 
 class correctQuestionsTest5 {
-  static String validate(String ans) {
-    for (int i = 0; i < getQuestions5().length; i++) {
-      Question question = getQuestions5().elementAt(i);
-      bool correct = question.options.last.isCorrect;
-      String q = question.options.first.code.toString();
-      if (correct == true || ans == q) {
-        return 'The answer is correct';
-      } else {
-        continue;
-      }
+  static String validate(String ans, int questionNum, int ansNum) {
+    Question question = getQuestions5().elementAt(questionNum);
+    bool correct = question.options.elementAt(ansNum).isCorrect;
+    String q = question.options.elementAt(ansNum).code.toString();
+    if (correct == true && q == ans) {
+      return 'The answer is correct';
     }
     return 'The answer is Incorrect';
   }
