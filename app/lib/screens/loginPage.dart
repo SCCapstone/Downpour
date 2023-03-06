@@ -4,7 +4,25 @@ import 'SignUpScreen.dart';
 
 class PasswordFieldValidator {
   static String validate(String value) {
-    return value.isEmpty ? 'Password can\'t be empty' : '0';
+    if (value.isEmpty) {
+      return value.isEmpty ? 'Password can\'t be empty' : '0';
+    }
+    if (value.contains(" ")) {
+      return value.contains(" ") ? 'Password can\'t contain a space' : '0';
+    }
+    return '0';
+  }
+}
+
+class UsernameFieldValidator {
+  static String validate(String value) {
+    if (value.isEmpty) {
+      return value.isEmpty ? 'Username can\'t be empty' : '0';
+    }
+    if (value.contains(" ")) {
+      return value.contains(" ") ? 'Username can\'t contain a space' : '0';
+    }
+    return '0';
   }
 }
 
@@ -77,6 +95,7 @@ class _LoginPage extends State<LoginPageState> {
               child: TextFormField(
                   key: const Key('usernameField'),
                   controller: nameController,
+                  validator: (value) => UsernameFieldValidator.validate(value!),
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'User Name',

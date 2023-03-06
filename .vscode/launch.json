@@ -23,6 +23,13 @@
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"
+        },
+        {
+            "name": "Flutter (integration_test\\unit_test Question1.dart)",
+            "type": "dart",
+            "request": "launch",
+            "cwd": "app",
+            "program": "integration_test\\unit_test Question1.dart"
         }
     ]
 }
