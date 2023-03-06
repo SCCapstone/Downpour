@@ -4,6 +4,7 @@ import 'package:pohnpeian_language_app/widget/category_header_widget.dart';
 import 'package:pohnpeian_language_app/data/result.dart';
 import 'package:pohnpeian_language_app/widget/app_widget.dart';
 import 'package:pohnpeian_language_app/data/user.dart';
+import 'package:pohnpeian_language_app/theme/style.dart' as custom_style;
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key}) : super(key: key);
@@ -18,7 +19,11 @@ class WelcomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(backgroundColor: (c), centerTitle: true),
+        appBar: AppBar(
+          title:
+              const Text('Quiz Your Knowledge', style: custom_style.appBarText),
+          backgroundColor: custom_style.light,
+        ), //maybe add a leading icon menu
         body: const WelcomeState(),
         backgroundColor: (Color.fromARGB(255, 117, 178, 221)),
       ),
@@ -34,7 +39,6 @@ class WelcomeState extends StatefulWidget {
 }
 
 class _WelcomeState extends State<WelcomeState> {
-
   late int _totalQuestion, _correctAnswer = 0;
   @override
   void initState() {
@@ -44,7 +48,8 @@ class _WelcomeState extends State<WelcomeState> {
       if (element) _correctAnswer++;
     });
     super.initState();
-  }  
+  }
+
   Widget buildResult(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -61,7 +66,10 @@ class _WelcomeState extends State<WelcomeState> {
           flexibleSpace: Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
-                colors: [Colors.deepOrange, Colors.purple],
+                colors: [
+                  Color.fromARGB(255, 40, 89, 109),
+                  Color.fromARGB(255, 186, 216, 102)
+                ],
                 begin: Alignment.topRight,
                 end: Alignment.bottomLeft,
               ),
@@ -77,8 +85,9 @@ class _WelcomeState extends State<WelcomeState> {
           ),
         ),
       ),
-    ); 
+    );
   }
+
   Widget buildResultPage(BuildContext context) => Scaffold(
         appBar: MyAppBar(username: username),
         body: ListView(
@@ -94,7 +103,7 @@ class _WelcomeState extends State<WelcomeState> {
       );
 
   Widget buildCategories() => Container(
-        height: 300,
+        height: 600,
         child: GridView(
           primary: false,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -108,63 +117,15 @@ class _WelcomeState extends State<WelcomeState> {
               .toList(),
         ),
       );
-  
-Widget build(BuildContext context) => Scaffold(
-       appBar: AppBar(
-          leading: const Icon(Icons.menu),
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          title: const Text('Welcome to Quizzes'),
-          flexibleSpace: Container(
-            decoration: const BoxDecoration(
-                gradient: LinearGradient(
-              colors: [Colors.blue, Colors.yellow],
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-            )),
-          ),
-        ),
-        body: ListView(
-          physics: const BouncingScrollPhysics(),
-          padding: const EdgeInsets.all(16),
-          children: [
-            const SizedBox(height: 8),
-            buildCategories(),
-            const SizedBox(height: 32),
-            //buildPopular(context),
-          ],
-        ),
-      ); 
-}
-    
 
-  /*Widget buildPopular(BuildContext context) => Column(
+  Widget build(BuildContext context) => ListView(
+        physics: const BouncingScrollPhysics(),
+        padding: const EdgeInsets.all(16),
         children: [
-          Container(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              'Popular',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-          ),
-          SizedBox(height: 16),
-          Container(
-            height: 240,
-            child: ListView(
-              physics: BouncingScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              children: categories
-                  .map((category) => CategoryDetailWidget(
-                        category: category,
-                        onSelectedCategory: (category) {
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) =>
-                                CategoryPage(category: category),
-                          ));
-                        },
-                      ))
-                  .toList(),
-            ),
-          )
+          const SizedBox(height: 8),
+          buildCategories(),
+          const SizedBox(height: 32),
+          //buildPopular(context),
         ],
-      );*/
+      );
+}

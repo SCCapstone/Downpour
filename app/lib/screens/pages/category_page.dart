@@ -52,7 +52,7 @@ class _CategoryPageState extends State<CategoryPage> {
         flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: [Colors.deepOrange, Colors.purple],
+              colors: [Color.fromARGB(255, 69, 147, 179), Color.fromARGB(255, 196, 221, 105)],
               begin: Alignment.topRight,
               end: Alignment.bottomLeft,
             ),

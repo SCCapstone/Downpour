@@ -37,7 +37,7 @@ class _ResultPageState extends State<ResultPage> {
           flexibleSpace: Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [Colors.deepOrange, Colors.purple],
+                colors: [Colors.blue, Colors.white],
                 begin: Alignment.topRight,
                 end: Alignment.bottomLeft,
               ),
