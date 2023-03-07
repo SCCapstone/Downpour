@@ -59,11 +59,11 @@ void main() {
   });
 
   //Question 4
-  test('Answering A on Question 4 returns error', () {
+  test('Answering A on Question 4 returns Correct', () {
     var result = correctQuestionsTest3.validate('A', 3, 0);
     expect(result, 'The answer is correct');
   });
-  test('Answering B on Question 4 returns Correct', () {
+  test('Answering B on Question 4 returns error', () {
     var result = correctQuestionsTest3.validate('B', 3, 1);
     expect(result, 'The answer is Incorrect');
   });
