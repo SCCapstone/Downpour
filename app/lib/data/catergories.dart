@@ -38,9 +38,9 @@ final categories = <Category>[
   ),
   Category(
     questions: getQuestions5(),
-    categoryName: 'Objects',
+    categoryName: 'Health',
     backgroundColor: Colors.lightGreen,
-    icon: FontAwesomeIcons.book,
+    icon: FontAwesomeIcons.health,
     description: 'Test your knowledge on health and illness',
   )
 ];

@@ -8,8 +8,8 @@ List<Question> getQuestions2() {
       text: 'Which of the following is "Mother"?',
       options: [
         Option(code: 'A', text: 'Ehng', isCorrect: false),
-        Option(code: 'B', text: 'Nohno', isCorrect: true),
-        Option(code: 'C', text: 'Mwenge', isCorrect: false),
+        Option(code: 'B', text: 'Mwenge', isCorrect: false),
+        Option(code: 'C', text: 'Nohno', isCorrect: true),
         Option(code: 'D', text: 'Malek', isCorrect: false),
       ],
       solution: 'The correct answer is "Nohno" ',
@@ -17,10 +17,10 @@ List<Question> getQuestions2() {
     list.add(Question(
       text: 'Which of the following is "Father"?',
       options: [
-        Option(code: 'A', text: 'Kahlail', isCorrect: false),
-        Option(code: 'B', text: 'Mwahu', isCorrect: false),
-        Option(code: 'C', text: 'E-yung', isCorrect: false),
-        Option(code: 'D', text: 'Pahpa', isCorrect: true),
+        Option(code: 'A', text: 'Pahpa', isCorrect: true),
+        Option(code: 'B', text: 'Kahlail', isCorrect: false),
+        Option(code: 'C', text: 'Mwahu', isCorrect: false),
+        Option(code: 'D', text: 'E-yung', isCorrect: false),
       ],
       solution: 'The correct answer is "Pahpa" ',
     ));
@@ -37,8 +37,8 @@ List<Question> getQuestions2() {
     list.add(Question(
       text: 'Which of the following is "My child/children" ?',
       options: [
-        Option(code: 'A', text: 'Nei seri', isCorrect: true),
-        Option(code: 'B', text: 'Pwohng mwahu', isCorrect: false),
+        Option(code: 'A', text: 'Pwohng mwahu', isCorrect: false),
+        Option(code: 'B', text: 'Nei seri', isCorrect: true),
         Option(code: 'C', text: "A kis", isCorrect: false),
         Option(code: 'D', text: "E-yung", isCorrect: false),
       ],
@@ -68,9 +68,9 @@ List<Question> getQuestions2() {
       text: 'Which of the following is "Grandmother"?',
       options: [
         Option(code: 'A', text: 'Soutik mwahu', isCorrect: false),
-        Option(code: 'B', text: 'Menseng mwahu', isCorrect: false),
-        Option(code: 'C', text: 'Souwas mwahu', isCorrect: false),
-        Option(code: 'D', text: 'Nohno kahlap', isCorrect: true),
+        Option(code: 'B', text: 'Nohno kahlap', isCorrect: true),
+        Option(code: 'C', text: 'Menseng mwahu', isCorrect: false),
+        Option(code: 'D', text: 'Souwas mwahu', isCorrect: false),
       ],
       solution: 'The correct answer is "Nohno kahlap"',
     ));

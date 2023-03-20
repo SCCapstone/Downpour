@@ -8,9 +8,9 @@ List<Question> getQuestions3() {
     text: 'Which of the following is "Coconut"?',
     options: [
       Option(code: 'A', text: 'Mwenge', isCorrect: false),
-      Option(code: 'B', text: 'Mwangas', isCorrect: true),
-      Option(code: 'C', text: 'Kep', isCorrect: false),
-      Option(code: 'D', text: 'Rais', isCorrect: false),
+      Option(code: 'B', text: 'Kep', isCorrect: false),
+      Option(code: 'C', text: 'Rais', isCorrect: false),
+      Option(code: 'D', text: 'Mwangas', isCorrect: true),
     ],
     solution: 'The correct answer is "Mwangas" ',
   ));
@@ -19,8 +19,9 @@ List<Question> getQuestions3() {
     options: [
       Option(code: 'A', text: 'Mwahmw', isCorrect: false),
       Option(code: 'B', text: 'Mahi', isCorrect: false),
-      Option(code: 'C', text: 'Uht', isCorrect: false),
-      Option(code: 'D', text: 'Pweinaper', isCorrect: true),
+      Option(code: 'C', text: 'Pweinaper', isCorrect: true),
+      Option(code: 'D', text: 'Uht', isCorrect: false),
+      
     ],
     solution: 'The correct answer is "Pweinaper" ',
   ));
@@ -28,9 +29,10 @@ List<Question> getQuestions3() {
     text: 'Which of the following is "Banana"?',
     options: [
       Option(code: 'A', text: 'Pihl', isCorrect: false),
-      Option(code: 'B', text: 'Mwahmw', isCorrect: false),
-      Option(code: 'C', text: 'Pedede', isCorrect: false),
-      Option(code: 'D', text: 'Uht', isCorrect: true),
+      Option(code: 'B', text: 'Uht', isCorrect: true),
+      Option(code: 'C', text: 'Mwahmw', isCorrect: false),
+      Option(code: 'D', text: 'Pedede', isCorrect: false),
+      
     ],
     solution: 'The correct answer is "Uht"',
   ));
@@ -48,8 +50,8 @@ List<Question> getQuestions3() {
     text: 'Which of the following is "Milk"?',
     options: [
       Option(code: 'A', text: 'Rais', isCorrect: false),
-      Option(code: 'B', text: 'Mahi', isCorrect: false),
-      Option(code: 'C', text: 'Milik', isCorrect: true),
+      Option(code: 'B', text: 'Milik', isCorrect: true),
+      Option(code: 'C', text: 'Mahi', isCorrect: false),
       Option(code: 'D', text: 'Pihl', isCorrect: false),
     ],
     solution: 'The correct answer is "Milik"',
@@ -59,12 +61,8 @@ List<Question> getQuestions3() {
     options: [
       Option(code: 'A', text: 'Ainpwaot', isCorrect: false),
       Option(code: 'B', text: 'Supwuhm', isCorrect: false),
-      Option(code: 'C', text: 'Pwohk', isCorrect: true),
-      Option(
-        code: 'D',
-        text: 'Sidohp',
-        isCorrect: false,
-      ),
+      Option(code: 'C', text: 'Sidohp', isCorrect: false),
+      Option(code: 'D', text: 'Pwohk', isCorrect: true), 
     ],
     solution: 'The correct answer is "Pwohk"',
   ));

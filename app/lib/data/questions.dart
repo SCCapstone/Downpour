@@ -42,7 +42,7 @@ List<Question> getQuestions() {
       Option(code: 'C', text: "A kis", isCorrect: false),
       Option(code: 'D', text: "E-yung", isCorrect: false),
     ],
-    solution: 'The correct answer is Kaselehlie',
+    solution: 'The correct answer is La iromw',
   ));
   list.add(Question(
     text: 'Which of the following is "Good morning"?',
@@ -60,11 +60,7 @@ List<Question> getQuestions() {
       Option(code: 'A', text: 'Menseng mwahu', isCorrect: false),
       Option(code: 'B', text: 'Pwohng mwahu', isCorrect: false),
       Option(code: 'C', text: 'Souwas mwahu', isCorrect: true),
-      Option(
-        code: 'D',
-        text: 'Soutik mwahu',
-        isCorrect: false,
-      ),
+      Option(code: 'D', text: 'Soutik mwahu', isCorrect: false),
     ],
     solution: 'The correct answer is "Souwas mwahu"',
   ));
