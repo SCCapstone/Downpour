@@ -66,9 +66,10 @@ class EditProfilePage extends StatefulWidget {
 }
 
 class _EditProfilePageState extends State<EditProfilePage> {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController aboutController = TextEditingController();
-  User user = UserPreferences.myUser;
+  TextEditingController nameController =
+      TextEditingController(text: UserPreferences.myUser.name);
+  TextEditingController aboutController =
+      TextEditingController(text: UserPreferences.myUser.about);
 
   @override
   Widget build(BuildContext context) {
