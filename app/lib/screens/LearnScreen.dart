@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pohnpeian_language_app/models/userModel.dart';
 import 'package:pohnpeian_language_app/screens/LessonScreen.dart';
 import 'package:pohnpeian_language_app/widget/FrostedCard.dart';
 import 'package:pohnpeian_language_app/theme/style.dart' as custom_style;
@@ -104,17 +105,9 @@ class _LessonProgressionState extends State<LessonProgression> {
       are completed for each user
     - Then, the database needs to be updated onStepContinue below
     */
-    _listOfStates = [
-      StepState.complete,
-      StepState.indexed,
-      StepState.indexed,
-      StepState.indexed,
-      StepState.indexed,
-      StepState.indexed,
-      StepState.indexed,
-      StepState.indexed,
-      StepState.indexed,
-    ];
+    _listOfStates = UserPreferences.myUser.lessonProgress
+        .map((int num) => num == 0 ? StepState.indexed : StepState.complete)
+        .toList();
 
     // TODO: make a function that returns the proper reminder notification for alert dialog
     _hasReminder = false; //for demonstrating the alert dialog
@@ -162,6 +155,7 @@ class _LessonProgressionState extends State<LessonProgression> {
               Timer(const Duration(seconds: 1), () {
                 setState(() {
                   _listOfStates[_index] = StepState.complete;
+                  UserPreferences.myUser.lessonProgress[_index] = 1;
                 });
               });
             },

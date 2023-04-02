@@ -40,7 +40,7 @@ final categories = <Category>[
     questions: getQuestions5(),
     categoryName: 'Health',
     backgroundColor: Colors.lightGreen,
-    icon: FontAwesomeIcons.health,
+    icon: FontAwesomeIcons.stethoscope,
     description: 'Test your knowledge on health and illness',
   )
 ];
