@@ -29,19 +29,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: Center(
                     child: Stack(children: [
                   SizedBox(
-                      height: 120,
-                      width: 120,
-                      child: CircleAvatar(
-                          backgroundImage: NetworkImage(
-                              usermodel.UserPreferences.myUser.imagePath))),
+                      height: 160,
+                      width: 160,
+                      child: Image.asset(usermodel.profileImages[
+                          usermodel.UserPreferences.myUser.imageNo])),
                   Positioned(
                       bottom: 0,
-                      right: 4,
-                      child: ClipOval(
+                      right: 0,
+                      child: ClipRect(
                         child: Material(
-                          color: style.secondary, // Button color
+                          color: style.primary, // Button color
                           child: InkWell(
-                              splashColor: style.primary,
+                              splashColor: style.secondary,
                               onTap: () => Navigator.push(
                                       context,
                                       MaterialPageRoute(
