@@ -105,6 +105,7 @@ class _LessonProgressionState extends State<LessonProgression> {
       are completed for each user
     - Then, the database needs to be updated onStepContinue below
     */
+    UserPreferences.myUser.loadData();
     _listOfStates = UserPreferences.myUser.lessonProgress
         .map((int num) => num == 0 ? StepState.indexed : StepState.complete)
         .toList();
@@ -156,6 +157,7 @@ class _LessonProgressionState extends State<LessonProgression> {
                 setState(() {
                   _listOfStates[_index] = StepState.complete;
                   UserPreferences.myUser.lessonProgress[_index] = 1;
+                  UserPreferences.myUser.saveData();
                 });
               });
             },
