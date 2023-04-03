@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pohnpeian_language_app/screens/Home.dart';
 import 'SignUpScreen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:pohnpeian_language_app/services/auth.dart';
 
 class PasswordFieldValidator {
   static String validate(String value) {
@@ -15,13 +17,13 @@ class PasswordFieldValidator {
   }
 }
 
-class EmailFieldValidator {
+class emailFieldValidator {
   static String validate(String value) {
     if (value.isEmpty) {
-      return value.isEmpty ? 'Email can\'t be empty' : '0';
+      return value.isEmpty ? 'email can\'t be empty' : '0';
     }
     if (value.contains(" ")) {
-      return value.contains(" ") ? 'Email can\'t contain a space' : '0';
+      return value.contains(" ") ? 'email can\'t contain a space' : '0';
     }
     return '0';
   }
@@ -63,6 +65,17 @@ class _LoginPage extends State<LoginPageState> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
+  Future<void> signInWithEmailAndPassword() async {
+    try {
+      await Auth().signInWithEmailAndPassword(
+          email: emailController.text, password: passwordController.text);
+
+      Navigator.of(context).push(MaterialPageRoute(builder: (_) => Home()));
+    } on FirebaseAuthException catch (e) {
+      //to fill with error message
+    }
+  }
+
   //The login button color
   static const Color a = Color.fromRGBO(45, 211, 112, 1.0);
   static const Color b = Color.fromRGBO(45, 211, 112, 1.0);
@@ -72,6 +85,8 @@ class _LoginPage extends State<LoginPageState> {
 
   @override
   Widget build(BuildContext context) {
+    Auth().signOut();
+
     Future signIn() async {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: emailController.text.trim(),
@@ -102,7 +117,7 @@ class _LoginPage extends State<LoginPageState> {
               child: TextFormField(
                   key: const Key('emailField'),
                   controller: emailController,
-                  validator: (value) => EmailFieldValidator.validate(value!),
+                  validator: (value) => emailFieldValidator.validate(value!),
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Email',
@@ -140,10 +155,12 @@ class _LoginPage extends State<LoginPageState> {
                     decoration: TextDecoration.underline,
                   ),
                 ),
-                onPressed: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const SignUpPage())),
+                onPressed: () => {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SignUpPage()))
+                },
                 child: const Text("Don't Have an Account? Sign up!"),
               )),
           Container(
@@ -158,7 +175,18 @@ class _LoginPage extends State<LoginPageState> {
                   backgroundColor: (b),
                 ),
                 child: Text('Log In'),
-                onPressed: signIn,
+                onPressed: () {
+                  signIn().then((value) => {
+                        if (Auth().currentUser != null)
+                          {
+                            Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(builder: (context) => Home()),
+                              (Route<dynamic> route) => false,
+                            )
+                          }
+                      });
+                },
               ))
         ],
       ),

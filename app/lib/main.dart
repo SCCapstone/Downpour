@@ -3,6 +3,7 @@
 // found in the LICENSE fil
 
 import 'package:flutter/material.dart';
+import 'package:pohnpeian_language_app/screens/loginPage.dart';
 import 'screens/SignUpScreen.dart';
 
 //import 'screens/pages/result_page.dart';
@@ -24,9 +25,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: StreamBuilder<User?>(
-        stream: FirebaseAuth.instance.authStateChanges(),
-      ),
+      home: LoginPage(),
     );
   }
 }
