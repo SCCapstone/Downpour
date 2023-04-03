@@ -1,6 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pohnpeian_language_app/screens/Home.dart';
 import 'SignUpScreen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:pohnpeian_language_app/services/auth.dart';
 
 class PasswordFieldValidator {
   static String validate(String value) {
@@ -14,13 +17,13 @@ class PasswordFieldValidator {
   }
 }
 
-class UsernameFieldValidator {
+class emailFieldValidator {
   static String validate(String value) {
     if (value.isEmpty) {
-      return value.isEmpty ? 'Username can\'t be empty' : '0';
+      return value.isEmpty ? 'email can\'t be empty' : '0';
     }
     if (value.contains(" ")) {
-      return value.contains(" ") ? 'Username can\'t contain a space' : '0';
+      return value.contains(" ") ? 'email can\'t contain a space' : '0';
     }
     return '0';
   }
@@ -59,8 +62,19 @@ class LoginPageState extends StatefulWidget {
 }
 
 class _LoginPage extends State<LoginPageState> {
-  TextEditingController nameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
+  Future<void> signInWithEmailAndPassword() async {
+    try {
+      await Auth().signInWithEmailAndPassword(
+          email: emailController.text, password: passwordController.text);
+
+      Navigator.of(context).push(MaterialPageRoute(builder: (_) => Home()));
+    } on FirebaseAuthException catch (e) {
+      //to fill with error message
+    }
+  }
 
   //The login button color
   static const Color a = Color.fromRGBO(45, 211, 112, 1.0);
@@ -71,6 +85,14 @@ class _LoginPage extends State<LoginPageState> {
 
   @override
   Widget build(BuildContext context) {
+    Auth().signOut();
+
+    Future signIn() async {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailController.text.trim(),
+          password: passwordController.text.trim());
+    }
+
     return Padding(
       padding: const EdgeInsets.fromLTRB(40, 40, 40, 50),
       child: ListView(
@@ -93,12 +115,12 @@ class _LoginPage extends State<LoginPageState> {
               padding: const EdgeInsets.all(0),
               color: Colors.white,
               child: TextFormField(
-                  key: const Key('usernameField'),
-                  controller: nameController,
-                  validator: (value) => UsernameFieldValidator.validate(value!),
+                  key: const Key('emailField'),
+                  controller: emailController,
+                  validator: (value) => emailFieldValidator.validate(value!),
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
-                    labelText: 'User Name',
+                    labelText: 'Email',
                     labelStyle: TextStyle(color: Colors.black),
                   ))),
           Container(
@@ -133,10 +155,12 @@ class _LoginPage extends State<LoginPageState> {
                     decoration: TextDecoration.underline,
                   ),
                 ),
-                onPressed: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const SignUpPage())),
+                onPressed: () => {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SignUpPage()))
+                },
                 child: const Text("Don't Have an Account? Sign up!"),
               )),
           Container(
@@ -152,8 +176,16 @@ class _LoginPage extends State<LoginPageState> {
                 ),
                 child: Text('Log In'),
                 onPressed: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (_) => Home()));
+                  signIn().then((value) => {
+                        if (Auth().currentUser != null)
+                          {
+                            Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(builder: (context) => Home()),
+                              (Route<dynamic> route) => false,
+                            )
+                          }
+                      });
                 },
               ))
         ],

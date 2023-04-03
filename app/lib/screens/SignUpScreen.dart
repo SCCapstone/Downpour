@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:pohnpeian_language_app/models/userModel.dart';
 import 'package:pohnpeian_language_app/screens/Home.dart';
 import 'loginPage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:pohnpeian_language_app/services/auth.dart';
 
 /*class User {
   // Holds user data, just holds name as of right now
@@ -73,65 +75,6 @@ class SignUpPageState extends StatefulWidget {
 }
 
 class _SignUpPage extends State<SignUpPageState> {
-  final GoogleSignIn googleSignIn = GoogleSignIn();
-  bool isLoggedIn = false;
-  late GoogleSignInAccount userInf;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        child: isLoggedIn
-            ? Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-              Image.network(userInf.photoUrl!),
-              const SizedBox(height: 20,),
-              Text(userInf.displayName!),
-              const SizedBox(height: 20,),
-              Text(userInf.email),
-              const SizedBox(height: 20,),
-              MaterialButton(
-             onPressed: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (_) => Home()));},
-                height: 50,
-                minWidth: 100,
-                color: Color.fromRGBO(45, 211, 112, 1.0),
-                child: const Text('Continue to app',style: TextStyle(color: Colors.white),),
-              )
-          ],
-        ),
-        ) : Center(
-          child: MaterialButton(
-            onPressed: () { 
-              Navigator.of(context)
-                .push(MaterialPageRoute(builder: (_) => Home()));/*
-              googleSignIn.signIn().then((userData) {
-                setState(() {
-                  isLoggedIn = true;
-                  userInf = userData!;
-                });
-              }).catchError((e) {
-                print(e);
-              });*/
-            },
-            height: 200,
-            minWidth: 400,
-            color: Color.fromARGB(219, 39, 183, 196),
-            child: const Text('Sign in with Google',style: TextStyle(color: Colors.white),),
-          )
-        ),
-      ),
-    );
-  }
-}
-
-/*
-class _SignUpPage extends State<SignUpPageState> {
-
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController cpasswordController = TextEditingController();
@@ -148,6 +91,15 @@ class _SignUpPage extends State<SignUpPageState> {
   static const c3 = Color.fromRGBO(38, 77, 105, 1.0);
   static const d = Color.fromRGBO(146, 148, 156, 1.0);
   static const background = Color.fromARGB(219, 39, 183, 196);
+
+  Future<void> createUserWithEmailAndPassword() async {
+    try {
+      await Auth().createUserWithEmailAndPassword(
+          email: emailController.text, password: passwordController.text);
+    } on FirebaseAuthException catch (e) {
+      //to fill with error message
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -177,7 +129,7 @@ class _SignUpPage extends State<SignUpPageState> {
                 controller: nameController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'User Name',
+                  labelText: 'Name',
                   labelStyle: TextStyle(color: Colors.black),
                 ),
               ),
@@ -263,37 +215,32 @@ class _SignUpPage extends State<SignUpPageState> {
                   ),
                   child: Text('Sign Up!'),
                   onPressed: () {
-                    final name1 = nameController.text;
-                    final pw1 = passwordController.text;
-                    final email1 = emailController.text;
-                    createUser(name1: name1, pw1: pw1, email1: email1);
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const LoginPage()));
+                    if (passwordController.text == cpasswordController.text) {
+                      createUserWithEmailAndPassword().then(
+                        (value) {
+                          UserPreferences.myUser.name = nameController.text;
+                          Auth()
+                              .signInWithEmailAndPassword(
+                                  email: emailController.text.trim(),
+                                  password: passwordController.text.trim())
+                              .then((value) {
+                            UserPreferences.myUser.saveData();
+                          }).then((value) {
+                            Auth().signOut();
+                          });
+                        },
+                      ).then(
+                        (value) => {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const LoginPage()))
+                        },
+                      );
+                    }
                   },
                 ))
           ],
         ));
   }
-
- /* Future createUser(
-      {required String name1,
-      required String pw1,
-      required String email1}) async {
-    //Reference to Document
-    final docUser =
-        FirebaseFirestore.instance.collection('Users').doc('userBase');
-
-    final user = User(
-      id: 'userBase',
-      name: name1,
-      pw: pw1,
-      email: email1,
-    );
-    final json = user.toJson();
-    //Create document and write data to firebase
-    await docUser.set(json);
-  }*/
 }
-*/

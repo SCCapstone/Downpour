@@ -96,6 +96,7 @@ class _LessonProgressionState extends State<LessonProgression> {
 
   @override
   void initState() {
+    super.initState();
     /*
     _listOfStates keeps track of the progress of whether or not a lesson is completed
     - Each item of the list maps onto a lesson
@@ -105,14 +106,22 @@ class _LessonProgressionState extends State<LessonProgression> {
       are completed for each user
     - Then, the database needs to be updated onStepContinue below
     */
-    UserPreferences.myUser.loadData();
+
     _listOfStates = UserPreferences.myUser.lessonProgress
         .map((int num) => num == 0 ? StepState.indexed : StepState.complete)
         .toList();
 
+    _hasReminder = false;
+    UserPreferences.myUser.loadData().then((value) {
+      setState(() {
+        _listOfStates = UserPreferences.myUser.lessonProgress
+            .map((int num) => num == 0 ? StepState.indexed : StepState.complete)
+            .toList();
+      });
+    });
+
     // TODO: make a function that returns the proper reminder notification for alert dialog
-    _hasReminder = false; //for demonstrating the alert dialog
-    super.initState();
+    //for demonstrating the alert dialog
   }
 
   @override
@@ -120,54 +129,60 @@ class _LessonProgressionState extends State<LessonProgression> {
     // Stack serves as a way to show the dialog box for lesson suggestion
     // I might suggest get rid of the Stack for some better implementation
     return Stack(children: [
-      Container(
-          padding: const EdgeInsets.fromLTRB(0, 0, 0, 80),
-          child: Stepper(
-            physics: const BouncingScrollPhysics(),
-            controlsBuilder: (BuildContext context, ControlsDetails details) {
-              return Container(
-                padding: const EdgeInsets.only(top: 10.0),
-                alignment: Alignment.centerRight,
-                child: TextButton(
-                    onPressed: details.onStepContinue,
-                    style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(Colors.black),
-                        padding: MaterialStateProperty.all<EdgeInsets>(
-                            const EdgeInsets.only(left: 30, right: 30)),
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18.0),
-                        ))),
-                    child: const Text(
-                      'LEARN',
-                      style: TextStyle(color: Colors.white),
-                    )),
-              );
-            },
-            currentStep: _index,
-            onStepContinue: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => LessonSlideDeck(
-                      lessonSlides: lessonsList[_index], title: titles[_index]),
-                  settings: const RouteSettings(name: "/lesson")));
-              // update database here
-              Timer(const Duration(seconds: 1), () {
-                setState(() {
-                  _listOfStates[_index] = StepState.complete;
-                  UserPreferences.myUser.lessonProgress[_index] = 1;
-                  UserPreferences.myUser.saveData();
-                });
-              });
-            },
-            onStepTapped: (int index) {
-              setState(() {
-                _index = index;
-              });
-            },
-            steps: stepBuilder(_listOfStates),
-          )),
+      FutureBuilder(
+        builder: (snap, ctx) {
+          return Container(
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 80),
+              child: Stepper(
+                physics: const BouncingScrollPhysics(),
+                controlsBuilder:
+                    (BuildContext context, ControlsDetails details) {
+                  return Container(
+                    padding: const EdgeInsets.only(top: 10.0),
+                    alignment: Alignment.centerRight,
+                    child: TextButton(
+                        onPressed: details.onStepContinue,
+                        style: ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.all(Colors.black),
+                            padding: MaterialStateProperty.all<EdgeInsets>(
+                                const EdgeInsets.only(left: 30, right: 30)),
+                            shape: MaterialStateProperty.all<
+                                RoundedRectangleBorder>(RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                            ))),
+                        child: const Text(
+                          'LEARN',
+                          style: TextStyle(color: Colors.white),
+                        )),
+                  );
+                },
+                currentStep: _index,
+                onStepContinue: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => LessonSlideDeck(
+                          lessonSlides: lessonsList[_index],
+                          title: titles[_index]),
+                      settings: const RouteSettings(name: "/lesson")));
+                  // update database here
+                  Timer(const Duration(seconds: 1), () {
+                    setState(() {
+                      _listOfStates[_index] = StepState.complete;
+                      UserPreferences.myUser.lessonProgress[_index] = 1;
+                      UserPreferences.myUser.saveData();
+                    });
+                  });
+                },
+                onStepTapped: (int index) {
+                  setState(() {
+                    _index = index;
+                  });
+                },
+                steps: stepBuilder(_listOfStates),
+              ));
+        },
+        future: UserPreferences.myUser.loadData(),
+      ),
       if (_hasReminder)
         AlertDialog(
           title: const Text('Lesson Reminder'),
