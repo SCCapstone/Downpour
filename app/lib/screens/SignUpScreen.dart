@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:pohnpeian_language_app/models/auth_service.dart';
 import 'package:pohnpeian_language_app/screens/Home.dart';
 import 'loginPage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -114,18 +115,19 @@ class _SignUpPage extends State<SignUpPageState> {
             : Center(
                 child: MaterialButton(
                 onPressed: () {
-                  _googleSignIn.signIn().then((userData) {
-                    setState(() {
-                      isLoggedIn = true;
-                      userInf = userData!;
-                    });
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (_) => Home()));
-                  }).catchError((e) {
-                    print("====");
-                    print(e);
-                    print("====");
-                  });
+                  // _googleSignIn.signIn().then((userData) {
+                  //   setState(() {
+                  //     isLoggedIn = true;
+                  //     userInf = userData!;
+                  //   });
+                  //   Navigator.of(context)
+                  //       .push(MaterialPageRoute(builder: (_) => Home()));
+                  // }).catchError((e) {
+                  //   print("====");
+                  //   print(e);
+                  //   print("====");
+                  // });
+                  AuthService().handleAuthState();
                 },
                 height: 200,
                 minWidth: 400,
