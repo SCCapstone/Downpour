@@ -4,7 +4,6 @@ import 'loginPage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-
 /*class User {
   // Holds user data, just holds name as of right now
   String id;
@@ -72,6 +71,7 @@ class SignUpPageState extends StatefulWidget {
   State<SignUpPageState> createState() => _SignUpPage();
 }
 
+/*
 class _SignUpPage extends State<SignUpPageState> {
   final GoogleSignIn googleSignIn = GoogleSignIn();
   bool isLoggedIn = false;
@@ -128,10 +128,9 @@ class _SignUpPage extends State<SignUpPageState> {
     );
   }
 }
+*/
 
-/*
 class _SignUpPage extends State<SignUpPageState> {
-
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController cpasswordController = TextEditingController();
@@ -266,7 +265,7 @@ class _SignUpPage extends State<SignUpPageState> {
                     final name1 = nameController.text;
                     final pw1 = passwordController.text;
                     final email1 = emailController.text;
-                    createUser(name1: name1, pw1: pw1, email1: email1);
+                    //createUser(name1: name1, pw1: pw1, email1: email1);
                     Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -277,23 +276,22 @@ class _SignUpPage extends State<SignUpPageState> {
         ));
   }
 
- /* Future createUser(
-      {required String name1,
-      required String pw1,
-      required String email1}) async {
-    //Reference to Document
-    final docUser =
-        FirebaseFirestore.instance.collection('Users').doc('userBase');
+  // Future createUser(
+  //     {required String name1,
+  //     required String pw1,
+  //     required String email1}) async {
+  //   //Reference to Document
+  //   final docUser =
+  //       FirebaseFirestore.instance.collection('Users').doc('userBase');
 
-    final user = User(
-      id: 'userBase',
-      name: name1,
-      pw: pw1,
-      email: email1,
-    );
-    final json = user.toJson();
-    //Create document and write data to firebase
-    await docUser.set(json);
-  }*/
+  //   final user = User(
+  //     id: 'userBase',
+  //     name: name1,
+  //     pw: pw1,
+  //     email: email1,
+  //   );
+  //   final json = user.toJson();
+  //   //Create document and write data to firebase
+  //   await docUser.set(json);
+  // }
 }
-*/

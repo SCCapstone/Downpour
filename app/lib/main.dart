@@ -9,6 +9,7 @@ import 'screens/SignUpScreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 //imports google sign in authentication
 import 'package:google_sign_in/google_sign_in.dart';
+
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -23,7 +24,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SignUpPage(),
+      home: StreamBuilder<User?>(
+        stream: FirebaseAuth.instance.authStateChanges(),
+      ),
     );
   }
 }

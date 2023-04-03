@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pohnpeian_language_app/screens/Home.dart';
 import 'SignUpScreen.dart';
@@ -14,13 +15,13 @@ class PasswordFieldValidator {
   }
 }
 
-class UsernameFieldValidator {
+class EmailFieldValidator {
   static String validate(String value) {
     if (value.isEmpty) {
-      return value.isEmpty ? 'Username can\'t be empty' : '0';
+      return value.isEmpty ? 'Email can\'t be empty' : '0';
     }
     if (value.contains(" ")) {
-      return value.contains(" ") ? 'Username can\'t contain a space' : '0';
+      return value.contains(" ") ? 'Email can\'t contain a space' : '0';
     }
     return '0';
   }
@@ -59,7 +60,7 @@ class LoginPageState extends StatefulWidget {
 }
 
 class _LoginPage extends State<LoginPageState> {
-  TextEditingController nameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
   //The login button color
@@ -71,6 +72,12 @@ class _LoginPage extends State<LoginPageState> {
 
   @override
   Widget build(BuildContext context) {
+    Future signIn() async {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailController.text.trim(),
+          password: passwordController.text.trim());
+    }
+
     return Padding(
       padding: const EdgeInsets.fromLTRB(40, 40, 40, 50),
       child: ListView(
@@ -93,12 +100,12 @@ class _LoginPage extends State<LoginPageState> {
               padding: const EdgeInsets.all(0),
               color: Colors.white,
               child: TextFormField(
-                  key: const Key('usernameField'),
-                  controller: nameController,
-                  validator: (value) => UsernameFieldValidator.validate(value!),
+                  key: const Key('emailField'),
+                  controller: emailController,
+                  validator: (value) => EmailFieldValidator.validate(value!),
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
-                    labelText: 'User Name',
+                    labelText: 'Email',
                     labelStyle: TextStyle(color: Colors.black),
                   ))),
           Container(
@@ -151,10 +158,7 @@ class _LoginPage extends State<LoginPageState> {
                   backgroundColor: (b),
                 ),
                 child: Text('Log In'),
-                onPressed: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (_) => Home()));
-                },
+                onPressed: signIn,
               ))
         ],
       ),
