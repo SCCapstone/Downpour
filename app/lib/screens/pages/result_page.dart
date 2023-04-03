@@ -6,6 +6,7 @@ import 'package:pohnpeian_language_app/data/questions2.dart';
 import 'package:pohnpeian_language_app/data/questions3.dart';
 import 'package:pohnpeian_language_app/data/questions4.dart';
 import 'package:pohnpeian_language_app/data/questions5.dart';
+import 'package:pohnpeian_language_app/widget/options.dart';
 
 class TotalQuestionsTest1 {
   static int validate(int numQ) {
@@ -88,7 +89,7 @@ class ResultPage extends StatefulWidget {
 }
 
 class _ResultPageState extends State<ResultPage> {
-  late int _totalQuestion, _correctAnswer, _totalQuestionTest = 0;
+  late int _totalQuestion, _correctAnswer = 0, _totalQuestionTest = 0;
   @override
   void initState() {
     _totalQuestion = userResult.length;
@@ -96,6 +97,13 @@ class _ResultPageState extends State<ResultPage> {
       if (element) _correctAnswer++;
     });
     super.initState();
+  }
+
+  void resetQuizState(List<Question> questions) {
+    for (var question in questions) {
+      question.selectedOption = null;
+      question.isLocked = false;
+    }
   }
 
   @override
@@ -127,6 +135,22 @@ class _ResultPageState extends State<ResultPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text("Your score: $_correctAnswer / $_totalQuestion"),
+              SizedBox(height: 16.0),
+              ElevatedButton(
+                child: Text('Retry Quiz'),
+                onPressed: () {
+                  resetQuizState(getQuestions());
+                  resetQuizState(getQuestions2());
+                  resetQuizState(getQuestions3());
+                  resetQuizState(getQuestions4());
+                  resetQuizState(getQuestions5());
+                  NavigatorState navigator = Navigator.of(context);
+                  for (int i = 0; i < _totalQuestion; i++) {
+                    if (!navigator.canPop()) break;
+                    navigator.pop();
+                  }
+                },
+              ),
             ],
           ),
         ),

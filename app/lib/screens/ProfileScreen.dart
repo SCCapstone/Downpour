@@ -69,13 +69,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: Text(usermodel.UserPreferences.myUser.about)),
             TextButton(
                 onPressed: () {
-                  final docUser = FirebaseFirestore.instance
-                      .collection('Users')
-                      .doc('userBase');
-
-                  docUser.set({
-                    'name': '',
-                  });
+                  //todo delete instance account in firebase
                 },
                 child: Text(" Delete Account ")),
           ],
