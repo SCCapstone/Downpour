@@ -88,7 +88,7 @@ class ResultPage extends StatefulWidget {
 }
 
 class _ResultPageState extends State<ResultPage> {
-  late int _totalQuestion, _correctAnswer, _totalQuestionTest = 0;
+  late int _totalQuestion, _correctAnswer = 0, _totalQuestionTest = 0;
   @override
   void initState() {
     _totalQuestion = userResult.length;

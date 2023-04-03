@@ -9,8 +9,7 @@ class LessonSlideDeck extends StatefulWidget {
   final List<Map<String, dynamic>> lessonSlides;
   final String title;
 
-  const LessonSlideDeck(
-      {super.key, required this.lessonSlides, required this.title});
+  const LessonSlideDeck({required this.lessonSlides, required this.title});
 
   @override
   _LessonSlideDeckState createState() => _LessonSlideDeckState();
@@ -19,8 +18,10 @@ class LessonSlideDeck extends StatefulWidget {
 class _LessonSlideDeckState extends State<LessonSlideDeck> {
   List<Widget> renderListCustomTabs() {
     List<Widget> tabs = [];
-    for (int i = 0; i < widget.lessonSlides.length; i++) {
-      tabs.add(LessonSlideFactory.getSlide(widget.lessonSlides[i]));
+    if (widget.lessonSlides != null && widget.lessonSlides.isNotEmpty) {
+      for (int i = 0; i < widget.lessonSlides.length; i++) {
+        tabs.add(LessonSlideFactory.getSlide(widget.lessonSlides[i]));
+      }
     }
     return tabs;
   }
