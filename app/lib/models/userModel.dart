@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:pohnpeian_language_app/screens/LearnScreen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class User {
   String name;
@@ -18,23 +20,29 @@ class User {
       required this.lessonProgress});
 
   //might have to change these to async functions
-  void saveData() {
-    /*
-    Probably have to follow some setter schema instead of this:
-    <some variable in database for name> = UserPreferences.myUser.name;
-    <some variable in database for about> = UserPreferences.myUser.about;
-    <some variable in database for imageNo> = UserPreferences.myUser.imageNo;
-    <some variable in database for lessonProgress = UserPreferences.myUser.lessonProgress;
-    */
+  Future<void> saveData() async {
+    final user = FirebaseAuth.instance.currentUser;
+    await FirebaseFirestore.instance.collection('users').doc(user!.uid).set({
+      'name': name,
+      'about': about,
+      'imageNo': imageNo,
+      'lessonProgress': lessonProgress,
+    });
   }
-  void loadData() {
-    /*
-    Make sure to handle errors outside of this code if the data hasn't been written yet
-    UserPreferences.myUser.name = <fetch from database>;
-    UserPreferences.myUser.about = <fetch from database>;
-    UserPreferences.myUser.imageNo = <fetch from database>;
-    UserPreferences.myUser.lessonProgress = <fetch from database>;
-    */
+
+  void loadData() async {
+    final user = FirebaseAuth.instance.currentUser;
+    final snapshot = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(user!.uid)
+        .get();
+    final data = snapshot.data();
+    if (data != null) {
+      name = data['name'];
+      about = data['about'];
+      imageNo = data['imageNo'];
+      lessonProgress = List<int>.from(data['lessonProgress']);
+    }
   }
 }
 
