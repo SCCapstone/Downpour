@@ -58,6 +58,7 @@ class QuestionsWidget extends StatelessWidget {
             Expanded(
               child: OptionsWidget(
                 question: question,
+                isReset: false,
                 onClickedOption: onClickedOption,
               ),
             ),

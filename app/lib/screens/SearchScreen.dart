@@ -1,49 +1,56 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:search_page/search_page.dart';
 import 'package:pohnpeian_language_app/theme/style.dart' as customStyle;
+import 'package:url_launcher_platform_interface/url_launcher_platform_interface.dart';
+import 'package:flutter_pdfview/flutter_pdfview.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 
-/// Simple class and list to link with database later
 class SearchItem implements Comparable<SearchItem> {
   final String title, subtitle;
-  final num info; // for some other future functionality
-
-  const SearchItem(this.title, this.subtitle, this.info);
-
+  final num info;
+  final String url;
+  final String md;
+  const SearchItem(this.title, this.subtitle, this.info, this.url, this.md);
   @override
   int compareTo(SearchItem other) => title.compareTo(other.title);
+
+  void onPressed(BuildContext? context) {
+    if (context != null) {
+      launch(url);
+    }
+  }
 }
 
 const searchItems = [
-  SearchItem('Nghia', 'Nguyen', 111),
-  SearchItem('Cassidy', 'Meyers', 222),
-  SearchItem('William', 'Sutton', 333),
-  SearchItem('Tatiana', 'Washington', 444),
-  SearchItem('Kyle', 'Meiler', 555),
-  SearchItem('Pohnpei Basics', 'Nghia Nguyen', 2022),
-  SearchItem('How to get around the island', 'Will Sutton', 2019),
+  SearchItem('Nghia', 'Nguyen', 111, 'https://github.com/nghia-t-nguyen', ''),
+  SearchItem('Cassidy', 'Meyers', 222, 'https://github.com/Clmeyers-Dev', ''),
+  SearchItem('William', 'Sutton', 333, 'https://github.com/Wsutton424', ''),
+  SearchItem('Tatiana', 'Washington', 444, 'https://github.com/tsw5', ''),
+  SearchItem('Kyle', 'Meiler', 555, 'https://github.com/kmeiler', ''),
+  SearchItem('Pohnpei Basics', 'Nghia Nguyen', 2022, '',
+      'Assets/PDF/Pohnpei-Basics.md'),
+  SearchItem('How to get around the island', 'Will Sutton', 2019, '',
+      'Assets/PDF/How-To-Get-Around-The-Island.md'),
 ];
 
-/*
-Debugging
-*/
-//void main() => runApp(const MyApp());
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'search_page',
-//       theme: ThemeData(
-//         primarySwatch: Colors.blue,
-//       ),
-//       home: const SearchScreen(),
-//     );
-//   }
-// }
+Future<void> launch(String url) async {
+  final UrlLauncherPlatform launcher = UrlLauncherPlatform.instance;
+  if (!await launcher.launch(
+    url,
+    useSafariVC: true,
+    useWebView: true,
+    enableJavaScript: false,
+    enableDomStorage: false,
+    universalLinksOnly: false,
+    headers: <String, String>{'my_header_key': 'my_header_value'},
+  )) {
+    throw 'Could not launch $url';
+  }
+}
 
 class SearchScreen extends StatelessWidget {
-  const SearchScreen({super.key});
+  const SearchScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -105,6 +112,24 @@ class SearchScreen extends StatelessWidget {
               title: Text(item.title),
               subtitle: Text(item.subtitle),
               trailing: Text('${item.info}'),
+              onTap: () async {
+                if (item.url != '') {
+                  launch(item.url);
+                } else {
+                  final markdown = await rootBundle.loadString(item.md);
+                  // ignore: use_build_context_synchronously
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => Scaffold(
+                        appBar: AppBar(
+                          title: Text(item.title),
+                        ),
+                        body: Markdown(data: markdown),
+                      ),
+                    ),
+                  );
+                }
+              },
             ),
           ),
         ),
