@@ -1,3 +1,6 @@
+import 'dart:html';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pohnpeian_language_app/screens/Home.dart';
 import 'loginPage.dart';
@@ -106,9 +109,9 @@ class _SignUpPage extends State<SignUpPageState> {
         ),
         ) : Center(
           child: MaterialButton(
-            onPressed: () { 
-              Navigator.of(context)
-                .push(MaterialPageRoute(builder: (_) => Home()));/*
+            onPressed: () { Authinicate().signInWithGoogle();
+             /* Navigator.of(context)
+                .push(MaterialPageRoute(builder: (_) => Home()));
               googleSignIn.signIn().then((userData) {
                 setState(() {
                   isLoggedIn = true;
@@ -129,7 +132,19 @@ class _SignUpPage extends State<SignUpPageState> {
   }
 }
 
-/*
+class Authinicate {
+  signInWithGoogle() async{
+    final GoogleSignInAccount? googUser = await GoogleSignIn().signIn();
+
+    final GoogleSignInAuthentication googAuth = await googUser!.authentication; 
+    
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googAuth.accessToken,
+      idToken: googAuth.idToken,
+    );
+    return await FirebaseAuth.instance.signInWithCredential(credential);
+  }
+}/*
 class _SignUpPage extends State<SignUpPageState> {
 
   TextEditingController nameController = TextEditingController();
