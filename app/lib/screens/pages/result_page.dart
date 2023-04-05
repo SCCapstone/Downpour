@@ -127,6 +127,17 @@ class _ResultPageState extends State<ResultPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text("Your score: $_correctAnswer / $_totalQuestion"),
+              SizedBox(height: 16.0),
+              ElevatedButton(
+                child: Text('Retry Quiz'),
+                onPressed: () {
+                  NavigatorState navigator = Navigator.of(context);
+                  for (int i = 0; i < _totalQuestion; i++) {
+                    if (!navigator.canPop()) break;
+                    navigator.pop();
+                  }
+                },
+              ),
             ],
           ),
         ),
