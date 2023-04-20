@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    display: block;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+}
+
+nav {
+    width: 100%;
+    background-color: #6eb1b5;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .4);
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    float: right;
+}
+
+li {
+    float: left;
+    padding: 15px;
+    display: block;
+    transition: all 0.2s ease-in-out;
+}
+
+li:hover {
+    background-color: #1c314f;
+}
+
+.navlink {
+    font-size: 18px;
+    color: black;
+    font-family: 'Lato' sans-serif;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.margin {
+    margin: 10% 0;
+}
+
+.parallax {
+    background-image: url('images/beach.jpg');
+    background-attachment: fixed;
+    background-size: calc(200%);
+}
+
+.parallax-inner {
+    margin: auto;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center {
+    text-align: center;
+}
