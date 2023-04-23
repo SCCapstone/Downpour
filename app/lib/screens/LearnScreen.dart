@@ -69,6 +69,11 @@ class LearnScreen extends StatelessWidget {
   }
 }
 
+/*
+Function: Returns a list of Steps for Stepper class
+Input: A list of StepStates with each marked completed or indexed
+Output: A list of Steps
+*/
 List<Step> stepBuilder(List<StepState> stepStates) {
   List<Step> ret = [];
   for (var i = 0; i < stepStates.length; ++i) {
@@ -93,6 +98,7 @@ class _LessonProgressionState extends State<LessonProgression> {
 
   late List<StepState> _listOfStates;
   late bool _hasReminder;
+  bool _dataFetched = false;
 
   @override
   void initState() {
@@ -102,14 +108,13 @@ class _LessonProgressionState extends State<LessonProgression> {
     - Each item of the list maps onto a lesson
     - Stepstate.complete => The user already completed the lesson
     - Stepstate.indexed => The user has not already completed the lesson
-    - What we need to do here is call the database to initialize which items
-      are completed for each user
-    - Then, the database needs to be updated onStepContinue below
     */
-
-    _listOfStates = UserPreferences.myUser.lessonProgress
-        .map((int num) => num == 0 ? StepState.indexed : StepState.complete)
-        .toList();
+    UserPreferences.myUser.loadData().then((val) => {
+          _listOfStates = UserPreferences.myUser.lessonProgress
+              .map((int num) =>
+                  num == 0 ? StepState.indexed : StepState.complete)
+              .toList()
+        });
 
     _hasReminder = false;
     UserPreferences.myUser.loadData().then((value) {
@@ -117,21 +122,16 @@ class _LessonProgressionState extends State<LessonProgression> {
         _listOfStates = UserPreferences.myUser.lessonProgress
             .map((int num) => num == 0 ? StepState.indexed : StepState.complete)
             .toList();
+        _dataFetched = true;
       });
     });
-
-    // TODO: make a function that returns the proper reminder notification for alert dialog
-    //for demonstrating the alert dialog
   }
 
   @override
   Widget build(BuildContext context) {
-    // Stack serves as a way to show the dialog box for lesson suggestion
-    // I might suggest get rid of the Stack for some better implementation
     return Stack(children: [
-      FutureBuilder(
-        builder: (snap, ctx) {
-          return Container(
+      _dataFetched // Build the list of steps based on whether or not the data is already fetched
+          ? Container(
               padding: const EdgeInsets.fromLTRB(0, 0, 0, 80),
               child: Stepper(
                 physics: const BouncingScrollPhysics(),
@@ -159,19 +159,20 @@ class _LessonProgressionState extends State<LessonProgression> {
                 },
                 currentStep: _index,
                 onStepContinue: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => LessonSlideDeck(
-                          lessonSlides: lessonsList[_index],
-                          title: titles[_index]),
-                      settings: const RouteSettings(name: "/lesson")));
-                  // update database here
-                  Timer(const Duration(seconds: 1), () {
-                    setState(() {
-                      _listOfStates[_index] = StepState.complete;
-                      UserPreferences.myUser.lessonProgress[_index] = 1;
-                      UserPreferences.myUser.saveData();
-                    });
-                  });
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(
+                          builder: (context) => LessonSlideDeck(
+                              lessonSlides: lessonsList[_index],
+                              title: titles[_index]),
+                          settings: const RouteSettings(name: "/lesson")))
+                      .then((_) => {
+                            setState(() {
+                              _listOfStates[_index] = StepState.complete;
+                              UserPreferences.myUser.lessonProgress[_index] = 1;
+                              // Update the database
+                              UserPreferences.myUser.saveData();
+                            })
+                          });
                 },
                 onStepTapped: (int index) {
                   setState(() {
@@ -179,11 +180,13 @@ class _LessonProgressionState extends State<LessonProgression> {
                   });
                 },
                 steps: stepBuilder(_listOfStates),
-              ));
-        },
-        future: UserPreferences.myUser.loadData(),
-      ),
-      if (_hasReminder)
+              ))
+          : const Center(
+              child: Text(
+              'Loading...',
+              textAlign: TextAlign.center,
+            )),
+      if (_hasReminder) // For any future implemenation in which we could build a reminder system
         AlertDialog(
           title: const Text('Lesson Reminder'),
           content: SingleChildScrollView(

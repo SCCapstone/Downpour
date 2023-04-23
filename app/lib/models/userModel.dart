@@ -62,7 +62,8 @@ class User {
       UserPreferences.myUser.imageNo = vari.data()!['imageNo'];
     }
     if (vari.data()!['lessonProgress'] != null) {
-      UserPreferences.myUser.lessonProgress = vari.data()!['lessonProgress'];
+      UserPreferences.myUser.lessonProgress =
+          vari.data()!['lessonProgress'].cast<int>();
     }
   }
 }
