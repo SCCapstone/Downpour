@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:pohnpeian_language_app/models/userModel.dart' as um;
 
 class Auth {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
@@ -21,5 +22,12 @@ class Auth {
 
   Future<void> signOut() async {
     await _firebaseAuth.signOut();
+  }
+
+  Future<void> deleteUser() async {
+    try {
+      _firebaseAuth.currentUser?.delete();
+      um.UserPreferences.myUser.reset();
+    } catch (e) {}
   }
 }
