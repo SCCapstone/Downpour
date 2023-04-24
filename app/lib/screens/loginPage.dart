@@ -182,6 +182,7 @@ class _LoginPage extends State<LoginPageState> {
               padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
               alignment: Alignment.bottomCenter,
               child: ElevatedButton(
+                key: const Key("SignInButton_fromLogIn"),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: (b),
                 ),
