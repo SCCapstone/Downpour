@@ -18,11 +18,11 @@ class LessonSlideDeck extends StatefulWidget {
 class _LessonSlideDeckState extends State<LessonSlideDeck> {
   List<Widget> renderListCustomTabs() {
     List<Widget> tabs = [];
-    if (widget.lessonSlides != null && widget.lessonSlides.isNotEmpty) {
-      for (int i = 0; i < widget.lessonSlides.length; i++) {
-        tabs.add(LessonSlideFactory.getSlide(widget.lessonSlides[i]));
-      }
+
+    for (int i = 0; i < widget.lessonSlides.length; i++) {
+      tabs.add(LessonSlideFactory.getSlide(widget.lessonSlides[i]));
     }
+
     return tabs;
   }
 

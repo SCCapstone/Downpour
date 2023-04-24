@@ -14,21 +14,18 @@ class _ExploreScreenState extends State<ExploreScreen> {
   TextEditingController textEditingController = TextEditingController();
 
   @override
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Explore Screen"),
         backgroundColor: const Color.fromARGB(255, 117, 178, 221),
       ),
-      body: Container(
-        child: StaggeredGridView.count(
-          crossAxisCount: 4,
-          staggeredTiles: _cardTile,
-          mainAxisSpacing: 4.0,
-          crossAxisSpacing: 4.0,
-          children: _listTile,
-        ),
+      body: StaggeredGridView.count(
+        crossAxisCount: 4,
+        staggeredTiles: _cardTile,
+        mainAxisSpacing: 4.0,
+        crossAxisSpacing: 4.0,
+        children: _listTile,
       ),
     );
   }
@@ -53,74 +50,95 @@ class BackGroundTile extends StatelessWidget {
   final Color backgroundColor;
   final String path;
   final String launchpath;
+  final String description;
 
-  const BackGroundTile(
-      {super.key,
-      required this.backgroundColor,
-      required this.path,
-      required this.launchpath});
+  const BackGroundTile({
+    super.key,
+    required this.backgroundColor,
+    required this.path,
+    required this.launchpath,
+    required this.description,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Card(
       color: backgroundColor,
-      child: IconButton(
-        icon: Image.asset(path),
-        iconSize: 300,
-        color: Colors.white,
-        onPressed: () {
+      child: InkWell(
+        onTap: () {
           _launchInWebView(launchpath);
         },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(1),
+              child: Image.asset(
+                path,
+                width: 200,
+                height: 200,
+                fit: BoxFit.contain,
+              ),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              description,
+              style: const TextStyle(fontSize: 16, color: Colors.white),
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
       ),
     );
   }
 }
 
-/*child: new IconButton(
-                          icon: Image.asset(
-                              'Assets/Images/MicronesianLanguage.png'),
-                          iconSize: 200,
-                          onPressed: () => _launchInWebView(
-                              'http://talkingdictionary.swarthmore.edu/pohnpeian/'),
-                        )*/
 List<Widget> _listTile = <Widget>[
   const BackGroundTile(
-      backgroundColor: Color.fromARGB(255, 54, 200, 244),
-      launchpath: 'https://en.wikipedia.org/wiki/Micronesia',
-      path: 'Assets/Images/Micronesia.jpg'),
+    backgroundColor: Color.fromARGB(255, 0, 161, 222),
+    launchpath: 'https://en.wikipedia.org/wiki/Micronesia',
+    path: 'Assets/Images/Micronesia.jpg',
+    description: 'Learn more about Micronesia on Wikipedia',
+  ),
   const BackGroundTile(
-      backgroundColor: Color.fromARGB(255, 54, 244, 244),
-      launchpath: 'https://animalia.bio/micronesia-animals',
-      path: 'Assets/Images/PohnpeiFlycatcher.jpg'),
+    backgroundColor: Color.fromARGB(255, 0, 161, 222),
+    launchpath: 'https://animalia.bio/micronesia-animals',
+    path: 'Assets/Images/PohnpeiFlycatcher.jpg',
+    description: 'Explore the animals of Micronesia',
+  ),
   const BackGroundTile(
-      backgroundColor: Color.fromARGB(255, 54, 244, 219),
-      launchpath:
-          'https://visit-micronesia.fm/local-food-drink/#:~:text=The%20main%20staple%20foods%20in,%2C%20shellfish%2C%20pig%20and%20chicken.',
-      path: 'Assets/Images/localfood.jpg'),
+    backgroundColor: Color.fromARGB(255, 0, 161, 222),
+    launchpath:
+        'https://visit-micronesia.fm/local-food-drink/#:~:text=The%20main%20staple%20foods%20in,%2C%20shellfish%2C%20pig%20and%20chicken.',
+    path: 'Assets/Images/localfood.jpg',
+    description: 'Discover the local food and drink of Micronesia',
+  ),
   const BackGroundTile(
-      backgroundColor: Color.fromARGB(255, 54, 244, 244),
-      launchpath:
-          'https://naturalhistory2.si.edu/botany/micronesia/introduction.htm',
-      path: 'Assets/Images/Palm-Tree.jpg'),
+    backgroundColor: Color.fromARGB(255, 0, 161, 222),
+    launchpath:
+        'https://naturalhistory2.si.edu/botany/micronesia/introduction.htm',
+    path: 'Assets/Images/Palm-Tree.jpg',
+    description: 'Explore the flora of Micronesia',
+  ),
   const BackGroundTile(
-      backgroundColor: Color.fromARGB(255, 54, 244, 244),
-      launchpath: 'https://www.britannica.com/topic/flag-of-Micronesia',
-      path: 'Assets/Images/flag.jpg'),
+    backgroundColor: Color.fromARGB(255, 0, 161, 222),
+    launchpath: 'https://www.britannica.com/topic/flag-of-Micronesia',
+    path: 'Assets/Images/flag.jpg',
+    description: 'Learn about the flag of Micronesia',
+  ),
   const BackGroundTile(
-      backgroundColor: Color.fromARGB(255, 54, 238, 244),
-      launchpath: 'https://visit-micronesia.fm/waterfalls-and-caves/',
-      path: 'Assets/Images/Sights.jpg'),
-  const BackGroundTile(
-      backgroundColor: Color.fromARGB(255, 54, 190, 244),
-      launchpath: 'http://talkingdictionary.swarthmore.edu/pohnpeian/',
-      path: 'Assets/Images/MicronesianLanguage.png'),
+    backgroundColor: Color.fromARGB(255, 0, 161, 222),
+    launchpath: 'https://visit-micronesia.fm/waterfalls-and-caves/',
+    path: 'Assets/Images/Sights.jpg',
+    description: 'Discover the waterfalls and caves of Micronesia',
+  ),
 ];
 List<StaggeredTile> _cardTile = <StaggeredTile>[
   const StaggeredTile.count(2, 3),
-  const StaggeredTile.count(2, 2),
   const StaggeredTile.count(2, 3),
-  const StaggeredTile.count(2, 2),
   const StaggeredTile.count(2, 3),
-  const StaggeredTile.count(2, 2),
+  const StaggeredTile.count(2, 3),
+  const StaggeredTile.count(2, 3),
+  const StaggeredTile.count(2, 3),
   const StaggeredTile.count(2, 3),
 ];
