@@ -68,6 +68,7 @@ class correctQuestionsTest4 {
   }
 }
 
+// ignore: camel_case_types
 class correctQuestionsTest5 {
   static String validate(String ans, int questionNum, int ansNum) {
     Question question = getQuestions5().elementAt(questionNum);
@@ -92,9 +93,9 @@ class _ResultPageState extends State<ResultPage> {
   @override
   void initState() {
     _totalQuestion = userResult.length;
-    userResult.forEach((element) {
+    for (var element in userResult) {
       if (element) _correctAnswer++;
-    });
+    }
     super.initState();
   }
 
@@ -111,9 +112,9 @@ class _ResultPageState extends State<ResultPage> {
           ),
           backgroundColor: Colors.transparent,
           elevation: 0,
-          title: Text('Quiz Result'),
+          title: const Text('Quiz Result'),
           flexibleSpace: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               gradient: LinearGradient(
                 colors: [Colors.blue, Colors.white],
                 begin: Alignment.topRight,
@@ -127,9 +128,9 @@ class _ResultPageState extends State<ResultPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text("Your score: $_correctAnswer / $_totalQuestion"),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               ElevatedButton(
-                child: Text('Retry Quiz'),
+                child: const Text('Retry Quiz'),
                 onPressed: () {
                   NavigatorState navigator = Navigator.of(context);
                   for (int i = 0; i < _totalQuestion; i++) {

@@ -206,40 +206,35 @@ class _SignUpPage extends State<SignUpPageState> {
                           builder: (context) => const LoginPage())),
                   child: const Text('Already Have an Account? Sign in'),
                 )),
-            Container(
-                padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
-                alignment: Alignment.bottomCenter,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: (b3),
-                  ),
-                  child: Text('Sign Up!'),
-                  onPressed: () {
-                    if (passwordController.text == cpasswordController.text) {
-                      createUserWithEmailAndPassword().then(
-                        (value) {
-                          UserPreferences.myUser.name = nameController.text;
-                          Auth()
-                              .signInWithEmailAndPassword(
-                                  email: emailController.text.trim(),
-                                  password: passwordController.text.trim())
-                              .then((value) {
-                            UserPreferences.myUser.saveData();
-                          }).then((value) {
-                            Auth().signOut();
-                          });
-                        },
-                      ).then(
-                        (value) => {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const LoginPage()))
-                        },
-                      );
-                    }
-                  },
-                ))
+            ElevatedButton(
+              onPressed: () async {
+                if (passwordController.text != cpasswordController.text) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Passwords do not match.'),
+                      backgroundColor: Colors.red,
+                    ),
+                  );
+                  return;
+                }
+
+                // passwords match, continue with user creation
+                try {
+                  await createUserWithEmailAndPassword();
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => const Home()),
+                  );
+                } on FirebaseAuthException catch (e) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(e.message!),
+                      backgroundColor: Colors.red,
+                    ),
+                  );
+                }
+              },
+              child: const Text('Sign Up'),
+            ),
           ],
         ));
   }

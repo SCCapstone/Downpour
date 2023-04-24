@@ -31,7 +31,6 @@ class _CategoryPageState extends State<CategoryPage> {
         List.generate(widget.category.questions.length, (index) => false);
   }
 
-
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: buildAppBar(context) as PreferredSizeWidget?,
@@ -45,14 +44,17 @@ class _CategoryPageState extends State<CategoryPage> {
 
   Widget buildAppBar(context) => AppBar(
         title: Text(widget.category.categoryName),
-        actions: [
+        /*  actions: [
           Icon(Icons.filter_alt_outlined),
           SizedBox(width: 16),
-        ],
+        ],*/
         flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: [Color.fromARGB(255, 69, 147, 179), Color.fromARGB(255, 196, 221, 105)],
+              colors: [
+                Color.fromARGB(255, 69, 147, 179),
+                Color.fromARGB(255, 196, 221, 105)
+              ],
               begin: Alignment.topRight,
               end: Alignment.bottomLeft,
             ),
@@ -73,7 +75,7 @@ class _CategoryPageState extends State<CategoryPage> {
       );
 
   void selectOption(Option option) {
-     setState(() {
+    setState(() {
       selected[controller!.page!.ceil()] = true;
     });
     if (question!.isLocked) {
@@ -101,5 +103,4 @@ class _CategoryPageState extends State<CategoryPage> {
       controller!.jumpToPage(indexPage);
     }
   }
-
 }
