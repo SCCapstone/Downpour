@@ -4,7 +4,11 @@ import 'package:pohnpeian_language_app/screens/Home.dart';
 import 'SignUpScreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:pohnpeian_language_app/services/auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
+/*
+Password Field Validator validates if the password is correctly formatted
+*/
 class PasswordFieldValidator {
   static String validate(String value) {
     if (value.isEmpty) {
@@ -17,6 +21,9 @@ class PasswordFieldValidator {
   }
 }
 
+/*
+Email Field Validator validates if the password is correctly formatted
+*/
 class emailFieldValidator {
   static String validate(String value) {
     if (value.isEmpty) {
@@ -65,17 +72,6 @@ class _LoginPage extends State<LoginPageState> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  Future<void> signInWithEmailAndPassword() async {
-    try {
-      await Auth().signInWithEmailAndPassword(
-          email: emailController.text, password: passwordController.text);
-
-      Navigator.of(context).push(MaterialPageRoute(builder: (_) => Home()));
-    } on FirebaseAuthException catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("$e")));
-    }
-  }
-
   //The login button color
   static const Color a = Color.fromRGBO(45, 211, 112, 1.0);
   static const Color b = Color.fromRGBO(45, 211, 112, 1.0);
@@ -85,13 +81,28 @@ class _LoginPage extends State<LoginPageState> {
 
   @override
   Widget build(BuildContext context) {
-    Auth().signOut();
-
+    /**
+     * Helper function takes what's in the email and password
+     * controller to sign the users in with Firebase
+     */
     Future signIn() async {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: emailController.text.trim(),
           password: passwordController.text.trim());
     }
+
+    /**
+     * Keeps the user logged in after they exit the app
+     */
+    Auth().authStateChanges.listen((User? user) {
+      if (user != null) {
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (context) => const Home()),
+          (Route<dynamic> route) => false,
+        );
+      }
+    });
 
     return Padding(
       padding: const EdgeInsets.fromLTRB(40, 40, 40, 50),
@@ -177,12 +188,16 @@ class _LoginPage extends State<LoginPageState> {
                 child: Text('Log In'),
                 onPressed: () {
                   signIn().then((value) => {
-                        Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(builder: (context) => const Home()),
-                          (Route<dynamic> route) => false,
-                        )
+                        // Signs the user in if fields are correct
+                        if (Auth().currentUser != null)
+                          Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Home()),
+                            (Route<dynamic> route) => false,
+                          )
                       });
+                  // Doesn't really throw an error so the user is notified when it times out
                   Future.delayed(Duration(seconds: 4), () {
                     //Usually times out if the password and username is incorrect
                     if (Auth().currentUser == null) {
