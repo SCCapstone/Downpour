@@ -32,7 +32,7 @@ final categories = <Category>[
   Category(
     questions: getQuestions4(),
     categoryName: 'Objects',
-    backgroundColor: Color.fromARGB(255, 216, 98, 137),
+    backgroundColor: const Color.fromARGB(255, 216, 98, 137),
     icon: FontAwesomeIcons.book,
     description: 'Test your knowledge on random objects',
   ),

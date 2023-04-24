@@ -4,12 +4,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:pohnpeian_language_app/screens/loginPage.dart';
-import 'screens/SignUpScreen.dart';
 
 //import 'screens/pages/result_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 //imports google sign in authentication
-import 'package:google_sign_in/google_sign_in.dart';
 
 Future main() async {
   ErrorWidget.builder = (FlutterErrorDetails details) => Container();

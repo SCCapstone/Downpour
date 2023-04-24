@@ -49,7 +49,7 @@ class _CategoryPageState extends State<CategoryPage> {
           SizedBox(width: 16),
         ],*/
         flexibleSpace: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [
                 Color.fromARGB(255, 69, 147, 179),
@@ -61,9 +61,9 @@ class _CategoryPageState extends State<CategoryPage> {
           ),
         ),
         bottom: PreferredSize(
-          preferredSize: Size.fromHeight(80),
+          preferredSize: const Size.fromHeight(80),
           child: Container(
-            padding: EdgeInsets.symmetric(vertical: 16),
+            padding: const EdgeInsets.symmetric(vertical: 16),
             child: QuestionNumbersWidget(
               questions: widget.category.questions,
               question: question,

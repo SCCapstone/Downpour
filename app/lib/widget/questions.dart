@@ -47,14 +47,14 @@ class QuestionsWidget extends StatelessWidget {
             const SizedBox(height: 32),
             Text(
               question.text,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
             ),
-            SizedBox(height: 8),
-            Text(
+            const SizedBox(height: 8),
+            const Text(
               'Choose your answer from below',
               style: TextStyle(fontStyle: FontStyle.italic, fontSize: 16),
             ),
-            SizedBox(height: 32),
+            const SizedBox(height: 32),
             Expanded(
               child: OptionsWidget(
                 question: question,
@@ -74,7 +74,7 @@ class QuestionsWidget extends StatelessWidget {
                         );
                         print("nav to result");
                       },
-                      child: Text("Check Result"),
+                      child: const Text("Check Result"),
                     ),
                   )),
           ],

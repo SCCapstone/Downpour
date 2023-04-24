@@ -8,20 +8,20 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: Icon(Icons.menu),
+      leading: const Icon(Icons.menu),
       backgroundColor: Colors.transparent,
       elevation: 0,
-      title: Text('Quiz'),
+      title: const Text('Quiz'),
       bottom: PreferredSize(
-        preferredSize: Size.fromHeight(80),
+        preferredSize: const Size.fromHeight(80),
         child: Container(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           alignment: Alignment.centerLeft,
           child: buildWelcome(username),
         ),
       ),
       flexibleSpace: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [Colors.blue, Colors.white],
             begin: Alignment.topRight,
@@ -30,8 +30,8 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       actions: [
-        Icon(Icons.search),
-        SizedBox(width: 12),
+        const Icon(Icons.search),
+        const SizedBox(width: 12),
       ],
     );
   }
@@ -39,13 +39,13 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget buildWelcome(String username) => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             'Hello',
             style: TextStyle(fontSize: 16, color: Colors.white),
           ),
           Text(
             username,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
               color: Colors.white,

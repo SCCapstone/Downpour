@@ -29,7 +29,7 @@ class _EndLessonCheckState extends State<EndLessonCheck> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            iconTheme: IconThemeData(color: Colors.black),
+            iconTheme: const IconThemeData(color: Colors.black),
             title: Text(widget.title, style: custom_style.appBarText),
             backgroundColor: custom_style.light),
         backgroundColor: custom_style.primary,

@@ -65,7 +65,7 @@ class SearchScreen extends StatelessWidget {
           child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                const Text("Press the search button to search"),
+                const Text("Use the magnifying glass to search for interesting articles!"),
                 Image.asset(
                   'Assets/gif/lorikeet_idle.gif',
                   height: 200,

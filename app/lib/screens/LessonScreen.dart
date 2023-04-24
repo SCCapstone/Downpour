@@ -35,7 +35,7 @@ class _LessonSlideDeckState extends State<LessonSlideDeck> {
             backgroundColor: custom_style.light),
         body: Container(
             color: custom_style.primary,
-            padding: EdgeInsets.only(bottom: 90),
+            padding: const EdgeInsets.only(bottom: 90),
             child: IntroSlider(
               backgroundColorAllSlides: custom_style.primary,
               renderSkipBtn: const Text("Skip All"),
