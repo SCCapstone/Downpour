@@ -20,7 +20,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           title: Text("Profile"),
-          backgroundColor: Color.fromARGB(255, 117, 178, 221),
+          backgroundColor: Color.fromARGB(255, 0, 161, 222),
         ),
         body: FutureBuilder(
           builder: (snap, ctx) {
@@ -88,26 +88,26 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                           Text(
                                             usermodel
                                                 .UserPreferences.myUser.name,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 27,
                                                 fontWeight: FontWeight.w600),
                                           ),
-                                          SizedBox(
+                                          const SizedBox(
                                             height: 10,
                                           ),
-                                          Text(
+                                          const Text(
                                             "Lesson Progress",
                                             style: TextStyle(
                                               fontSize: 25,
                                               fontWeight: FontWeight.w400,
                                             ),
                                           ),
-                                          SizedBox(
+                                          const SizedBox(
                                             height: 5,
                                           ),
                                           Text(
                                             "${usermodel.UserPreferences.myUser.lessonProgress.reduce((a, b) => a + b)}",
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 30,
                                                 fontWeight: FontWeight.w600,
                                                 color: style.success),
@@ -116,24 +116,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       )
                                     ],
                                   )),
-                              Divider(
+                              const Divider(
                                 thickness: 2,
                                 color: Colors.grey,
                               ),
                               Container(
                                   padding: EdgeInsets.fromLTRB(30, 15, 30, 15),
-                                  child: Text(
+                                  child: const Text(
                                     "About Me",
                                     style: TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.w500),
                                   )),
                               Container(
-                                  margin: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                                  margin:
+                                      const EdgeInsets.fromLTRB(30, 0, 30, 0),
                                   // ignore: prefer_const_constructors
                                   child: Text(
                                     usermodel.UserPreferences.myUser.about,
-                                    style: TextStyle(fontSize: 18),
+                                    style: const TextStyle(fontSize: 18),
                                   )),
                             ],
                           )),
@@ -151,7 +152,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             "Log Out",
                             style: TextStyle(fontSize: 18),
                           )),
-                      SizedBox(height: 80)
+                      const SizedBox(height: 80)
                     ]));
           },
           future: usermodel.UserPreferences.myUser.loadData(),

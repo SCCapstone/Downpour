@@ -132,12 +132,6 @@ List<Widget> _listTile = <Widget>[
     path: 'Assets/Images/Sights.jpg',
     description: 'Discover the waterfalls and caves of Micronesia',
   ),
-  const BackGroundTile(
-    backgroundColor: Color.fromARGB(255, 0, 161, 222),
-    launchpath: 'http://talkingdictionary.swarthmore.edu/pohnpeian/',
-    path: 'Assets/Images/MicronesianLanguage.png',
-    description: 'Learn the Pohnpeian language with the Talking Dictionary',
-  ),
 ];
 List<StaggeredTile> _cardTile = <StaggeredTile>[
   const StaggeredTile.count(2, 3),
