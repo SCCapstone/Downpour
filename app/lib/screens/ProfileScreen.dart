@@ -24,6 +24,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
         body: FutureBuilder(
           builder: (snap, ctx) {
+            // RefreshIndicator allows you to refresh the page so you can see
+            // your lesson progress change as you go through the lessons
             return RefreshIndicator(
                 onRefresh: () async {
                   setState(() {}); // Refresh when drag down
@@ -106,6 +108,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                             height: 5,
                                           ),
                                           Text(
+                                            // sum up lesson progress
                                             "${usermodel.UserPreferences.myUser.lessonProgress.reduce((a, b) => a + b)}",
                                             style: TextStyle(
                                                 fontSize: 30,
@@ -143,7 +146,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (BuildContext context) =>
+                                          builder: (BuildContext ctx) =>
                                               const LoginPage()))
                                 });
                           },

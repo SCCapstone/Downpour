@@ -92,12 +92,29 @@ class _SignUpPage extends State<SignUpPageState> {
   static const d = Color.fromRGBO(146, 148, 156, 1.0);
   static const background = Color.fromARGB(219, 39, 183, 196);
 
+  // Create a new user with Email and password using text inside the
+  // Email and password controllers
   Future<void> createUserWithEmailAndPassword() async {
     try {
       await Auth().createUserWithEmailAndPassword(
           email: emailController.text, password: passwordController.text);
     } on FirebaseAuthException catch (e) {
       //to fill with error message
+    }
+  }
+
+  // Returns true if email address is in use by checking in Firebase.
+  Future<bool> checkIfEmailInUse() async {
+    try {
+      final list = await FirebaseAuth.instance
+          .fetchSignInMethodsForEmail(emailController.text);
+      if (list.isNotEmpty) {
+        return true;
+      } else {
+        return false;
+      }
+    } catch (error) {
+      return true;
     }
   }
 
@@ -215,28 +232,55 @@ class _SignUpPage extends State<SignUpPageState> {
                   ),
                   child: Text('Sign Up!'),
                   onPressed: () {
-                    if (passwordController.text == cpasswordController.text) {
-                      createUserWithEmailAndPassword().then(
-                        (value) {
-                          UserPreferences.myUser.name = nameController.text;
-                          Auth()
-                              .signInWithEmailAndPassword(
-                                  email: emailController.text.trim(),
-                                  password: passwordController.text.trim())
-                              .then((value) {
-                            UserPreferences.myUser.saveData();
-                          }).then((value) {
-                            Auth().signOut();
+                    if (passwordController.text.length < 6) {
+                      // Toast if password is too short
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content: Text(
+                              "Passwords must have at least 6 characters.")));
+                    } else if (passwordController.text ==
+                        cpasswordController.text) {
+                      checkIfEmailInUse().then((emailInUse) => {
+                            if (emailInUse)
+                              {
+                                // Toast if email is already in use
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                        content:
+                                            Text("Email is already in use.")))
+                              }
+                            else
+                              {
+                                createUserWithEmailAndPassword().then(
+                                  (value) {
+                                    UserPreferences.myUser.name =
+                                        nameController.text;
+                                    UserPreferences.myUser.saveData();
+                                    Auth()
+                                        .signInWithEmailAndPassword(
+                                            email: emailController.text.trim(),
+                                            password:
+                                                passwordController.text.trim())
+                                        .then((value) {
+                                      UserPreferences.myUser.saveData();
+                                    }).then((value) {
+                                      Auth().signOut();
+                                    });
+                                  },
+                                ).then(
+                                  (value) => {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const LoginPage()))
+                                  },
+                                )
+                              }
                           });
-                        },
-                      ).then(
-                        (value) => {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const LoginPage()))
-                        },
-                      );
+                    } else {
+                      // Toast if passwords do not match
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content: Text("Passwords do not match.")));
                     }
                   },
                 ))
