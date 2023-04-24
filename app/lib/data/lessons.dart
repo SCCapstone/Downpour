@@ -198,7 +198,7 @@ const List<Map<String, dynamic>> lesson4 = [
     "data": {
       "English": "The Pohnpeian letter e",
       "Pohnpeian":
-          "The Pohnpeian letter a, in IPA, is pronounced as e (as in may) or ɛ (as in bed)",
+          "The Pohnpeian letter e, in IPA, is pronounced as e (as in may) or ɛ (as in bed)",
       "pronunciation": "May... bed."
     }
   },
@@ -367,7 +367,7 @@ const List<Map<String, dynamic>> lesson6 = [
     "data": {
       "title": "The Pohnpeian letter s",
       "text":
-          "The Pohnpeian letter s, is written in IPA as s superscript j, it is a s sound (as in say) followed by a lighter articulation of the j sound (as in you). This souond does not exist in English",
+          "The Pohnpeian letter s, is written in IPA as s superscript j, it is a s sound (as in say) followed by a lighter articulation of the j sound (as in you). This sound does not exist in English",
     }
   },
 ];
