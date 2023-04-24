@@ -25,7 +25,7 @@ class WelcomePage extends StatelessWidget {
           backgroundColor: custom_style.light,
         ), //maybe add a leading icon menu
         body: const WelcomeState(),
-        backgroundColor: (Color.fromARGB(255, 117, 178, 221)),
+        backgroundColor: (const Color.fromARGB(255, 117, 178, 221)),
       ),
     );
   }

@@ -16,13 +16,13 @@ class QuestionNumbersWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double padding = 16;
+    const double padding = 16;
 
     return Container(
       height: 50,
       child: ListView.separated(
-        physics: BouncingScrollPhysics(),
-        padding: EdgeInsets.symmetric(horizontal: padding),
+        physics: const BouncingScrollPhysics(),
+        padding: const EdgeInsets.symmetric(horizontal: padding),
         scrollDirection: Axis.horizontal,
         separatorBuilder: (context, index) => Container(width: padding),
         itemCount: questions.length,
@@ -49,7 +49,7 @@ class QuestionNumbersWidget extends StatelessWidget {
         backgroundColor: color,
         child: Text(
           '${index + 1}',
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.bold,
             fontSize: 18,

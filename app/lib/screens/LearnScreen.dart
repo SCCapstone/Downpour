@@ -4,7 +4,6 @@ import 'package:pohnpeian_language_app/screens/LessonScreen.dart';
 import 'package:pohnpeian_language_app/widget/FrostedCard.dart';
 import 'package:pohnpeian_language_app/theme/style.dart' as custom_style;
 import 'package:pohnpeian_language_app/data/lessons.dart' as lessons;
-import 'dart:async';
 
 /*
 Steps for adding a new lesson:
@@ -44,7 +43,7 @@ final List<String> subTitles = [
   "Learn some terms for different foods",
   "Learn about the alphabet",
   "Learn about the alphabet, continuation of alphabet 1",
-  "Learn about the alphabet sounds that don\'t exist or are uncommon in the English language",
+  "Learn about the alphabet sounds that don't exist or are uncommon in the English language",
   "Learn the words for objects commonly found around the household",
   "Learn words that have to do with health and sickness",
   "Learn how to create basic sentences"

@@ -1,34 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pohnpeian_language_app/models/userModel.dart';
-import 'package:pohnpeian_language_app/screens/Home.dart';
 import 'loginPage.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:pohnpeian_language_app/services/auth.dart';
 
-/*class User {
-  // Holds user data, just holds name as of right now
-  String id;
-  final String name;
-  final String pw;
-  final String email;
-  // final int progress
-  //This will hold the user's progress. Change to array.
-  User({
-    this.id = 'userBase',
-    required this.name,
-    required this.pw,
-    required this.email,
-  });
-
-  Map<String, dynamic> toJson() => {
-        'id': id,
-        'name': name,
-        'pw': pw,
-        'email': email,
-      };
-}All Commented out code will be gone through by commitee to decide how to continue*/
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);

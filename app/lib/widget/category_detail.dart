@@ -15,21 +15,21 @@ class CategoryDetailWidget extends StatelessWidget {
   Widget build(BuildContext context) => GestureDetector(
         onTap: () => onSelectedCategory(category),
         child: Container(
-          padding: EdgeInsets.only(right: 10),
+          padding: const EdgeInsets.only(right: 10),
           width: MediaQuery.of(context).size.width * 0.65,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               buildImage(),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               Text(
                 category.categoryName,
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
-              SizedBox(height: 4),
+              const SizedBox(height: 4),
               Text(
                 category.description,
-                style: TextStyle(fontSize: 16),
+                style: const TextStyle(fontSize: 16),
               )
             ],
           ),

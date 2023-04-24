@@ -2,9 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pohnpeian_language_app/screens/Home.dart';
 import 'SignUpScreen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:pohnpeian_language_app/services/auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 /*
 Password Field Validator validates if the password is correctly formatted
@@ -81,9 +79,9 @@ class _LoginPage extends State<LoginPageState> {
 
   @override
   Widget build(BuildContext context) {
-    /**
-     * Helper function takes what's in the email and password
-     * controller to sign the users in with Firebase
+    /*
+      Helper function takes what's in the email and password
+      controller to sign the users in with Firebase
      */
     Future signIn() async {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
@@ -185,7 +183,7 @@ class _LoginPage extends State<LoginPageState> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: (b),
                 ),
-                child: Text('Log In'),
+                child: const Text('Log In'),
                 onPressed: () {
                   signIn().then((value) => {
                         // Signs the user in if fields are correct
@@ -198,7 +196,7 @@ class _LoginPage extends State<LoginPageState> {
                           )
                       });
                   // Doesn't really throw an error so the user is notified when it times out
-                  Future.delayed(Duration(seconds: 4), () {
+                  Future.delayed(const Duration(seconds: 4), () {
                     //Usually times out if the password and username is incorrect
                     if (Auth().currentUser == null) {
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(

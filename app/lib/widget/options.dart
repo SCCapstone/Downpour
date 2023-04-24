@@ -16,7 +16,7 @@ class OptionsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ListView(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         children: Utils.heightBetween(
           question.options
               .map((option) => buildOption(context, option))
@@ -31,7 +31,7 @@ class OptionsWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () => onClickedOption(option),
       child: Container(
-        padding: EdgeInsets.all(12),
+        padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
           color: color,
           borderRadius: BorderRadius.circular(16),
@@ -51,12 +51,12 @@ class OptionsWidget extends StatelessWidget {
         child: Row(children: [
           Text(
             option.code,
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
           ),
-          SizedBox(width: 12),
+          const SizedBox(width: 12),
           Text(
             option.text,
-            style: TextStyle(fontSize: 20),
+            style: const TextStyle(fontSize: 20),
           )
         ]),
       );
@@ -65,7 +65,7 @@ class OptionsWidget extends StatelessWidget {
     if (solution == answer) {
       return Text(
         question.solution,
-        style: TextStyle(fontSize: 16, fontStyle: FontStyle.italic),
+        style: const TextStyle(fontSize: 16, fontStyle: FontStyle.italic),
       );
     } else {
       return Container();

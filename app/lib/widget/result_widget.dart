@@ -7,7 +7,7 @@ class ShowResult extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text("Final Score"),
+      child: const Text("Final Score"),
     );
   }
 }

@@ -6,8 +6,6 @@ import 'package:pohnpeian_language_app/screens/SearchScreen.dart';
 import 'package:pohnpeian_language_app/screens/WelcomeScreen.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:pohnpeian_language_app/theme/style.dart' as customStyle;
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:pohnpeian_language_app/services/auth.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);

@@ -18,7 +18,7 @@ class CategoryHeaderWidget extends StatelessWidget {
           builder: (context) => CategoryPage(category: category),
         )),
         child: Container(
-          padding: EdgeInsets.all(12),
+          padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
             color: category.backgroundColor,
             borderRadius: BorderRadius.circular(15),
@@ -30,7 +30,7 @@ class CategoryHeaderWidget extends StatelessWidget {
               const SizedBox(height: 12),
               Text(
                 category.categoryName,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
