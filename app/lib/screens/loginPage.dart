@@ -72,7 +72,7 @@ class _LoginPage extends State<LoginPageState> {
 
       Navigator.of(context).push(MaterialPageRoute(builder: (_) => Home()));
     } on FirebaseAuthException catch (e) {
-      //to fill with error message
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("$e")));
     }
   }
 
@@ -177,15 +177,21 @@ class _LoginPage extends State<LoginPageState> {
                 child: Text('Log In'),
                 onPressed: () {
                   signIn().then((value) => {
-                        if (Auth().currentUser != null)
-                          {
-                            Navigator.pushAndRemoveUntil(
-                              context,
-                              MaterialPageRoute(builder: (context) => Home()),
-                              (Route<dynamic> route) => false,
-                            )
-                          }
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(builder: (context) => const Home()),
+                          (Route<dynamic> route) => false,
+                        )
                       });
+                  Future.delayed(Duration(seconds: 4), () {
+                    //Usually times out if the password and username is incorrect
+                    if (Auth().currentUser == null) {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        content: Text(
+                            "Try again: Email or username may be incorrect"),
+                      ));
+                    }
+                  });
                 },
               ))
         ],
