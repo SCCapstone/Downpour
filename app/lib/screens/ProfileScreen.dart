@@ -142,13 +142,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           )),
                       TextButton(
                           onPressed: () {
-                            Auth().signOut().then((value) => {
-                                  Navigator.pushReplacement(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (BuildContext ctx) =>
-                                              const LoginPage()))
-                                });
+                            Auth().signOut().then((value) {
+                              usermodel.UserPreferences.myUser.reset();
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (BuildContext ctx) =>
+                                          const LoginPage()));
+                            });
                           },
                           child: const Text(
                             "Log Out",

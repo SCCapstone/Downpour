@@ -96,7 +96,9 @@ class LessonProgression extends StatefulWidget {
 class _LessonProgressionState extends State<LessonProgression> {
   int _index = 0;
 
-  late List<StepState> _listOfStates;
+  List<StepState> _listOfStates = UserPreferences.myUser.lessonProgress
+      .map((int num) => num == 0 ? StepState.indexed : StepState.complete)
+      .toList();
   late bool _hasReminder;
   bool _dataFetched = false;
 
@@ -109,12 +111,6 @@ class _LessonProgressionState extends State<LessonProgression> {
     - Stepstate.complete => The user already completed the lesson
     - Stepstate.indexed => The user has not already completed the lesson
     */
-    UserPreferences.myUser.loadData().then((val) => {
-          _listOfStates = UserPreferences.myUser.lessonProgress
-              .map((int num) =>
-                  num == 0 ? StepState.indexed : StepState.complete)
-              .toList()
-        });
 
     _hasReminder = false;
     UserPreferences.myUser.loadData().then((value) {
@@ -181,11 +177,56 @@ class _LessonProgressionState extends State<LessonProgression> {
                 },
                 steps: stepBuilder(_listOfStates),
               ))
-          : const Center(
-              child: Text(
-              'Loading...',
-              textAlign: TextAlign.center,
-            )),
+          : Container(
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 80),
+              child: Stepper(
+                physics: const BouncingScrollPhysics(),
+                controlsBuilder:
+                    (BuildContext context, ControlsDetails details) {
+                  return Container(
+                    padding: const EdgeInsets.only(top: 10.0),
+                    alignment: Alignment.centerRight,
+                    child: TextButton(
+                        onPressed: details.onStepContinue,
+                        style: ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.all(Colors.black),
+                            padding: MaterialStateProperty.all<EdgeInsets>(
+                                const EdgeInsets.only(left: 30, right: 30)),
+                            shape: MaterialStateProperty.all<
+                                RoundedRectangleBorder>(RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                            ))),
+                        child: const Text(
+                          'LEARN',
+                          style: TextStyle(color: Colors.white),
+                        )),
+                  );
+                },
+                currentStep: _index,
+                onStepContinue: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(
+                          builder: (context) => LessonSlideDeck(
+                              lessonSlides: lessonsList[_index],
+                              title: titles[_index]),
+                          settings: const RouteSettings(name: "/lesson")))
+                      .then((_) => {
+                            setState(() {
+                              _listOfStates[_index] = StepState.complete;
+                              UserPreferences.myUser.lessonProgress[_index] = 1;
+                              // Update the database
+                              UserPreferences.myUser.saveData();
+                            })
+                          });
+                },
+                onStepTapped: (int index) {
+                  setState(() {
+                    _index = index;
+                  });
+                },
+                steps: stepBuilder(_listOfStates),
+              )),
       if (_hasReminder) // For any future implemenation in which we could build a reminder system
         AlertDialog(
           title: const Text('Lesson Reminder'),
