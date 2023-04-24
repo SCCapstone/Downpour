@@ -20,10 +20,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           title: Text("Profile"),
-          backgroundColor: Color.fromARGB(255, 0, 161, 222),
+          backgroundColor: Color.fromARGB(255, 117, 178, 221),
         ),
         body: FutureBuilder(
           builder: (snap, ctx) {
+            // RefreshIndicator allows you to refresh the page so you can see
+            // your lesson progress change as you go through the lessons
             return RefreshIndicator(
                 onRefresh: () async {
                   setState(() {}); // Refresh when drag down
@@ -88,26 +90,27 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                           Text(
                                             usermodel
                                                 .UserPreferences.myUser.name,
-                                            style: const TextStyle(
+                                            style: TextStyle(
                                                 fontSize: 27,
                                                 fontWeight: FontWeight.w600),
                                           ),
-                                          const SizedBox(
+                                          SizedBox(
                                             height: 10,
                                           ),
-                                          const Text(
+                                          Text(
                                             "Lesson Progress",
                                             style: TextStyle(
                                               fontSize: 25,
                                               fontWeight: FontWeight.w400,
                                             ),
                                           ),
-                                          const SizedBox(
+                                          SizedBox(
                                             height: 5,
                                           ),
                                           Text(
+                                            // sum up lesson progress
                                             "${usermodel.UserPreferences.myUser.lessonProgress.reduce((a, b) => a + b)}",
-                                            style: const TextStyle(
+                                            style: TextStyle(
                                                 fontSize: 30,
                                                 fontWeight: FontWeight.w600,
                                                 color: style.success),
@@ -116,25 +119,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       )
                                     ],
                                   )),
-                              const Divider(
+                              Divider(
                                 thickness: 2,
                                 color: Colors.grey,
                               ),
                               Container(
                                   padding: EdgeInsets.fromLTRB(30, 15, 30, 15),
-                                  child: const Text(
+                                  child: Text(
                                     "About Me",
                                     style: TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.w500),
                                   )),
                               Container(
-                                  margin:
-                                      const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                                  margin: EdgeInsets.fromLTRB(30, 0, 30, 0),
                                   // ignore: prefer_const_constructors
                                   child: Text(
                                     usermodel.UserPreferences.myUser.about,
-                                    style: const TextStyle(fontSize: 18),
+                                    style: TextStyle(fontSize: 18),
                                   )),
                             ],
                           )),
@@ -144,7 +146,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (BuildContext context) =>
+                                          builder: (BuildContext ctx) =>
                                               const LoginPage()))
                                 });
                           },
@@ -152,7 +154,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             "Log Out",
                             style: TextStyle(fontSize: 18),
                           )),
-                      const SizedBox(height: 80)
+                      SizedBox(height: 80)
                     ]));
           },
           future: usermodel.UserPreferences.myUser.loadData(),

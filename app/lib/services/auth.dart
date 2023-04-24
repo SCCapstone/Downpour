@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:pohnpeian_language_app/models/userModel.dart' as um;
@@ -26,8 +27,13 @@ class Auth {
 
   Future<void> deleteUser() async {
     try {
-      _firebaseAuth.currentUser?.delete();
-      um.UserPreferences.myUser.reset();
+      final User? user = _firebaseAuth.currentUser;
+      FirebaseFirestore _firestore = FirebaseFirestore.instance;
+      if (user != null) {
+        await user.delete();
+        await _firestore.collection('users').doc(user.uid).delete();
+        um.UserPreferences.myUser.reset();
+      }
     } catch (e) {}
   }
 }
