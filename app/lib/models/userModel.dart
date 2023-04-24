@@ -19,16 +19,8 @@ class User {
       required this.imageNo,
       required this.lessonProgress});
 
-  //might have to change these to async functions
+  //m Saves data to firebase, should be used UserPreferences has been changed
   void saveData() async {
-    /*
-    Probably have to follow some setter schema instead of this:
-    <some variable in database for name> = UserPreferences.myUser.name;
-    <some variable in database for about> = UserPreferences.myUser.about;
-    <some variable in database for imageNo> = UserPreferences.myUser.imageNo;
-    <some variable in database for lessonProgress = UserPreferences.myUser.lessonProgress;
-    */
-
     FirebaseFirestore _firestore = FirebaseFirestore.instance;
     DocumentReference ref =
         _firestore.collection('users').doc(Auth().currentUser?.uid);
@@ -40,14 +32,8 @@ class User {
     });
   }
 
+  // Loads data from firebase by changing the fields in UserPreferences
   Future<void> loadData() async {
-    /*
-    Make sure to handle errors outside of this code if the data hasn't been written yet
-    UserPreferences.myUser.name = <fetch from database>;
-    UserPreferences.myUser.about = <fetch from database>;
-    UserPreferences.myUser.imageNo = <fetch from database>;
-    UserPreferences.myUser.lessonProgress = <fetch from database>;
-    */
     var vari = await FirebaseFirestore.instance
         .collection("users")
         .doc(Auth().currentUser?.uid)
@@ -62,8 +48,18 @@ class User {
       UserPreferences.myUser.imageNo = vari.data()!['imageNo'];
     }
     if (vari.data()!['lessonProgress'] != null) {
-      UserPreferences.myUser.lessonProgress = vari.data()!['lessonProgress'];
+      UserPreferences.myUser.lessonProgress =
+          vari.data()!['lessonProgress'].cast<int>();
     }
+  }
+
+  reset() {
+    UserPreferences.myUser = User(
+        name: "Lorem Ipsum",
+        about:
+            "Edit your About Me and profile image by clicking the Edit icon on the profile picture.",
+        imageNo: 0,
+        lessonProgress: List.filled(lessonsList.length, 0));
   }
 }
 
@@ -82,9 +78,8 @@ const List<String> profileImages = <String>[
 class UserPreferences {
   static User myUser = User(
       name: "Lorem Ipsum",
-      about: "BIO: This is where the profile would be. "
-          "This is would hold the users information as well as the settings area of the app. "
-          "This would keep statistics such as your streaks and could even show proficiencies",
+      about:
+          "Edit your About Me and profile image by clicking the Edit icon on the profile picture.",
       imageNo: 0,
       lessonProgress: List.filled(lessonsList.length, 0));
 }

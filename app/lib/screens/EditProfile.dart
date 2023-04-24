@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pohnpeian_language_app/models/userModel.dart';
 import 'package:pohnpeian_language_app/theme/style.dart' as style;
+import 'package:pohnpeian_language_app/services/auth.dart';
+
+import 'loginPage.dart';
 
 class MyGridView extends StatefulWidget {
   @override
@@ -111,6 +114,43 @@ class _EditProfilePageState extends State<EditProfilePage> {
               margin: const EdgeInsets.fromLTRB(30, 0, 30, 0),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
+                  backgroundColor: style.danger,
+                ),
+                child: const Text('Delete Account'),
+                onPressed: () => showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                    title: Text('Delete Account Confirmation'),
+                    content: Text(
+                        'Are you sure you want to delete your account? All data will be lost.'),
+                    actions: [
+                      ElevatedButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text('Cancel')),
+                      ElevatedButton(
+                          style: const ButtonStyle(
+                              backgroundColor:
+                                  MaterialStatePropertyAll(style.danger)),
+                          onPressed: () {
+                            Auth().deleteUser().then((value) => {
+                                  Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (BuildContext context) =>
+                                              const LoginPage()))
+                                });
+                          },
+                          child: Text('Delete and Sign Out'))
+                    ],
+                  ),
+                ),
+              )),
+          Container(
+              margin: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
                   backgroundColor: style.secondary,
                 ),
                 child: const Text('Submit Changes'),
@@ -124,7 +164,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   UserPreferences.myUser.saveData();
                   Navigator.pop(context);
                 },
-              ))
+              )),
         ],
       ),
     );

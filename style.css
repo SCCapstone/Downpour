@@ -1,0 +1,196 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    display: block;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat';
+    background-color: white;
+}
+
+nav {
+    width: 100%;
+    background-color: #6eb1b5;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    z-index: 20;
+    transition: top 0.3s
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    float: right;
+}
+
+li {
+    float: left;
+    padding: 15px;
+    display: block;
+    transition: all 0.2s ease-in-out;
+}
+
+#icon {
+    width: 20px;
+    height: 20px;
+}
+
+li:hover {
+    background-color: #80c2c6;
+}
+
+.navlink {
+    font-size: 18px;
+    color: black;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.top-margin {
+    margin: 15px 0;
+}
+
+.space {
+    height: 80px;
+    width: auto;
+}
+
+.parallax {
+    background-image: url('web-images/beach.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+.parallax2 {
+    background-image: url('web-images/people-talking.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+.parallax3 {
+    background-image: url('web-images/sands.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+.parallax4 {
+    background-image: url('web-images/studying.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+.parallax-inner {
+    margin: auto;
+    padding-left: 100px;
+    padding-right: 100px;
+    height: 95vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, .2);
+    box-shadow: inset 0 0 70px rgb(35, 72, 87);
+    z-index: 0;
+}
+
+.opaqueWhite {
+    background-color: white;
+}
+
+.filler {
+    height: 1000px;
+}
+
+.textCenter {
+    text-align: center;
+}
+
+.title {
+    font-size: 75px;
+    color: white;
+    text-shadow: 0px 2px 4px black;
+    font-family: 'Montserrat';
+    font-weight: 600;
+}
+
+.subtitle {
+    margin: 10px;
+    font-size: 40px;
+    color: white;
+    text-shadow: 0px 2px 4px black;
+    font-family: 'Montserrat';
+    font-weight: 500;
+}
+
+.divCenter {
+    display: flex;
+    justify-content: center;
+}
+
+.textSection {
+    width: 800px;
+    height: auto;
+    background-color: transparent;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+h1 {
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+#firstFeature {
+    margin-top: 0px;
+}
+
+p {
+    font-size: 25px;
+    font-family: 'Montserrat';
+    line-height: 50px;
+
+}
+
+img {
+    width: 40%;
+}
+
+#videoPlaceholder {
+    background-color: red;
+    text-align: center;
+    height: 200px;
+}
+
+#aboutTitle {
+    color: black;
+    text-shadow: none;
+}
+
+#aboutUsTextSection {
+    padding-top: 15px;
+    padding-bottom: 0;
+}
+
+#section4 {
+    background-color: #9db9bb;
+}
+
+#firstOfNames {
+    margin-top: 0;
+}
