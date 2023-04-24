@@ -218,7 +218,6 @@ class _SignUpPage extends State<SignUpPageState> {
                   return;
                 }
 
-                // passwords match, continue with user creation
                 try {
                   await createUserWithEmailAndPassword();
                   Navigator.of(context).pushReplacement(
