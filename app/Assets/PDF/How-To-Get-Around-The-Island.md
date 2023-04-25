@@ -33,6 +33,33 @@ Pohnpei, Micronesia's largest island, holds its capital. Most of the citizens sp
 -
 
 There are many different things to do in Pohnpei such as exploring the lush rainforests, swimming and surfing in the clear pacific ocean or exploring the ancient ruins of Nan Madol. 
+-
+There are many different reasons to go to Pohnpei including
+-
+Missionary work
+- 
+There are many different religions out in Pohnpei and many different missionaries spreading their religions on the
+island as well
+
+Nature
+-
+Pohnpei has some of the most lush rainforests in the world and has very few dangorous animals
+
+Weather
+-
+Pohnpei is one of the rainiest places on earth with a constant climate year round, it also rains year round
+
+History
+-
+Being occupied by many different countries throughout its history, Pohnpei still bears the scars of their oppressors. 
+As evidence on the island there are:
+From the Age of Exploration:
+Spanish walls 
+Spanish Churches
+/
+From WW2 
+Japanese Tanks 
+Japanese Buildings 
 
 ![Jungle Scenery Micronesia](https://www.erikastravels.com/wp-content/uploads/2019/09/Emerald-Isle-Micronesia.jpg)
 

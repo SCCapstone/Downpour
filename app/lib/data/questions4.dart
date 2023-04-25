@@ -3,7 +3,9 @@ import 'package:pohnpeian_language_app/models/questions.dart';
 
 List<Question> getQuestions4() {
   List<Question> list = [];
-
+/* This sets the question format for the quiz while 
+  * also adding the functionality for the correct answer
+  */
   list.add(Question(
     text: 'What is "Pillow"?',
     options: [
@@ -79,4 +81,6 @@ List<Question> getQuestions4() {
     solution: 'The correct answer is "Pwuhk"',
   ));
   return list;
-}
+}/*These sets of questions test for comprehension from English words
+* from English words to their Pohnpeian equivalents
+*/

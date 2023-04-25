@@ -92,7 +92,10 @@ class BackGroundTile extends StatelessWidget {
     );
   }
 }
-
+/*Lists the titles of the articles 
+* as well as their links to their
+* respective webpages
+*/
 List<Widget> _listTile = <Widget>[
   const BackGroundTile(
     backgroundColor: Color.fromARGB(255, 0, 161, 222),
@@ -140,5 +143,5 @@ List<StaggeredTile> _cardTile = <StaggeredTile>[
   const StaggeredTile.count(2, 3),
   const StaggeredTile.count(2, 3),
   const StaggeredTile.count(2, 3),
-  const StaggeredTile.count(2, 3),
+  const StaggeredTile.count(2, 3),// This creates the cards/tiles that the pictures and links sit on
 ];

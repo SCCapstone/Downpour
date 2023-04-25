@@ -3,7 +3,9 @@ import 'package:pohnpeian_language_app/models/questions.dart';
 
 List<Question> getQuestions3() {
   List<Question> list = [];
-
+/* This sets the question format for the quiz while 
+  * also adding the functionality for the correct answer
+  */
   list.add(Question(
     text: 'Which of the following is "Coconut"?',
     options: [
@@ -77,4 +79,6 @@ List<Question> getQuestions3() {
     solution: 'The correct answer is "Mwenge"',
   ));
   return list;
-}
+}/*These sets of questions test for comprehension from English words
+* from English words to their Pohnpeian equivalents
+*/
