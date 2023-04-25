@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:search_page/search_page.dart';
 import 'package:pohnpeian_language_app/theme/style.dart' as customStyle;
 import 'package:url_launcher_platform_interface/url_launcher_platform_interface.dart';
-import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 
 class SearchItem implements Comparable<SearchItem> {

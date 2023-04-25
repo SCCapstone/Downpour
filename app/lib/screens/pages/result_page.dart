@@ -130,8 +130,8 @@ class _ResultPageState extends State<ResultPage> {
               Text("Your score: $_correctAnswer / $_totalQuestion"),
               const SizedBox(height: 16.0),
               ElevatedButton(
-                child: const Text('Retry Quiz'),
-                onPressed: () {
+                child: const Text('Return to Menu'),
+                onPressed: () { 
                   NavigatorState navigator = Navigator.of(context);
                   for (int i = 0; i < _totalQuestion; i++) {
                     if (!navigator.canPop()) break;

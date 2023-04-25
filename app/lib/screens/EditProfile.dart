@@ -20,7 +20,7 @@ class _MyGridViewState extends State<MyGridView> {
   Widget build(BuildContext context) {
     return GridView.builder(
         physics: const NeverScrollableScrollPhysics(),
-        padding: EdgeInsets.all(30),
+        padding: const EdgeInsets.all(30),
         shrinkWrap: false,
         itemCount: profileImages.length,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -120,15 +120,15 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 onPressed: () => showDialog(
                   context: context,
                   builder: (context) => AlertDialog(
-                    title: Text('Delete Account Confirmation'),
-                    content: Text(
+                    title: const Text('Delete Account Confirmation'),
+                    content: const Text(
                         'Are you sure you want to delete your account? All data will be lost.'),
                     actions: [
                       ElevatedButton(
                           onPressed: () {
                             Navigator.pop(context);
                           },
-                          child: Text('Cancel')),
+                          child: const Text('Cancel')),
                       ElevatedButton(
                           style: const ButtonStyle(
                               backgroundColor:
@@ -142,7 +142,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                               const LoginPage()))
                                 });
                           },
-                          child: Text('Delete and Sign Out'))
+                          child: const Text('Delete and Sign Out'))
                     ],
                   ),
                 ),

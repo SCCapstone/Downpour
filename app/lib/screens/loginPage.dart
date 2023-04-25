@@ -71,11 +71,8 @@ class _LoginPage extends State<LoginPageState> {
   TextEditingController passwordController = TextEditingController();
 
   //The login button color
-  static const Color a = Color.fromRGBO(45, 211, 112, 1.0);
   static const Color b = Color.fromRGBO(45, 211, 112, 1.0);
-  //Sign up button color
-  static const Color c = Color.fromRGBO(45, 211, 112, 1.0);
-  static const Color d = Color.fromRGBO(45, 211, 112, 1.0);
+ 
 
   @override
   Widget build(BuildContext context) {
