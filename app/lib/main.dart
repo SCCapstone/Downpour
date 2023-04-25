@@ -10,7 +10,6 @@ import 'package:firebase_core/firebase_core.dart';
 //imports google sign in authentication
 
 Future main() async {
-  ErrorWidget.builder = (FlutterErrorDetails details) => Container();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 

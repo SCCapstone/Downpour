@@ -72,7 +72,6 @@ class _LoginPage extends State<LoginPageState> {
 
   //The login button color
   static const Color b = Color.fromRGBO(45, 211, 112, 1.0);
- 
 
   @override
   Widget build(BuildContext context) {
@@ -153,6 +152,7 @@ class _LoginPage extends State<LoginPageState> {
           Container(
               padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
               child: ElevatedButton(
+                key: const Key("SignUpButton"),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: (b),
                   textStyle: const TextStyle(
@@ -177,6 +177,7 @@ class _LoginPage extends State<LoginPageState> {
               padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
               alignment: Alignment.bottomCenter,
               child: ElevatedButton(
+                key: const Key("SignInButton_fromLogIn"),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: (b),
                 ),

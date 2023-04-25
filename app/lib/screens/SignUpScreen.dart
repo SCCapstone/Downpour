@@ -4,14 +4,12 @@ import 'loginPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:pohnpeian_language_app/services/auth.dart';
 
-
 class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);
 
   static const String _title = "Welcome to Pweek";
 
   static const Color b3 = Color.fromRGBO(45, 211, 112, 1.0);
-  
 
   @override
   Widget build(BuildContext context) {
@@ -47,9 +45,7 @@ class _SignUpPage extends State<SignUpPageState> {
   TextEditingController cpasswordController = TextEditingController();
   TextEditingController emailController = TextEditingController();
 
-  
   static const b3 = Color.fromRGBO(45, 211, 112, 1.0);
-
 
   // Create a new user with Email and password using text inside the
   // Email and password controllers
@@ -102,6 +98,7 @@ class _SignUpPage extends State<SignUpPageState> {
               padding: const EdgeInsets.all(0),
               color: Colors.white,
               child: TextField(
+                key: const Key("signup_namefield"),
                 controller: nameController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
@@ -118,6 +115,7 @@ class _SignUpPage extends State<SignUpPageState> {
               padding: const EdgeInsets.all(0),
               color: Colors.white,
               child: TextField(
+                key: const Key("signup_passwordfield1"),
                 obscureText: true,
                 controller: passwordController,
                 decoration: const InputDecoration(
@@ -135,6 +133,7 @@ class _SignUpPage extends State<SignUpPageState> {
               padding: const EdgeInsets.all(0),
               color: Colors.white,
               child: TextField(
+                key: const Key("signup_passwordfield2"),
                 obscureText: true,
                 controller: cpasswordController,
                 decoration: const InputDecoration(
@@ -152,6 +151,7 @@ class _SignUpPage extends State<SignUpPageState> {
               padding: const EdgeInsets.all(0),
               color: Colors.white,
               child: TextField(
+                key: const Key("signup_emailfield"),
                 controller: emailController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
