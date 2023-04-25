@@ -5,8 +5,9 @@ import 'package:pohnpeian_language_app/models/questions.dart';
 
 List<Question> getQuestions() {
   List<Question> list = [];
-
-
+/* This sets the question format for the quiz while 
+  * also adding the functionality for the correct answer.
+  */
   list.add(Question(
       text: 'Which of the following is "Kalahngan" ?',
       options: [
@@ -16,7 +17,7 @@ List<Question> getQuestions() {
         const Option(code: 'D', text: 'Leave', isCorrect: false),
       ],
       solution: 'The correct answer is "Thank You" ',
-    ));
+    )); 
     list.add(Question(
       text: 'Which of the following is E-yung ?',
       options: [
@@ -78,5 +79,11 @@ List<Question> getQuestions() {
       solution: 'The correct answer is "Good night "',
     ));
   return list;
-}
+}/*These sets of questions actually do not test for 
+*comprehension from English words to their
+*Pohnpeian equivalents. These are the inverse
+* of the previous question sets as these test
+* for comprehension from Pohnpeian words to their
+* English equivalent
+*/
 //inspo Johannes Milke for answer choices styling

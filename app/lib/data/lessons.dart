@@ -1,10 +1,10 @@
 const List<Map<String, dynamic>> lesson1 = [
   {
-    "type": "vocabulary",
+    "type": "vocabulary", // This lays out the information that is on the "flash cards" for the lesson
     "data": {
       "English": "Thank you. (Formal)",
       "Pohnpeian": "Kalahngan.",
-      "pronunciation": "kaw-lahng-on"
+      "pronunciation": "kaw-lahng-on" // This is the data that is read to get the correct text to speach pronunciation
     }
   },
   {

@@ -6,7 +6,7 @@ import 'package:pohnpeian_language_app/data/questions2.dart';
 import 'package:pohnpeian_language_app/data/questions3.dart';
 import 'package:pohnpeian_language_app/data/questions4.dart';
 import 'package:pohnpeian_language_app/data/questions5.dart';
-
+  //Creates the category for quizes as well as a brief description
 final categories = <Category>[
   Category(
     questions: getQuestions(),

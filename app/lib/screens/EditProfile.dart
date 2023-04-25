@@ -168,5 +168,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
         ],
       ),
     );
-  }
-}
+  }//Deletes account 
+} // Edits account and saves changes
+//interacts with the auth services

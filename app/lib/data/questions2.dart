@@ -3,7 +3,9 @@ import 'package:pohnpeian_language_app/models/questions.dart';
 
 List<Question> getQuestions2() {
   List<Question> list = [];
-
+/* This sets the question format for the quiz while 
+  * also adding the functionality for the correct answer
+  */
   list.add(Question(
       text: 'Which of the following is "Mother"?',
       options: [
@@ -75,4 +77,6 @@ List<Question> getQuestions2() {
       solution: 'The correct answer is "Nohno kahlap"',
     ));
   return list;
-}
+}/*These sets of questions test for comprehension from English words
+* from English words to their Pohnpeian equivalents
+*/

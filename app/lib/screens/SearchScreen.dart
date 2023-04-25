@@ -47,7 +47,7 @@ Future<void> launch(String url) async {
     throw 'Could not launch $url';
   }
 }
-
+// builds search screen 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({Key? key}) : super(key: key);
 
