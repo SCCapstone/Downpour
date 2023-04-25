@@ -158,6 +158,7 @@ class _LoginPage extends State<LoginPageState> {
           Container(
               padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
               child: ElevatedButton(
+                key: const Key("SignUpButton"),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: (b),
                   textStyle: const TextStyle(

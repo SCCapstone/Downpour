@@ -143,6 +143,7 @@ class _SignUpPage extends State<SignUpPageState> {
               padding: const EdgeInsets.all(0),
               color: Colors.white,
               child: TextField(
+                key: const Key("signup_namefield"),
                 controller: nameController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
@@ -159,6 +160,7 @@ class _SignUpPage extends State<SignUpPageState> {
               padding: const EdgeInsets.all(0),
               color: Colors.white,
               child: TextField(
+                key: const Key("signup_passwordfield1"),
                 obscureText: true,
                 controller: passwordController,
                 decoration: const InputDecoration(
@@ -176,6 +178,7 @@ class _SignUpPage extends State<SignUpPageState> {
               padding: const EdgeInsets.all(0),
               color: Colors.white,
               child: TextField(
+                key: const Key("signup_passwordfield2"),
                 obscureText: true,
                 controller: cpasswordController,
                 decoration: const InputDecoration(
@@ -193,6 +196,7 @@ class _SignUpPage extends State<SignUpPageState> {
               padding: const EdgeInsets.all(0),
               color: Colors.white,
               child: TextField(
+                key: const Key("signup_emailfield"),
                 controller: emailController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),

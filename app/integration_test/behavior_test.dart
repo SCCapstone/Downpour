@@ -50,5 +50,33 @@ void main() {
     await tester.tap(button);
     await tester.pumpAndSettle();
     await Future.delayed(const Duration(seconds: 6));
+    await tester.pumpAndSettle();
+    expect(find.textContaining("Learn"), findsWidgets);
+  });
+
+  testWidgets('Sign up', (WidgetTester tester) async {
+    app.main();
+    await tester.pumpAndSettle();
+    await Future.delayed(const Duration(seconds: 1));
+    final button = find.byKey(const ValueKey("SignUpButton"));
+    await tester.tap(button);
+    await tester.pumpAndSettle();
+    await Future.delayed(const Duration(seconds: 3));
+
+    final nameField = find.byKey(const ValueKey("signup_namefield"));
+    final passwordField1 = find.byKey(const ValueKey("signup_passwordfield1"));
+    final passwordField2 = find.byKey(const ValueKey("signup_passwordfield2"));
+    final emailField = find.byKey(const ValueKey("signup_emailfield"));
+
+    await tester.pumpAndSettle();
+    await tester.enterText(nameField, "SomeName");
+    await tester.pumpAndSettle();
+    await tester.enterText(passwordField1, "SomePassword");
+    await tester.pumpAndSettle();
+    await tester.enterText(passwordField2, "SomePassword");
+    await tester.pumpAndSettle();
+    await tester.enterText(emailField, "someemail@email.com");
+    await tester.pumpAndSettle();
+    expect(find.text('Sign Up!'), findsWidgets);
   });
 }
