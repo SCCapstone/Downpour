@@ -9,17 +9,9 @@ class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);
 
   static const String _title = "Welcome to Pweek";
-  static const Color a1 = Color.fromRGBO(117, 178, 221, .5);
-  static const Color a2 = Color.fromRGBO(117, 178, 221, .75);
-  static const Color a3 = Color.fromRGBO(117, 178, 221, 1.0);
-  static const Color b1 = Color.fromRGBO(45, 211, 112, .5);
-  static const Color b2 = Color.fromRGBO(45, 211, 112, .75);
+
   static const Color b3 = Color.fromRGBO(45, 211, 112, 1.0);
-  static const Color c1 = Color.fromRGBO(38, 77, 105, .5);
-  static const Color c2 = Color.fromRGBO(38, 77, 105, .75);
-  static const Color c3 = Color.fromRGBO(38, 77, 105, 1.0);
-  static const Color d = Color.fromRGBO(146, 148, 156, 1.0);
-  static const background = Color.fromARGB(219, 39, 183, 196);
+  
 
   @override
   Widget build(BuildContext context) {
@@ -55,17 +47,9 @@ class _SignUpPage extends State<SignUpPageState> {
   TextEditingController cpasswordController = TextEditingController();
   TextEditingController emailController = TextEditingController();
 
-  static const a1 = Color.fromRGBO(117, 178, 221, .5);
-  static const a2 = Color.fromRGBO(117, 178, 221, .75);
-  static const a3 = Color.fromRGBO(117, 178, 221, 1.0);
-  static const b1 = Color.fromRGBO(45, 211, 112, .5);
-  static const b2 = Color.fromRGBO(45, 211, 112, .75);
+  
   static const b3 = Color.fromRGBO(45, 211, 112, 1.0);
-  static const c1 = Color.fromRGBO(38, 77, 105, .5);
-  static const c2 = Color.fromRGBO(38, 77, 105, .75);
-  static const c3 = Color.fromRGBO(38, 77, 105, 1.0);
-  static const d = Color.fromRGBO(146, 148, 156, 1.0);
-  static const background = Color.fromARGB(219, 39, 183, 196);
+
 
   // Create a new user with Email and password using text inside the
   // Email and password controllers
@@ -205,7 +189,7 @@ class _SignUpPage extends State<SignUpPageState> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: (b3),
                   ),
-                  child: Text('Sign Up!'),
+                  child: const Text('Sign Up!'),
                   onPressed: () {
                     if (passwordController.text.length < 6) {
                       // Toast if password is too short
